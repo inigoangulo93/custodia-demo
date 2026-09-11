@@ -858,21 +858,42 @@ function prow(p){return `<button class="row" onclick="openPieza('${p.id}')"><spa
  <span style="flex:1;min-width:0"><span style="font-size:16px">${p.name}</span><br><span style="font-size:13px;color:var(--tx3)">${p.sub}</span></span><span class="amount" style="font-size:16px">${HIDE?'····':p.val}</span></button>`}
 function hero2(c){return `<div class="cimg hero2">${img(c)}<span class="plate plate-ov">CHASIS ${c.ch}</span><span class="ref ref-ov">${c.year}</span></div>`}
 
-S.coleccion={tab:'co',title:'brand',sub:'PERFIL',html:function(){
- var list=CARS.filter(function(c){return FILT==='all'||(FILT==='venta'?(c.st==='oferta'||c.st==='subasta'||c.st==='exp'):FILT==='rev'?c.st==='rev':c.cty===FILT)});
- var pills=[['all','Todos'],['CO','Colombia'],['US','Estados Unidos'],['EU','Europa'],['venta','En venta'],['rev','En revisión']].map(function(p){
-  return `<button class="pill" aria-pressed="${FILT===p[0]}" onclick="FILT='${p[0]}';go('coleccion')">${p[1]}</button>`}).join('');
- return `<div class="prof in"><div class="seal" style="width:64px;height:64px;margin:0;font-size:18px;letter-spacing:.02em">AR</div>
-  <div><div class="pname">${OWNER}</div><div class="psub">Coleccionista · Colombia · miembro desde 2026</div><div class="psub" style="color:var(--stamp)">Invitado por Rafael A.</div></div></div>
- <div class="stats">
-  <div><b>10</b><span>coches</span></div><div><b>3</b><span>piezas</span></div><div><b>14</b><span>en el círculo</span></div>
-  <div onclick="HIDE=!HIDE;go('coleccion')" style="cursor:pointer"><b>${HIDE?'····':fmtM(ctot())}</b><span>${HIDE?'valor, mostrar':'valor, ocultar'}</span></div></div>
- <div class="k">PERFIL VISIBLE PARA</div>
- <div class="seg">${['priv','circ','memb'].map(function(v){return `<button aria-pressed="${PROF===v}" onclick="setProf('${v}')">${VISL[v]}</button>`}).join('')}</div>
- <div class="note">${PROF==='priv'?'Nadie sabe que existes. Ni tu círculo.':PROF==='circ'?'Tu círculo ve tu nombre y los coches que compartes con él.':'Cualquier miembro verificado ve tu perfil y los coches que marques como Miembros. Tu nombre, no: hasta abrir expediente eres un miembro verificado.'} El perfil marca el máximo: cada coche puede ser más privado, nunca más público. El valor y dónde está cada coche solo los ves tú.</div>
- <div class="pills">${pills}</div>
- ${list.length?list.map(ccard).join(''):'<div class="note" style="padding:24px 0">Nada en este filtro.</div>'}
+function needsAttn(c){return c.n<9||c.st==='oferta'||c.st==='rev'}
+function inMotion(c){return c.st==='oferta'||c.st==='subasta'||c.st==='exp'}
+function isExposed(c){return effVis(c)!=='priv'}
+function whyAttn(c){return c.st==='oferta'?'oferta esperando respuesta':c.n<9?'pasaporte incompleto, '+c.n+' de 9':'documentación en revisión'}
+function counter(k,n,l1,l2,col,bg,bd){
+ var on=FILT===k;
+ return `<button onclick="FILT='${on?'all':k}';go('coleccion')" style="border:1px solid ${on?col:bd};background:${on?bg:'transparent'};border-radius:8px;padding:11px 10px;text-align:left;font:inherit;color:var(--tx)">
+  <span style="display:block;font-family:Spectral,serif;font-weight:300;font-size:24px;line-height:1;color:${n?col:'var(--tx3)'}">${n}</span>
+  <span style="display:block;font-size:11.5px;line-height:1.35;margin-top:6px;color:${n?col:'var(--tx3)'}">${l1}<br>${l2}</span></button>`}
+
+S.coleccion={tab:'co',title:'brand',sub:'AR 0114',html:function(){
+ var att=CARS.filter(needsAttn).length, mov=CARS.filter(inMotion).length, exp=CARS.filter(isExposed).length;
+ var list=CARS.filter(function(c){return FILT==='all'?true:FILT==='att'?needsAttn(c):FILT==='mov'?inMotion(c):FILT==='exp'?isExposed(c):true});
+ var tit={att:'Requieren tu atención',mov:'En movimiento',exp:'Expuestos fuera de privado'}[FILT]||'Toda la colección';
+ return `<div class="in" style="padding:14px 0 0">
+  <div class="k">VALOR CUSTODIADO</div>
+  <div onclick="HIDE=!HIDE;go('coleccion')" style="display:flex;align-items:baseline;gap:12px;margin:8px 0 5px;cursor:pointer">
+   <span class="amount" style="font-size:42px;line-height:1">${HIDE?'€ ·· ··· ···':'€'+ctot().toLocaleString('es-ES')}</span>
+   <span style="font-size:13px;color:var(--tx3)">${HIDE?'mostrar':'ocultar'}</span></div>
+  <div style="font-size:13px;color:var(--tx2)">${CARS.length} coches y ${PIEZAS.length} piezas, sellados el 3 de septiembre</div>
+ </div>
+ <div class="rule"></div>
+ <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px">
+  ${counter('att',att,'requieren','tu atención','var(--warn)','var(--warnbg)','var(--line2)')}
+  ${counter('mov',mov,'en','movimiento','var(--stamp)','var(--stampbg)','var(--line2)')}
+  ${counter('exp',exp,'expuestos','fuera de privado','var(--tx)','rgba(255,255,255,.05)','var(--line2)')}
+ </div>
+ <button class="row" style="margin-top:16px;border-top:1px solid var(--line);padding:14px 0" onclick="go('privacidad')">
+  <span style="flex:1;font-size:14px;color:var(--tx2)">Perfil en ${VISL[PROF].toLowerCase()}</span>
+  <span style="font-size:14px;color:var(--stamp)">Privacidad &#8250;</span></button>
+ <div class="phase">${tit.toUpperCase()}</div>
+ ${FILT!=='all'?`<div class="note" style="margin:0 0 10px">${FILT==='att'?'Lo que no avanza solo. Cada uno espera algo tuyo o de alguien a quien invitaste.':FILT==='mov'?'Con oferta, en subasta o con expediente abierto. Aquí hay dinero o plazos en juego.':'Todo lo que alguien puede ver sin ser tú. Ni el valor ni la ubicación salen nunca, en ningún caso.'}</div>`:''}
+ ${list.length?list.map(function(c){return ccard(c)+(FILT==='att'?`<div class="note" style="margin:-8px 0 16px;color:var(--warn)">${whyAttn(c)}</div>`:'')}).join(''):'<div class="note" style="padding:24px 0">Nada aquí. Es la buena noticia.</div>'}
+ ${FILT!=='all'?`<button class="btn quiet" style="margin-top:4px" onclick="FILT='all';go('coleccion')">Ver toda la colección</button>`:''}
  ${FILT==='all'?'<div class="phase">PIEZAS Y COMPONENTES</div>'+PIEZAS.map(prow).join(''):''}
+ ${FILT==='all'?'<div class="note" style="margin-top:14px">Dónde está cada coche se consulta dentro de su pasaporte. No es un filtro: es el dato más sensible que guardas.</div>':''}
  <div class="rule"></div>
  <button class="btn quiet" onclick="go('altacoche')">Añadir un coche</button>
  <div class="note" style="margin-top:14px">Tener la colección aquí no cuesta nada. El alta en el garaje sí, 1.800 por visita, y se descuenta del primer expediente. Después solo se paga por expediente, y solo al cierre.</div>`}};
@@ -1609,6 +1630,29 @@ function addLote(){
  var n=lotN.trim(), v=num(lotV);
  if(!n||!v){alert('Hacen falta la descripción y el valor de la unidad.');return}
  LOTE.push({n:n,v:v}); lotN=''; lotV=''; st.err=''; go('inventario')}
+
+S.privacidad={tab:'co',back:'coleccion',title:'Privacidad',html:function(){
+ var exp=CARS.filter(isExposed);
+ return `<h2 class="sc in">Quién ve qué</h2>
+ <p class="lede">El perfil marca el máximo. Cada coche puede ser más privado, nunca más público.</p>
+ <div class="k">PERFIL VISIBLE PARA</div>
+ <div class="seg">${['priv','circ','memb'].map(function(v){return `<button aria-pressed="${PROF===v}" onclick="PROF='${v}';go('privacidad')">${VISL[v]}</button>`}).join('')}</div>
+ <div class="note" style="margin-top:12px">${PROF==='priv'?'Nadie sabe que existes. Ni tu círculo. Los coches que tenías compartidos dejan de verse mientras el perfil esté así.':PROF==='circ'?'Tu círculo ve tu nombre y los coches que compartes con él. Nadie más.':'Cualquier miembro verificado ve tu perfil y los coches marcados como Miembros. Tu nombre no: hasta abrir expediente eres un miembro verificado.'}</div>
+ <div class="phase">NUNCA SALE, HAGAS LO QUE HAGAS</div>
+ <div class="kv"><span>Cuánto vale cada coche</span><b>Solo tú</b></div>
+ <div class="kv"><span>Dónde está guardado</span><b>Solo tú</b></div>
+ <div class="kv"><span>Los documentos originales</span><b>Solo tú y tu equipo</b></div>
+ <div class="kv" style="border-bottom:0"><span>Tu valor total custodiado</span><b>Solo tú</b></div>
+ <div class="phase">EXPUESTOS AHORA MISMO, ${exp.length}</div>
+ ${exp.length?exp.map(function(c){return `<button class="row" onclick="openCar('${c.id}')">
+   <span class="thumb2" style="width:72px">${img(c)}</span>
+   <span style="flex:1;min-width:0"><span style="font-size:15px">${c.name}</span><br>
+   <span style="font-size:12.5px;color:var(--tx3)">lo ve ${VISL[effVis(c)].toLowerCase()}${c.pub?', publicado por ti':''}</span></span>
+   <span class="chip ${effVis(c)==='memb'?'st':'wait'}">${VISL[effVis(c)]}</span></button>`}).join('')
+  :'<div class="note" style="padding:16px 0">Ninguno. Toda la colección está en privado.</div>'}
+ <div class="rule"></div>
+ <div class="card"><div class="k">SI TE VAS</div>
+  <div style="font-size:14.5px;color:var(--tx2);margin-top:9px;line-height:1.65">Te llevas los pasaportes enteros, con cada sello y cada huella, y todo deja de verse el mismo día. No hay copia nuestra que siga circulando.</div></div>`}};
 
 const TABS=[['co','Perfil','coleccion'],['ci','Círculo','circulo'],['op','Operaciones','operaciones'],['fo','Fondos','fondos'],['bi','Bitácora','bitacora']];
 function go(id){
