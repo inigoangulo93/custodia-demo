@@ -89,7 +89,7 @@ body{margin:0;background:var(--bg0);color:var(--tx);font-family:Archivo,system-u
 .lab{font-size:10.5px;letter-spacing:.14em;color:var(--tx3);margin:16px 0 0}
 .sortbar button b{color:var(--tx2)}
 .sortbar button[aria-current="true"] b{color:var(--stamp)}
-.seg button{transition:background .12s ease,color .12s ease}
+.vsw button{transition:background .12s ease,color .12s ease}
 .btn.stop{background:none;color:var(--stop);border-color:var(--stopln)}
 .row{display:flex;align-items:center;gap:14px;padding:16px 0;line-height:1.35;border:0;border-bottom:1px solid var(--line);
   text-align:left;width:100%;background:none;font:inherit;color:var(--tx)}
@@ -184,14 +184,13 @@ p.lede{margin:0 0 20px;font-size:15.5px;color:var(--tx2);line-height:1.6}
 .srch{flex:1;min-width:0;height:40px;box-sizing:border-box;background:var(--bg1);
   border:1px solid var(--line2);border-radius:8px;padding:0 12px;font:inherit;font-size:14px;color:var(--tx)}
 .srch::placeholder{color:var(--tx3)}
-.seg{display:inline-flex;height:40px;box-sizing:border-box;border:1px solid var(--line2);
-  border-radius:8px;overflow:hidden;flex:0 0 auto}
-.seg button{border:0;background:none;min-width:38px;padding:0 12px;display:flex;align-items:center;
-  justify-content:center;color:var(--tx3);line-height:1;cursor:pointer;font:inherit;font-size:13px;
-  white-space:nowrap}
-.seg button svg{flex:0 0 auto}
-.seg button[aria-current="true"]{background:var(--stampbg);color:var(--stamp)}
-.seg svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.5}
+.vsw{display:flex;height:40px;box-sizing:border-box;margin:0;flex:0 0 auto;
+  border:1px solid var(--line2);border-radius:8px;overflow:hidden}
+.vsw button{border:0;background:none;margin:0;width:38px;display:flex;align-items:center;
+  justify-content:center;color:var(--tx3);line-height:0;cursor:pointer}
+.vsw button+button{border-left:1px solid var(--line2)}
+.vsw button[aria-current="true"]{background:var(--stampbg);color:var(--stamp)}
+.vsw svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.5}
 .ftabs{display:flex;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;
   border-bottom:1px solid var(--line);margin:22px 0 0}
 .ftabs::-webkit-scrollbar{display:none}
@@ -263,21 +262,20 @@ p.lede{margin:0 0 20px;font-size:15.5px;color:var(--tx2);line-height:1.6}
 input[type=range]{width:100%;accent-color:#9095E4;margin:14px 0 2px}
 .cover{flex:1;display:flex;flex-direction:column;justify-content:center;padding:0 30px}
 /* ---- portada ---- */
-.hero{position:relative;min-height:100%;box-sizing:border-box;margin:0 -20px -30px;
+.portada{position:relative;min-height:100%;box-sizing:border-box;margin:0 -20px;
   display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
-.heroimg{position:absolute;inset:0;line-height:0}
-.heroimg img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 42%;
+.portada-img{position:absolute;inset:0;line-height:0}
+.portada-img img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 42%;
   filter:saturate(.78) contrast(1.04)}
-.heroimg::after{content:"";position:absolute;inset:0;
+.portada-img::after{content:"";position:absolute;inset:0;
   background:linear-gradient(to top,var(--bg0) 2%,rgba(18,23,26,.97) 26%,rgba(18,23,26,.55) 52%,rgba(18,23,26,.30) 100%)}
-.herotx{position:relative;padding:0 26px calc(28px + var(--sab));display:flex;flex-direction:column}
-.herotx .wm{font-family:Spectral,serif;font-size:44px;font-weight:300;line-height:1;color:var(--tx)}
-.heroline{font-family:Spectral,serif;font-weight:300;font-size:17.5px;color:var(--tx2);line-height:1.5;margin:14px 0 0}
-.herostats{display:flex;gap:26px;margin:24px 0 26px;padding-top:20px;border-top:1px solid var(--line)}
-.herostats span{display:flex;flex-direction:column;gap:3px;font-size:11.5px;color:var(--tx3);letter-spacing:.06em}
-.herostats b{font-family:Spectral,serif;font-weight:300;font-size:26px;color:var(--tx);letter-spacing:0}
-.hero-cta{width:100%}
-.herofoot{margin-top:18px;text-align:center;font-size:11.5px}
+.portada-tx{position:relative;padding:0 26px calc(28px + var(--sab));display:flex;flex-direction:column}
+.portada-tx .wm{font-family:Spectral,serif;font-size:44px;font-weight:300;line-height:1;color:var(--tx)}
+.portada-line{font-family:Spectral,serif;font-weight:300;font-size:17.5px;color:var(--tx2);line-height:1.5;margin:14px 0 0}
+.portada-stats{display:flex;gap:26px;margin:24px 0 26px;padding-top:20px;border-top:1px solid var(--line)}
+.portada-stats span{display:flex;flex-direction:column;gap:3px;font-size:11.5px;color:var(--tx3);letter-spacing:.06em}
+.portada-stats b{font-family:Spectral,serif;font-weight:300;font-size:26px;color:var(--tx);letter-spacing:0}
+.portada-foot{margin-top:18px;text-align:center;font-size:11.5px}
 .cover .wm{font-family:Spectral,serif;font-size:46px;font-weight:300;line-height:1}
 .cover .sub{font-family:Spectral,serif;font-weight:300;font-size:17.5px;color:var(--tx2);line-height:1.5;margin:22px 0 10px}
 .cover .tiny{font-size:12.5px;color:var(--tx3);line-height:1.6}
@@ -338,18 +336,18 @@ const IC={co:'<path d="M2.5 11.5h13M4.2 11.5V9l1.5-3.1A1.5 1.5 0 0 1 7 5h4a1.5 1
 const S={};
 
 S.splash={bare:true,html:function(){
- return `<div class="hero">
- <div class="heroimg"><img src="img/x1.webp" alt=""></div>
- <div class="herotx">
+ return `<div class="portada">
+ <div class="portada-img"><img src="img/x1.webp" alt=""></div>
+ <div class="portada-tx">
   <div class="wm">Custodia</div>
-  <div class="heroline">El registro privado de una colección<br>y el cierre de sus operaciones</div>
-  <div class="herostats">
+  <div class="portada-line">El registro privado de una colección<br>y el cierre de sus operaciones</div>
+  <div class="portada-stats">
    <span><b>${CARS.length}</b>coches</span>
    <span><b>${PIEZAS.length}</b>piezas</span>
    <span><b>${MEMB.length}</b>en el círculo</span>
   </div>
-  <button class="btn hero-cta" onclick="go('coleccion')">Entrar en la colección</button>
-  <div class="tiny herofoot">Maqueta, septiembre de 2026. Nada de lo que se ve está construido.<br>Los nombres, coches y cifras son ilustrativos.</div>
+  <button class="btn" onclick="go('coleccion')">Entrar en la colección</button>
+  <div class="tiny portada-foot">Maqueta, septiembre de 2026. Nada de lo que se ve está construido.<br>Los nombres, coches y cifras son ilustrativos.</div>
  </div></div>`}};
 
 S.operaciones={tab:'op',title:'brand',html:()=>`
@@ -372,7 +370,7 @@ ${PASO?'<div class="phase">ABIERTA DESDE EL PASAPORTE</div>'+carRow(CARS[0],'Mia
  ${EXTRA.map(function(o){return op(o.art,o.name,o.sub,o.amt,'<span class="chip st">Nueva</span>',0,'f',o.etapas,'nuevo',o.isPart)}).join('')}
  <div class="phase">CERRADAS</div>
  ${op('p911','Porsche 959 Sport','Zúrich a Marbella, 1989','€2,1M','<span class="chip ok">Entregado</span>',10,'d',10,'bitacora')}
- <div class="phase">TRANSVERSAL</div>
+ <div class="phase">REGISTROS</div>
  <button class="row" onclick="go('fondos')"><span class="rtx"><span class="rn">Fondos</span>
   <span class="rs">depósitos retenidos y liberaciones</span></span><span class="ref">&#8250;</span></button>
  <button class="row" onclick="go('bitacora')"><span class="rtx"><span class="rn">Bitácora</span>
@@ -779,7 +777,7 @@ S.alta3={tab:'op',back:'alta2',title:'Precio y recorrido',html:()=>`
 
 S.alta4={tab:'op',back:'alta3',title:'Las partes',html:()=>`
  <div class="steps in">${steps(4)}</div>
- <h2 class="sc">Quién está dentro</h2>
+ <h2 class="sc">Las dos partes</h2>
  <p class="lede">Les mandamos la invitación nosotros. Tú no tienes que pedirles documentos.</p>
  <div class="k">VENDEDOR</div>
  <input class="inp" value="${st.vendedor}" oninput="st.vendedor=this.value" placeholder="Nombre o razón social">
@@ -1101,7 +1099,7 @@ S.coleccion={tab:'co',title:'brand',sub:'AR 0114',html:function(){
  <div class="tools">
   <input class="srch" placeholder="Buscar coche, año o país" value="${QQ}"
    oninput="QQ=this.value;clearTimeout(window._qq);window._qq=setTimeout(function(){go('coleccion')},200)">
-  <span class="seg">${['lista','mosaico','compacto'].map(function(v){return `<button aria-current="${VMODE===v}" aria-label="${v}" onclick="VMODE='${v}';go('coleccion')"><svg viewBox="0 0 18 18" stroke-linecap="round" stroke-linejoin="round">${VIC[v]}</svg></button>`}).join('')}</span>
+  <span class="vsw">${['lista','mosaico','compacto'].map(function(v){return `<button aria-current="${VMODE===v}" aria-label="${v}" onclick="VMODE='${v}';go('coleccion')"><svg viewBox="0 0 18 18" stroke-linecap="round" stroke-linejoin="round">${VIC[v]}</svg></button>`}).join('')}</span>
  </div>
  <div class="meta">
   <span class="cnt">${vis.length} ${vis.length===1?'coche':'coches'}${HIDE?'':' · '+fmtM(vis.reduce(function(a,c){return a+c.val},0))}</span>
@@ -1289,7 +1287,7 @@ S.captura3d={tab:'co',back:'pasaporte',title:'Captura 3D',sub:function(){return 
 const sc={modo:'circ',salida:'',reserva:'',quien:'circ'};
 function nbuscan(c){return (c.name.charCodeAt(0)+c.year)%14+3}
 S.sacar={tab:'co',back:'pasaporte',title:'Vender',sub:function(){return partial(cur.ch)},html:function(){var c=cur;
- return `<h2 class="sc in">${c.name}</h2><p class="lede">El cierre pasa por el expediente, y ahí es donde se cobra.</p>
+ return `<h2 class="sc in">${c.name}</h2><p class="lede">Fijas un mínimo y lo que quede por debajo no te llega. El cierre pasa por el expediente, que es donde se cobra.</p>
  <div class="k" style="margin-top:14px">MÍNIMO QUE TE LLEGA</div>
  <input class="inp" inputmode="numeric" placeholder="${c.val.toLocaleString('es-ES')}" value="${sc.salida}" oninput="sc.salida=this.value">
  <div class="k" style="margin-top:14px">QUIÉN PUEDE OFERTAR</div>
@@ -1313,8 +1311,8 @@ function carRow(c,sub,chip,to){return `<button class="row" onclick="${to}"><span
 S.circulo={tab:'ci',title:'Mi círculo',sub:function(){return MEMB.length+' MIEMBROS'},html:function(){
  var q=(CQ||'').toLowerCase();
  var list=MEMB.filter(function(m){return !q||(m[1]+' '+m[2]+' '+m[3]).toLowerCase().indexOf(q)>=0});
- return `<h2 class="sc in">Quién puede hablarte</h2>
- <p class="lede">Solo quien tú has aceptado. Cada uno entró invitado por alguien, y ves por quién.</p>
+ return `<h2 class="sc in">Quién está en tu círculo</h2>
+ <p class="lede">Solo se entra por invitación. Cada uno entró avalado por alguien, y ves por quién.</p>
 
  ${INVS_IN.length?`<div class="phase">TE HAN INVITADO</div>
  ${INVS_IN.map(function(v){return `<div class="card up">
@@ -1970,8 +1968,8 @@ S.avisos={tab:'pe',back:'coleccion',title:'Avisos',sub:function(){var n=nSin();r
  function fila(n){return `<button class="ntf ${NREAD[n.id]?'read':''}" onclick="abrirN('${n.id}',&quot;${n.to.replace(/"/g,'&#39;')}&quot;)">
    <span class="dot"></span><span class="tx"><span class="t1">${n.t1}</span><span class="t2">${n.t2}</span></span>
    <span class="when">${n.when}</span></button>`}
- return `<h2 class="sc in">Todo lo que pide algo de ti</h2>
- <p class="lede">Ofertas, peticiones y mensajes.</p>
+ return `<h2 class="sc in">Lo que espera respuesta</h2>
+ <p class="lede">Ofertas, invitaciones, peticiones y mensajes. Las personas están en tu círculo; aquí está lo que hacen.</p>
  ${sin.length?`<div class="phase">SIN LEER</div>${sin.map(fila).join('')}
   <button class="btn quiet" style="margin-top:14px" onclick="leerTodo()">Marcar todo como leído</button>`
   :'<div class="note" style="padding:22px 0">Nada sin leer. Estás al día.</div>'}
