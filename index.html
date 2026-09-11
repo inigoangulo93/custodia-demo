@@ -16,7 +16,7 @@
 <style>
 :root{
   --bg0:#12171A;--bg1:#191F23;--bg2:#212A2E;--line:#2B3539;--line2:#3C484C;
-  --tx:#E9EDEB;--tx2:#96A1A2;--tx3:#6C7679;
+  --tx:#EDF0EE;--tx2:#AAB4B5;--tx3:#838E90;
   --stamp:#9095E4;--stampbg:rgba(144,149,228,.13);--stampln:rgba(144,149,228,.32);
   --ok:#6FB392;--okbg:rgba(111,179,146,.13);
   --warn:#D3A155;--warnbg:rgba(211,161,85,.14);
@@ -28,58 +28,58 @@ html,body{height:100%;overflow:hidden}
 body{margin:0;background:var(--bg0);color:var(--tx);font-family:Archivo,system-ui,sans-serif;
   display:flex;flex-direction:column;-webkit-text-size-adjust:100%;overscroll-behavior:none}
 .nav{flex:0 0 auto;display:flex;align-items:center;gap:10px;padding:calc(var(--sat) + 14px) 20px 12px}
-.nav .back{border:0;background:none;padding:0 4px 0 0;font:inherit;font-size:22px;color:var(--stamp);line-height:1}
-.nav .title{font-size:14px;font-weight:500}
-.nav .sub{font-size:10.5px;color:var(--tx3);margin-left:auto;letter-spacing:.14em}
-.brand{font-family:Spectral,serif;font-size:21px;font-weight:300;letter-spacing:.03em}
+.nav .back{border:0;background:none;padding:0 4px 0 0;font:inherit;font-size:23px;color:var(--stamp);line-height:1}
+.nav .title{font-size:15.5px;font-weight:500}
+.nav .sub{font-size:11.5px;color:var(--tx3);margin-left:auto;letter-spacing:.14em}
+.brand{font-family:Spectral,serif;font-size:23px;font-weight:300}
 .view{flex:1 1 auto;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:0 20px 30px;scrollbar-width:none}
 .view::-webkit-scrollbar{width:0}
 .tabs{flex:0 0 auto;display:flex;border-top:1px solid var(--line);background:var(--bg1);padding-bottom:calc(var(--sab) + 4px)}
-.tabs button{flex:1;border:0;background:none;font:inherit;font-size:10px;color:var(--tx3);
+.tabs button{flex:1;border:0;background:none;font:inherit;font-size:10.5px;color:var(--tx3);
   padding:11px 0 7px;display:flex;flex-direction:column;align-items:center;gap:4px}
-.tabs svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:1.4}
+.tabs svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.4}
 .tabs button[aria-current="true"]{color:var(--stamp)}
-.card{background:var(--bg1);border:1px solid var(--line);border-radius:6px;padding:15px 16px}
+.card{background:var(--bg1);border:1px solid var(--line);border-radius:8px;padding:17px 18px}
 .card.up{background:var(--bg2)}
 .card.stop{background:var(--stopbg);border-color:var(--stopln)}
-.k{font-size:10.5px;color:var(--tx3);letter-spacing:.13em}
+.k{font-size:11.5px;color:var(--tx3);letter-spacing:.13em}
 .amount{font-family:Spectral,serif;font-weight:300;font-variant-numeric:tabular-nums}
 .plate{display:inline-block;border:1px solid var(--line2);border-radius:2px;padding:3px 8px;
-  font-size:10px;letter-spacing:.2em;color:var(--tx2);background:rgba(255,255,255,.04);
+  font-size:11px;letter-spacing:.2em;color:var(--tx2);background:rgba(255,255,255,.04);
   box-shadow:inset 0 1px 0 rgba(255,255,255,.07)}
-.chip{display:inline-block;font-size:11px;padding:3px 9px;border-radius:2px;white-space:nowrap}
+.chip{display:inline-block;font-size:12.5px;padding:3px 9px;border-radius:2px;white-space:nowrap}
 .chip.ok{background:var(--okbg);color:var(--ok)}.chip.now{background:var(--warnbg);color:var(--warn)}
 .chip.wait{background:var(--bg2);color:var(--tx2)}.chip.st{background:var(--stampbg);color:var(--stamp)}
 .chip.no{background:var(--stopbg);color:var(--stop)}
 .rule{height:1px;background:var(--line);margin:18px 0}
-.btn{width:100%;font:inherit;font-size:15px;padding:15px;border-radius:5px;border:1px solid var(--stamp);
+.btn{width:100%;font:inherit;font-size:16px;padding:15px;border-radius:5px;border:1px solid var(--stamp);
   background:var(--stamp);color:#131627;font-weight:500}
 .btn.ghost{background:none;color:var(--stamp);font-weight:400}
 .btn.quiet{background:none;color:var(--tx2);border-color:var(--line2)}
 .btn.stop{background:none;color:var(--stop);border-color:var(--stopln)}
-.row{display:flex;align-items:center;gap:13px;padding:15px 0;border:0;border-bottom:1px solid var(--line);
+.row{display:flex;align-items:center;gap:14px;padding:16px 0;line-height:1.35;border:0;border-bottom:1px solid var(--line);
   text-align:left;width:100%;background:none;font:inherit;color:var(--tx)}
 .mark{width:17px;height:17px;border-radius:50%;border:1px solid var(--line2);flex:0 0 auto;
-  display:flex;align-items:center;justify-content:center;font-size:9px;color:#12171A}
+  display:flex;align-items:center;justify-content:center;font-size:10px;color:#12171A}
 .mark.ok{background:var(--ok);border-color:var(--ok)}.mark.now{background:var(--warn);border-color:var(--warn)}
 .mark.no{background:var(--stop);border-color:var(--stop)}
 .reg{display:flex;gap:3px}
 .reg i{display:block;height:3px;background:var(--line2);border-radius:1px;flex:1;transition:background .3s}
 .reg i.f{background:var(--warn)}.reg i.d{background:var(--ok)}.reg i.x{background:var(--stop)}
-.phase{font-family:Spectral,serif;font-size:13px;color:var(--tx3);letter-spacing:.09em;margin:24px 0 2px}
-.ref{letter-spacing:.1em;font-size:10.5px;color:var(--tx3)}
-.log{display:grid;grid-template-columns:50px 1fr;gap:12px;padding:13px 0;border-bottom:1px solid var(--line);font-size:13px;color:var(--tx2)}
-.log time{color:var(--tx3);font-size:10.5px;line-height:1.5;letter-spacing:.04em}
+.phase{font-family:Spectral,serif;font-size:15px;color:var(--tx2);letter-spacing:.1em;margin:28px 0 4px}
+.ref{letter-spacing:.1em;font-size:11.5px;color:var(--tx3)}
+.log{display:grid;grid-template-columns:50px 1fr;gap:12px;padding:13px 0;border-bottom:1px solid var(--line);font-size:14.5px;color:var(--tx2)}
+.log time{color:var(--tx3);font-size:11.5px;line-height:1.5;letter-spacing:.04em}
 .log b{color:var(--tx);font-weight:400}
-h2.sc{font-family:Spectral,serif;font-weight:300;font-size:27px;margin:6px 0 5px;line-height:1.18}
-p.lede{margin:0 0 18px;font-size:13px;color:var(--tx3);line-height:1.6}
-.kv{display:flex;justify-content:space-between;gap:14px;padding:11px 0;font-size:13.5px;color:var(--tx2);border-bottom:1px solid var(--line)}
+h2.sc{font-family:Spectral,serif;font-weight:300;font-size:30px;margin:6px 0 5px;line-height:1.18}
+p.lede{margin:0 0 20px;font-size:15.5px;color:var(--tx2);line-height:1.6}
+.kv{display:flex;justify-content:space-between;gap:16px;padding:13px 0;line-height:1.4;font-size:15px;color:var(--tx2);border-bottom:1px solid var(--line)}
 .kv b{color:var(--tx);font-weight:400;text-align:right}
 .cert{border:1px solid var(--line2);border-radius:6px;padding:3px;
   background:repeating-linear-gradient(45deg,transparent 0 7px,rgba(144,149,228,.05) 7px 8px)}
 .cert-in{border:1px solid var(--line2);border-radius:4px;background:var(--bg1);padding:30px 18px;text-align:center}
 .seal{width:76px;height:76px;border-radius:50%;border:1px solid var(--stampln);margin:0 auto 14px;
-  display:flex;align-items:center;justify-content:center;color:var(--stamp);font-size:10px;letter-spacing:.1em;background:var(--stampbg)}
+  display:flex;align-items:center;justify-content:center;color:var(--stamp);font-size:11px;letter-spacing:.1em;background:var(--stampbg)}
 .hero{position:relative;margin:2px -20px 0;padding:6px 20px 12px;
   background:radial-gradient(120% 90% at 50% 30%, rgba(144,149,228,.09), transparent 70%)}
 .hero svg{width:100%;height:auto;display:block}
@@ -95,13 +95,61 @@ p.lede{margin:0 0 18px;font-size:13px;color:var(--tx3);line-height:1.6}
 .steps{display:flex;gap:4px;margin:4px 0 18px}
 .steps i{flex:1;height:2px;background:var(--line2);border-radius:1px}
 .steps i.on{background:var(--stamp)}
-.err{color:var(--stop);font-size:12.5px;margin-top:12px;line-height:1.5}
+.err{color:var(--stop);font-size:14px;margin-top:12px;line-height:1.5}
 .two{display:flex;gap:10px;align-items:flex-end}
 .splash{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 34px}
 @media (prefers-reduced-motion:no-preference){
   .in{animation:in .45s cubic-bezier(.2,.7,.3,1) both}
   @keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 }
+
+/* ---- perfil del coleccionista ---- */
+.prof{display:flex;align-items:center;gap:16px;padding:14px 0 18px}
+.pname{font-family:Spectral,serif;font-weight:300;font-size:26px;line-height:1.15}
+.psub{font-size:13.5px;color:var(--tx3);margin-top:4px;line-height:1.45}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:2px 0 22px}
+.stats div{background:var(--bg1);border:1px solid var(--line);border-radius:8px;padding:11px 6px 10px;text-align:center}
+.stats b{display:block;font-family:Spectral,serif;font-weight:300;font-size:22px;line-height:1.05;font-variant-numeric:tabular-nums}
+.stats span{display:block;font-size:10.5px;color:var(--tx3);margin-top:5px;letter-spacing:.04em}
+.note{font-size:13.5px;color:var(--tx3);line-height:1.6;margin-top:12px}
+.cardtx{font-size:15.5px;line-height:1.55;margin:9px 0 16px;color:var(--tx)}
+.amount.big{font-size:44px;line-height:1.05;margin:8px 0 6px}
+.pills{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:18px -20px 14px;padding:0 20px}
+.pills::-webkit-scrollbar{width:0;height:0}
+.pill{flex:0 0 auto;border:1px solid var(--line2);background:none;color:var(--tx2);font:inherit;font-size:13.5px;padding:7px 14px;border-radius:16px}
+.pill[aria-pressed="true"]{border-color:var(--stamp);color:var(--stamp);background:var(--stampbg)}
+.seg{display:flex;border:1px solid var(--line2);border-radius:6px;overflow:hidden;margin-top:10px}
+.seg button{flex:1;border:0;background:none;font:inherit;font-size:14px;padding:11px 0;color:var(--tx2)}
+.seg button+button{border-left:1px solid var(--line2)}
+.seg button[aria-pressed="true"]{background:var(--stampbg);color:var(--stamp)}
+.ccard{display:block;width:100%;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--bg1);margin:0 0 14px;padding:0;text-align:left;font:inherit;color:var(--tx)}
+.cimg{position:relative;background:#14191C;line-height:0}
+.cimg svg,.cimg img{display:block;width:100%;height:auto}
+.cchip{position:absolute;top:12px;left:12px;line-height:1.3}
+.cmeta{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;padding:14px 16px 12px;line-height:1.3}
+.cname{font-size:17px}
+.csub{font-size:13px;color:var(--tx3);margin-top:4px}
+.cval{font-size:19px;white-space:nowrap;padding-top:2px}
+.hero2{margin:4px -20px 18px;border-radius:0}
+.plate-ov{position:absolute;left:20px;bottom:12px;background:rgba(18,23,26,.8);line-height:1.6}
+.ref-ov{position:absolute;right:20px;bottom:15px;color:var(--tx2);line-height:1.6}
+.thumb2{width:96px;flex:0 0 auto;border-radius:5px;overflow:hidden;background:#14191C;line-height:0}
+.thumb2 svg,.thumb2 img{display:block;width:100%;height:auto}
+.stage{position:relative;border-radius:10px;overflow:hidden;perspective:700px;margin-top:10px;line-height:0}
+.stage svg{display:block;width:100%;height:auto}
+#rot{transition:transform .15s}
+.mark3d{position:absolute;width:16px;height:16px;border:1.5px solid var(--stop);border-radius:50%;box-shadow:0 0 0 5px rgba(198,127,112,.2)}
+.msg{max-width:84%;padding:11px 14px;border-radius:14px;font-size:15px;line-height:1.5;margin:8px 0;color:var(--tx)}
+.msg.me{margin-left:auto;background:var(--stampbg);border-bottom-right-radius:3px}
+.msg.them{background:var(--bg2);border-bottom-left-radius:3px}
+.msg time{display:block;font-size:11px;color:var(--tx3);margin-top:5px;letter-spacing:.05em}
+.sealed{font-size:11.5px;color:var(--tx3);letter-spacing:.06em;margin-top:4px;line-height:1.5}
+.sealed:before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--stamp);margin-right:7px;vertical-align:1px}
+input[type=range]{width:100%;accent-color:#9095E4;margin:14px 0 2px}
+.cover{flex:1;display:flex;flex-direction:column;justify-content:center;padding:0 30px}
+.cover .wm{font-family:Spectral,serif;font-size:46px;font-weight:300;line-height:1}
+.cover .sub{font-family:Spectral,serif;font-weight:300;font-size:17.5px;color:var(--tx2);line-height:1.5;margin:22px 0 10px}
+.cover .tiny{font-size:12.5px;color:var(--tx3);line-height:1.6}
 </style>
 
 <div class="nav" id="nav"></div>
@@ -153,23 +201,25 @@ const IC={op:'<path d="M3 5h13M3 9h13M3 13h9"/>',fo:'<rect x="3" y="7" width="12
  bi:'<path d="M4 3h8l3 3v11H4z"/><path d="M6.5 9h6M6.5 12h4"/>'};
 const S={};
 
-S.splash={bare:true,html:`<div class="splash in">
- <div style="font-family:Spectral,serif;font-size:42px;font-weight:200;letter-spacing:.06em">Custodia</div>
- <div style="width:36px;height:1px;background:var(--stampln);margin:20px 0"></div>
- <div style="font-size:13.5px;color:var(--tx3);text-align:center;line-height:1.8">Operaciones privadas de<br>vehículos, piezas y componentes</div>
- <div style="height:34px"></div>
- <div style="width:100%;opacity:.5">${car('gt','#9095E4')}</div>
- <div style="height:34px"></div>
- <button class="btn ghost" style="width:auto;padding:13px 32px" onclick="go('operaciones')">Entrar</button>
+S.splash={bare:true,html:`<div class="cover in">
+ <div class="wm">Custodia</div>
+ <div class="sub">El registro privado de una colección<br>y el cierre de sus operaciones</div>
+ <div class="tiny">Vehículos, piezas y componentes de colección</div>
+ <div style="height:40px"></div>
+ <div style="width:100%">${car('gt','#9095E4')}</div>
+ <div style="height:40px"></div>
+ <button class="btn ghost" style="width:auto;padding:13px 32px;align-self:flex-start" onclick="go('coleccion')">Entrar</button>
+ <div class="tiny" style="margin-top:34px">Maqueta, septiembre de 2026. Nada de lo que se ve está construido.<br>Los nombres, coches y cifras son ilustrativos.</div>
 </div>`};
 
 S.operaciones={tab:'op',title:'brand',html:()=>`
  <div class="in" style="padding:10px 0 2px">
    <div class="k">VALOR EN CURSO</div>
-   <div class="amount" style="font-size:48px;line-height:1.05;margin:8px 0 5px">€4.850.000</div>
-   <div style="font-size:13px;color:var(--tx2)">Cuatro operaciones abiertas. Una con conflicto.</div>
+   <div class="amount" style="font-size:48px;line-height:1.05;margin:8px 0 5px">${PASO?'€7.700.000':'€4.850.000'}</div>
+   <div style="font-size:15.5px;color:var(--tx2)">${PASO?'Cinco':'Cuatro'} operaciones abiertas. Una con conflicto.</div>
  </div>
  <div class="rule"></div>
+${PASO?'<div class="phase">ABIERTA DESDE EL PASAPORTE</div>'+carRow(CARS[0],'Miami a Lisboa, 1990','<span class="chip ok">Nueva</span>',"go('paso')"):''}
  <div class="phase">VEHÍCULOS</div>
  ${op('gt','Ferrari 275 GTB','Lisboa a Riad, 1965','€2,4M','<span class="chip now">Te toca</span>',6,'f',10,'expediente')}
  ${op('wedge','Lamborghini Miura SV','México a Miami, 1971','$1,8M','<span class="chip wait">Vendedor</span>',3,'f',10,'bloqueo')}
@@ -195,14 +245,14 @@ S.expediente={tab:'op',back:'operaciones',title:'Expediente',sub:'PT SA 0117',ht
 
  <div class="card up" style="border-color:rgba(211,161,85,.4)">
    <div class="k" style="color:var(--warn)">DETENIDO POR TI</div>
-   <div style="font-size:14.5px;margin:9px 0 15px;line-height:1.55">El contrato está redactado y revisado. Sin tu firma no arranca la aduana.</div>
+   <div style="font-size:16px;margin:9px 0 15px;line-height:1.55">El contrato está redactado y revisado. Sin tu firma no arranca la aduana.</div>
    <button class="btn" onclick="go('contrato')">Leer y firmar</button>
  </div>
 
  <div style="height:12px"></div>
  <button class="card" style="width:100%;text-align:left;border-color:var(--stampln);background:var(--stampbg);font:inherit;color:var(--stamp)" onclick="go('pieza')">
    <div class="k" style="color:var(--stamp)">OPERACIÓN VINCULADA</div>
-   <div style="font-size:13.5px;margin-top:9px;line-height:1.65">El motor original de este chasis está en venta en otra operación tuya. Si las dos se cierran, el coche se reunifica.</div>
+   <div style="font-size:15px;margin-top:9px;line-height:1.65">El motor original de este chasis está en venta en otra operación tuya. Si las dos se cierran, el coche se reunifica.</div>
  </button>
 
  <div class="phase">VERIFICACIÓN</div>
@@ -232,7 +282,7 @@ S.pieza={tab:'op',back:'operaciones',title:'Motor 213/B',sub:'IT SA 0121',html:`
 
  <div class="card stop">
    <div class="k" style="color:var(--stop)">OPERACIÓN CONGELADA</div>
-   <div style="font-size:14.5px;margin:9px 0 15px;line-height:1.55">Hay un segundo motor reclamado como original de este mismo chasis. Los fondos no se mueven hasta resolverlo.</div>
+   <div style="font-size:16px;margin:9px 0 15px;line-height:1.55">Hay un segundo motor reclamado como original de este mismo chasis. Los fondos no se mueven hasta resolverlo.</div>
    <button class="btn stop" onclick="go('conflicto')">Ver las dos reclamaciones</button>
  </div>
 
@@ -240,11 +290,11 @@ S.pieza={tab:'op',back:'operaciones',title:'Motor 213/B',sub:'IT SA 0121',html:`
  <div class="card">
    <div class="k">POR QUÉ VALE ESTO</div>
    <div style="height:8px"></div>
-   <div class="kv"><span>Precio de la pieza</span><b class="amount" style="font-size:15px">€480.000</b></div>
+   <div class="kv"><span>Precio de la pieza</span><b class="amount" style="font-size:16px">€480.000</b></div>
    <div class="kv"><span>Coche sin motor original</span><b class="amount">€2.400.000</b></div>
    <div class="kv" style="border-bottom:0"><span>Coche reunificado, estimado</span><b class="amount" style="color:var(--ok)">€3.900.000</b></div>
    <div class="rule" style="margin:12px 0"></div>
-   <div style="font-size:13px;color:var(--tx2);line-height:1.65">La pieza no vale por lo que es, vale por el coche al que vuelve. Si la reunificación no se acredita, el motor es un bloque de aluminio de 1965.</div>
+   <div style="font-size:14.5px;color:var(--tx2);line-height:1.65">La pieza no vale por lo que es, vale por el coche al que vuelve. Si la reunificación no se acredita, el motor es un bloque de aluminio de 1965.</div>
  </div>
 
  <div class="phase">LO QUE HAY QUE PROBAR</div>
@@ -257,7 +307,7 @@ S.pieza={tab:'op',back:'operaciones',title:'Motor 213/B',sub:'IT SA 0121',html:`
  ${row('','Fondos en custodia','€480.000 retenidos','fondos')}
  ${row('','Transporte y aduana','bloqueada','arancel')}
  <div class="rule"></div>
- <div style="font-size:12px;color:var(--tx3);line-height:1.65">Una pieza no tiene matrícula ni registro público. Este expediente es el único documento que la identifica.</div>`};
+ <div style="font-size:13.5px;color:var(--tx3);line-height:1.65">Una pieza no tiene matrícula ni registro público. Este expediente es el único documento que la identifica.</div>`};
 
 S.correspondencia={tab:'op',back:'pieza',title:'Correspondencia',sub:'ETAPA 2',html:`
  <h2 class="sc in">¿Es de este coche?</h2>
@@ -271,23 +321,23 @@ S.correspondencia={tab:'op',back:'pieza',title:'Correspondencia',sub:'ETAPA 2',h
  <div style="height:14px"></div>
  <div class="card">
    <div class="k">PERITAJE DEL ESTAMPADO</div>
-   <div style="font-size:13px;color:var(--tx2);margin-top:9px;line-height:1.65">Examinado en Módena en agosto. La profundidad y el tipo de punzón son compatibles con la producción de 1965. No se aprecian signos de reestampado ni de relleno de material.</div>
+   <div style="font-size:14.5px;color:var(--tx2);margin-top:9px;line-height:1.65">Examinado en Módena en agosto. La profundidad y el tipo de punzón son compatibles con la producción de 1965. No se aprecian signos de reestampado ni de relleno de material.</div>
  </div>
  <div class="phase">CADENA DE CUSTODIA</div>
- <div class="log"><time>1971</time><div>Retirado del chasis para preparación de competición<div style="color:var(--tx3);font-size:11.5px;margin-top:3px">taller no identificado, Módena</div></div></div>
+ <div class="log"><time>1971</time><div>Retirado del chasis para preparación de competición<div style="color:var(--tx3);font-size:13px;margin-top:3px">taller no identificado, Módena</div></div></div>
  <div class="log"><time>1974</time><div>Vendido a un particular en Bolonia</div></div>
- <div class="log"><time>1986</time><div>Adquirido por el taller actual<div style="color:var(--tx3);font-size:11.5px;margin-top:3px">factura conservada</div></div></div>
- <div class="log" style="border-bottom:0"><time>HOY</time><div>En venta, en el mismo taller<div style="color:var(--tx3);font-size:11.5px;margin-top:3px">39 años en el mismo sitio, sin salir del país</div></div></div>
+ <div class="log"><time>1986</time><div>Adquirido por el taller actual<div style="color:var(--tx3);font-size:13px;margin-top:3px">factura conservada</div></div></div>
+ <div class="log" style="border-bottom:0"><time>HOY</time><div>En venta, en el mismo taller<div style="color:var(--tx3);font-size:13px;margin-top:3px">39 años en el mismo sitio, sin salir del país</div></div></div>
  <div class="rule"></div>
  <div class="card" style="border-color:var(--stampln);background:var(--stampbg)">
-   <div style="font-size:13px;color:var(--stamp);line-height:1.65">El hueco de 1971 a 1974 es lo más débil del expediente. Está señalado en el contrato y descontado del precio.</div></div>`};
+   <div style="font-size:14.5px;color:var(--stamp);line-height:1.65">El hueco de 1971 a 1974 es lo más débil del expediente. Está señalado en el contrato y descontado del precio.</div></div>`};
 
 S.conflicto={tab:'op',back:'pieza',title:'Conflicto',sub:'ETAPA 5',html:`
  <h2 class="sc in">Dos motores, un chasis</h2>
  <p class="lede">Custodia no decide quién tiene razón. Enseña las dos reclamaciones y no suelta el dinero.</p>
  <div class="card up" style="border-color:var(--stampln)">
    <div class="k" style="color:var(--stamp)">RECLAMACIÓN A, ESTA OPERACIÓN</div>
-   <div style="font-size:14px;margin:8px 0 12px">Taller de Módena, desde 1986</div>
+   <div style="font-size:15.5px;margin:8px 0 12px">Taller de Módena, desde 1986</div>
    <div class="kv"><span>Estampado peritado</span><b class="chip ok">Sí</b></div>
    <div class="kv"><span>Hoja de fábrica</span><b class="chip ok">Coincide</b></div>
    <div class="kv"><span>Cadena documentada</span><b class="chip now">Hueco de 3 años</b></div>
@@ -296,17 +346,17 @@ S.conflicto={tab:'op',back:'pieza',title:'Conflicto',sub:'ETAPA 5',html:`
  <div style="height:12px"></div>
  <div class="card up" style="border-color:var(--stopln)">
    <div class="k" style="color:var(--stop)">RECLAMACIÓN B, EXTERNA</div>
-   <div style="font-size:14px;margin:8px 0 12px">Taller en Reino Unido, registrada en marzo de 2024</div>
+   <div style="font-size:15.5px;margin:8px 0 12px">Taller en Reino Unido, registrada en marzo de 2024</div>
    <div class="kv"><span>Estampado peritado</span><b class="chip no">No consta</b></div>
    <div class="kv"><span>Hoja de fábrica</span><b class="chip no">No aportada</b></div>
    <div class="kv"><span>Cadena documentada</span><b class="chip ok">Desde 1979</b></div>
    <div class="kv" style="border-bottom:0"><span>Dictamen del fabricante</span><b class="chip no">No</b></div>
  </div>
  <div class="phase">QUÉ PASA AHORA</div>
- <div style="font-size:13.5px;color:var(--tx2);line-height:1.8">Los fondos siguen retenidos.<br>El dictamen del fabricante llega en seis semanas.<br>Si resuelve a favor de A, la operación sigue.<br>Si no, el comprador recupera el dinero íntegro.</div>
+ <div style="font-size:15px;color:var(--tx2);line-height:1.8">Los fondos siguen retenidos.<br>El dictamen del fabricante llega en seis semanas.<br>Si resuelve a favor de A, la operación sigue.<br>Si no, el comprador recupera el dinero íntegro.</div>
  <div class="rule"></div>
  <div class="card stop">
-   <div style="font-size:13px;color:var(--stop);line-height:1.65">Sin este expediente, el comprador habría pagado 480.000 euros por un motor con una reclamación abierta que nadie le habría enseñado. La reclamación B se registró hace dos años y no está en ningún sitio público.</div>
+   <div style="font-size:14.5px;color:var(--stop);line-height:1.65">Sin este expediente, el comprador habría pagado 480.000 euros por un motor con una reclamación abierta que nadie le habría enseñado. La reclamación B se registró hace dos años y no está en ningún sitio público.</div>
  </div>
  <div style="height:14px"></div>
  <button class="btn quiet" onclick="go('pieza')">Volver al expediente</button>`};
@@ -322,10 +372,10 @@ S.pieza2={tab:'op',back:'operaciones',title:'Caja 917K',sub:'MX DE 0123',html:`
  <div class="card">
    <div class="k">TODO EL VALOR ESTÁ EN LA PROCEDENCIA</div>
    <div style="height:8px"></div>
-   <div class="kv"><span>Precio acordado</span><b class="amount" style="font-size:15px">€120.000</b></div>
+   <div class="kv"><span>Precio acordado</span><b class="amount" style="font-size:16px">€120.000</b></div>
    <div class="kv" style="border-bottom:0"><span>Sin procedencia acreditada</span><b class="amount" style="color:var(--stop)">€18.000</b></div>
    <div class="rule" style="margin:12px 0"></div>
-   <div style="font-size:13px;color:var(--tx2);line-height:1.65">Es una caja mecánicamente corriente. Lo que se paga es que estuvo montada en un coche concreto en una carrera concreta. Si eso no se prueba, el precio se cae un 85%.</div>
+   <div style="font-size:14.5px;color:var(--tx2);line-height:1.65">Es una caja mecánicamente corriente. Lo que se paga es que estuvo montada en un coche concreto en una carrera concreta. Si eso no se prueba, el precio se cae un 85%.</div>
  </div>
 
  <div class="phase">PRUEBA DE LA PROCEDENCIA</div>
@@ -340,21 +390,21 @@ S.pieza2={tab:'op',back:'operaciones',title:'Caja 917K',sub:'MX DE 0123',html:`
  ${row('','Entrega en Stuttgart','','arancel')}
  <div class="rule"></div>
  <div class="card" style="border-color:var(--stampln);background:var(--stampbg)">
-   <div style="font-size:13px;color:var(--stamp);line-height:1.65">Comprador: colección privada alemana con museo abierto al público. Exige expediente completo antes de pagar, por su propia política interna.</div></div>`};
+   <div style="font-size:14.5px;color:var(--stamp);line-height:1.65">Comprador: colección privada alemana con museo abierto al público. Exige expediente completo antes de pagar, por su propia política interna.</div></div>`};
 
 S.arancel={tab:'op',back:'pieza2',title:'Aduana',sub:'ETAPA 6',html:`
  <h2 class="sc in">Cómo entra en Europa</h2>
  <p class="lede">La partida arancelaria decide miles de euros. En piezas de colección no es evidente y conviene preguntarlo antes de embarcar.</p>
  <div class="card up" style="border-color:var(--stampln)">
    <div class="k" style="color:var(--stamp)">CLASIFICACIÓN PROPUESTA</div>
-   <div style="font-size:15px;margin:9px 0 4px">9705, objeto de colección</div>
-   <div style="font-size:13px;color:var(--tx2);line-height:1.65">Pieza de interés histórico, conservada en estado original y destinada a una colección con museo. Arancel cero.</div>
+   <div style="font-size:16px;margin:9px 0 4px">9705, objeto de colección</div>
+   <div style="font-size:14.5px;color:var(--tx2);line-height:1.65">Pieza de interés histórico, conservada en estado original y destinada a una colección con museo. Arancel cero.</div>
  </div>
  <div style="height:12px"></div>
  <div class="card up">
    <div class="k">ALTERNATIVA SI SE RECHAZA</div>
-   <div style="font-size:15px;margin:9px 0 4px">8708, parte de vehículo</div>
-   <div style="font-size:13px;color:var(--tx2);line-height:1.65">Tratada como recambio corriente. Arancel ordinario y tipo general de IVA en destino.</div>
+   <div style="font-size:16px;margin:9px 0 4px">8708, parte de vehículo</div>
+   <div style="font-size:14.5px;color:var(--tx2);line-height:1.65">Tratada como recambio corriente. Arancel ordinario y tipo general de IVA en destino.</div>
  </div>
  <div style="height:14px"></div>
  <div class="card">
@@ -362,12 +412,12 @@ S.arancel={tab:'op',back:'pieza2',title:'Aduana',sub:'ETAPA 6',html:`
    <div class="kv" style="border-bottom:0"><span>Quién la asume si sale mal</span><b>comprador, por contrato</b></div>
  </div>
  <div class="phase">QUÉ SE HA HECHO</div>
- <div class="log"><time>3 SEP</time><div><b>Consulta vinculante presentada</b> a la aduana alemana<div style="color:var(--tx3);font-size:11.5px;margin-top:3px">respuesta estimada en 30 días</div></div></div>
+ <div class="log"><time>3 SEP</time><div><b>Consulta vinculante presentada</b> a la aduana alemana<div style="color:var(--tx3);font-size:13px;margin-top:3px">respuesta estimada en 30 días</div></div></div>
  <div class="log"><time>3 SEP</time><div>Expediente de procedencia adjuntado a la consulta</div></div>
  <div class="log" style="border-bottom:0"><time>PEND</time><div style="color:var(--tx2)">No se embarca hasta tener respuesta</div></div>
  <div class="rule"></div>
  <div class="card" style="border-color:var(--stampln);background:var(--stampbg)">
-   <div style="font-size:13px;color:var(--stamp);line-height:1.65">Es exactamente el expediente de procedencia el que sostiene la clasificación como objeto de colección. El mismo trabajo sirve para dos cosas.</div></div>`};
+   <div style="font-size:14.5px;color:var(--stamp);line-height:1.65">Es exactamente el expediente de procedencia el que sostiene la clasificación como objeto de colección. El mismo trabajo sirve para dos cosas.</div></div>`};
 
 S.procedencia={tab:'op',back:'expediente',title:'Procedencia',sub:'ETAPA 3',html:`
  <h2 class="sc in">Procedencia</h2>
@@ -380,13 +430,13 @@ S.procedencia={tab:'op',back:'expediente',title:'Procedencia',sub:'ETAPA 3',html
  ${doc('Historial de competición','Targa Florio 1967, sin acreditar','wait','Falta')}
  <div class="rule"></div>
  <div class="card"><div class="k">EFECTO SOBRE EL PRECIO</div>
-   <div style="font-size:13px;color:var(--tx2);margin-top:9px;line-height:1.65">El coche se vende sin su motor original, y así consta en el contrato. El motor está localizado y en venta por separado.</div></div>`};
+   <div style="font-size:14.5px;color:var(--tx2);margin-top:9px;line-height:1.65">El coche se vende sin su motor original, y así consta en el contrato. El motor está localizado y en venta por separado.</div></div>`};
 
 S.documento={tab:'op',back:'procedencia',title:'Documento',sub:'FIVA 30412',html:`
  <div class="cert in" style="margin:10px 0 22px"><div class="cert-in">
    <div class="ref">FÉDÉRATION INTERNATIONALE<br>DES VÉHICULES ANCIENS</div>
    <div class="amount" style="font-size:34px;margin:16px 0 7px">30412</div>
-   <div style="font-size:12.5px;color:var(--tx3)">Ficha de identidad, válida hasta 2034</div>
+   <div style="font-size:14px;color:var(--tx3)">Ficha de identidad, válida hasta 2034</div>
  </div></div>
  <div class="kv"><span>Aportado por</span><b>João P., vendedor</b></div>
  <div class="kv"><span>Recibido</span><b>28 de agosto, 11:04</b></div>
@@ -394,24 +444,24 @@ S.documento={tab:'op',back:'procedencia',title:'Documento',sub:'FIVA 30412',html
  <div class="kv"><span>Huella del archivo</span><b>a91f 4d20</b></div>
  <div class="rule"></div>
  <div class="card" style="border-color:var(--stampln);background:var(--stampbg)">
-   <div style="font-size:13px;color:var(--stamp);line-height:1.65">El chasis declarado coincide con la ficha y con el certificado Classiche. No hay discrepancias entre los tres documentos.</div></div>`};
+   <div style="font-size:14.5px;color:var(--stamp);line-height:1.65">El chasis declarado coincide con la ficha y con el certificado Classiche. No hay discrepancias entre los tres documentos.</div></div>`};
 
 S.contrato={tab:'op',back:'expediente',title:'Contrato',sub:'ETAPA 5',html:`
  <h2 class="sc in">Contrato de compraventa</h2>
  <p class="lede">En español e inglés, revisado por el abogado del expediente.</p>
  <div class="card">
-   <div class="kv"><span>Precio</span><b class="amount" style="font-size:15px">€2.400.000</b></div>
+   <div class="kv"><span>Precio</span><b class="amount" style="font-size:16px">€2.400.000</b></div>
    <div class="kv"><span>Ley aplicable</span><b>Portugal</b></div>
    <div class="kv"><span>Entrega</span><b>Riad, en almacén</b></div>
    <div class="kv" style="border-bottom:0"><span>Riesgo</span><b>del vendedor hasta entregar</b></div>
    <div class="rule" style="margin:12px 0"></div>
-   <div style="font-size:13px;color:var(--tx2);line-height:1.65">Se vende sin el motor original. El comprador conoce la operación paralela sobre el motor y no queda condicionado a ella.</div>
+   <div style="font-size:14.5px;color:var(--tx2);line-height:1.65">Se vende sin el motor original. El comprador conoce la operación paralela sobre el motor y no queda condicionado a ella.</div>
  </div>
  <div class="phase">FIRMAS</div>
  <div class="kv"><span>João P., vendedor</span><span class="chip ok">Firmado</span></div>
  <div class="kv" style="border-bottom:0"><span>Khalid A., comprador</span><span class="chip now">Pendiente</span></div>
  <div style="height:22px"></div>
- <button class="btn" onclick="alert('Aquí se abre la firma electrónica cualificada.')">Firmar</button>
+ <button class="btn" onclick="go('firma')">Firmar</button>
  <div style="height:10px"></div>
  <button class="btn ghost" onclick="go('expediente')">Pedir un cambio antes</button>`};
 
@@ -419,40 +469,43 @@ S.aduana={tab:'op',back:'expediente',title:'Aduana',sub:'ETAPAS 7 Y 8',html:`
  <h2 class="sc in">Fiscalidad y aduana</h2>
  <p class="lede">Esta fase no se puede tocar hasta que el contrato esté firmado. Es a propósito.</p>
  <div class="card up"><div class="k">SALIDA DE LA UNIÓN EUROPEA</div>
-  <div style="font-size:14.5px;margin:8px 0 7px">Exportación definitiva desde Portugal</div>
-  <div style="font-size:13px;color:var(--tx2);line-height:1.65">Exenta de IVA por ser una entrega con destino fuera de la Unión. La exención decae si el vehículo no sale en plazo.</div></div>
+  <div style="font-size:16px;margin:8px 0 7px">Exportación definitiva desde Portugal</div>
+  <div style="font-size:14.5px;color:var(--tx2);line-height:1.65">Exenta de IVA por ser una entrega con destino fuera de la Unión. La exención decae si el vehículo no sale en plazo.</div></div>
  <div style="height:12px"></div>
  <div class="card up"><div class="k">ENTRADA EN ARABIA SAUDÍ</div><div style="height:7px"></div>
   <div class="kv"><span>Arancel</span><b class="amount">5%</b></div>
   <div class="kv"><span>IVA de importación</span><b class="amount">15%</b></div>
   <div class="kv" style="border-bottom:0"><span>A cargo de</span><b>comprador</b></div></div>
  <div class="phase">SE GENERAN SOLOS</div>
- <div style="font-size:13.5px;line-height:2.3;color:var(--tx2)">Declaración de exportación<br>Factura comercial<br>Lista de bultos<br>Certificado de origen<br>Conocimiento de embarque</div>`};
+ <div style="font-size:15px;line-height:2.3;color:var(--tx2)">Declaración de exportación<br>Factura comercial<br>Lista de bultos<br>Certificado de origen<br>Conocimiento de embarque</div>`};
 
 S.fondos={tab:'fo',title:'Fondos',sub:'2 CUENTAS',html:`
  <div class="cert in" style="margin:12px 0 20px"><div class="cert-in">
    <div class="seal">EN CUSTODIA</div>
-   <div class="ref">CUENTA FIDUCIARIA SEGREGADA</div>
-   <div class="amount" style="font-size:42px;line-height:1.05;margin:14px 0 8px">€2.880.000</div>
-   <div style="font-size:13px;color:var(--tx3)">en dos operaciones</div>
+   <div class="ref">CUENTA DE CLIENTE, ALMEIDA E SOUSA</div>
+   <div class="amount" style="font-size:44px;line-height:1.05;margin:14px 0 8px">€2.880.000</div>
+   <div style="font-size:14.5px;color:var(--tx3)">en dos operaciones</div>
    <div class="rule" style="margin:20px 0 15px"></div>
-   <div style="font-size:12.5px;color:var(--tx2);line-height:1.75">Ni el comprador, ni el vendedor, ni Custodia pueden mover este dinero mientras falte una sola condición.</div>
+   <div style="font-size:14px;color:var(--tx2);line-height:1.75">Lo retiene un despacho colegiado en cuenta de cliente, separada de su propio patrimonio. Custodia no tiene cuenta, no toca el dinero y no puede moverlo. Solo certifica si las condiciones se han cumplido.</div>
  </div></div>
  <button class="row" onclick="go('expediente')"><span class="thumb" style="width:56px">${car('gt')}</span>
-  <span style="flex:1"><span style="font-size:14px">Ferrari 275 GTB</span><br><span style="font-size:11.5px;color:var(--tx3)">2 de 3 condiciones</span></span>
-  <span class="amount" style="font-size:15px">€2.400.000</span></button>
+  <span style="flex:1"><span style="font-size:15.5px">Ferrari 275 GTB</span><br><span style="font-size:13px;color:var(--tx3)">2 de 3 condiciones</span></span>
+  <span class="amount" style="font-size:16px">€2.400.000</span></button>
  <button class="row" onclick="go('pieza')"><span class="thumb" style="width:56px">${part('v12','#C67F70')}</span>
-  <span style="flex:1"><span style="font-size:14px">Motor tipo 213/B</span><br><span style="font-size:11.5px;color:var(--stop)">congelado por conflicto</span></span>
-  <span class="amount" style="font-size:15px">€480.000</span></button>
+  <span style="flex:1"><span style="font-size:15.5px">Motor tipo 213/B</span><br><span style="font-size:13px;color:var(--stop)">congelado por conflicto</span></span>
+  <span class="amount" style="font-size:16px">€480.000</span></button>
  <div class="phase">MOVIMIENTOS</div>
- <div class="log"><time>4 SEP</time><div><b>Recepción de fondos</b>, Ferrari 275 GTB<div style="color:var(--tx3);font-size:11.5px;margin-top:3px">€2.400.000</div></div></div>
- <div class="log"><time>1 SEP</time><div><b>Recepción de fondos</b>, motor 213/B<div style="color:var(--tx3);font-size:11.5px;margin-top:3px">€480.000</div></div></div>
- <div class="log" style="border-bottom:0"><time>1 SEP</time><div>Retención por reclamación de terceros<div style="color:var(--stop);font-size:11.5px;margin-top:3px">salida bloqueada hasta dictamen</div></div></div>
+ <div class="log"><time>4 SEP</time><div><b>Recepción de fondos</b>, Ferrari 275 GTB<div style="color:var(--tx3);font-size:13px;margin-top:3px">€2.400.000</div></div></div>
+ <div class="log"><time>1 SEP</time><div><b>Recepción de fondos</b>, motor 213/B<div style="color:var(--tx3);font-size:13px;margin-top:3px">€480.000</div></div></div>
+ <div class="log" style="border-bottom:0"><time>1 SEP</time><div>Retención por reclamación de terceros<div style="color:var(--stop);font-size:13px;margin-top:3px">salida bloqueada hasta dictamen</div></div></div>
  <div class="rule"></div>
  <div class="card" style="border-color:var(--stampln);background:var(--stampbg)">
-   <div style="font-size:13px;color:var(--stamp);line-height:1.65">Las dos operaciones superan los 250.000 euros. Los informes para la unidad de inteligencia financiera están preparados y se presentan al cierre.</div></div>`};
+   <div style="font-size:14.5px;color:var(--stamp);line-height:1.65">Las dos operaciones superan los 250.000 euros. Los informes para la unidad de inteligencia financiera están preparados y se presentan al cierre.</div></div>
+ <div style="height:12px"></div>
+ <div class="card"><div class="k">POR QUÉ NO LO GUARDAMOS NOSOTROS</div>
+  <div class="cardtx" style="margin-bottom:0">Custodiar dinero de terceros exige licencia y capital, y obligaría al comprador a confiarnos millones antes de conocernos. El despacho lleva siglos haciéndolo, tiene colegio profesional y seguro. Nosotros ponemos el procedimiento.</div></div>`};
 
-S.partes={tab:'pa',title:'Partes',sub:'PT SA 0117',html:`
+S.partes={tab:'op',back:'expediente',title:'Partes',sub:'PT SA 0117',html:`
  <h2 class="sc in">Quién está dentro</h2>
  <p class="lede">Todos verificados antes de que el dinero se moviera. Sin esto la operación no se abre.</p>
  ${per('KA','Khalid A.','comprador del coche y del motor','ok','Verificado')}
@@ -461,13 +514,15 @@ S.partes={tab:'pa',title:'Partes',sub:'PT SA 0117',html:`
  ${per('RA','Rafael A.','intermediario, México','ok','Verificado')}
  ${per('AS','Almeida e Sousa','abogado del expediente','st','Designado')}
  <div class="rule"></div>
+ <button class="btn quiet" onclick="go('invequipo')">Invitar a alguien al expediente</button>
+ <div style="height:14px"></div>
  <div class="card"><div class="k">COMISIÓN DEL INTERMEDIARIO</div>
-   <div style="font-size:13px;color:var(--tx2);margin-top:9px;line-height:1.65">Rafael cobra su comisión directamente del vendedor, como siempre. Custodia no participa en ella ni la conoce.</div></div>`};
+   <div style="font-size:14.5px;color:var(--tx2);margin-top:9px;line-height:1.65">Rafael cobra su comisión directamente del vendedor, como siempre. Custodia no participa en ella ni la conoce.</div></div>`};
 
-S.parte={tab:'pa',back:'partes',title:'Comprador',sub:'KHALID A.',html:`
+S.parte={tab:'op',back:'partes',title:'Comprador',sub:'KHALID A.',html:`
  <div class="in" style="display:flex;align-items:center;gap:15px;margin:12px 0 22px">
-   <div class="seal" style="width:56px;height:56px;margin:0;font-size:14px;letter-spacing:.04em">KA</div>
-   <div><div style="font-size:17px">Khalid A.</div><div style="font-size:12px;color:var(--tx3);margin-top:3px">sociedad de inversión, Riad</div></div></div>
+   <div class="seal" style="width:56px;height:56px;margin:0;font-size:15.5px;letter-spacing:.04em">KA</div>
+   <div><div style="font-size:18px">Khalid A.</div><div style="font-size:13.5px;color:var(--tx3);margin-top:3px">sociedad de inversión, Riad</div></div></div>
  <div class="kv"><span>Documento de identidad</span><span class="chip ok">Comprobado</span></div>
  <div class="kv"><span>Titularidad real</span><span class="chip ok">Comprobada</span></div>
  <div class="kv"><span>Listas de sanciones</span><span class="chip ok">Sin coincidencias</span></div>
@@ -475,23 +530,23 @@ S.parte={tab:'pa',back:'partes',title:'Comprador',sub:'KHALID A.',html:`
  <div class="kv" style="border-bottom:0"><span>Origen de los fondos</span><span class="chip ok">Acreditado</span></div>
  <div class="rule"></div>
  <div class="card"><div class="k">ORIGEN DE LOS FONDOS</div>
-  <div style="font-size:13px;color:var(--tx2);margin-top:9px;line-height:1.65">Venta de una participación empresarial en 2024, acreditada con contrato y extracto bancario. Revisado el 26 de agosto.</div></div>
+  <div style="font-size:14.5px;color:var(--tx2);margin-top:9px;line-height:1.65">Venta de una participación empresarial en 2024, acreditada con contrato y extracto bancario. Revisado el 26 de agosto.</div></div>
  <div style="height:14px"></div>
- <div style="font-size:12px;color:var(--tx3);line-height:1.6">Estos documentos no son visibles para los vendedores. Solo ven el resultado de la comprobación.</div>`};
+ <div style="font-size:13.5px;color:var(--tx3);line-height:1.6">Estos documentos no son visibles para los vendedores. Solo ven el resultado de la comprobación.</div>`};
 
 S.bitacora={tab:'bi',title:'Bitácora',sub:'PT SA 0117',html:`
  <h2 class="sc in">Todo lo que ha pasado</h2>
  <p class="lede">Un registro que nadie puede editar, ni siquiera nosotros. Se exporta como anexo del contrato.</p>
  <div class="log"><time>12 SEP<br>09:14</time><div><b>Rafael A.</b> subió el informe de inspección física</div></div>
- <div class="log"><time>11 SEP<br>08:30</time><div>Detectada reclamación externa sobre el motor 213/B<div style="color:var(--stop);font-size:11.5px;margin-top:3px">fondos congelados automáticamente</div></div></div>
+ <div class="log"><time>11 SEP<br>08:30</time><div>Detectada reclamación externa sobre el motor 213/B<div style="color:var(--stop);font-size:13px;margin-top:3px">fondos congelados automáticamente</div></div></div>
  <div class="log"><time>10 SEP<br>17:02</time><div>Contrato revisado por <b>Almeida e Sousa</b>, v3</div></div>
  <div class="log"><time>8 SEP<br>12:41</time><div><b>João P.</b> firmó el contrato</div></div>
- <div class="log"><time>4 SEP<br>10:20</time><div>Recepción de fondos en cuenta fiduciaria<div style="color:var(--tx3);font-size:11.5px;margin-top:3px">€2.400.000</div></div></div>
+ <div class="log"><time>4 SEP<br>10:20</time><div>Recepción de fondos en la cuenta de cliente del despacho<div style="color:var(--tx3);font-size:13px;margin-top:3px">€2.400.000</div></div></div>
  <div class="log"><time>2 SEP<br>16:55</time><div>Valoración cerrada con cuatro comparables</div></div>
  <div class="log"><time>28 AGO<br>11:04</time><div>Ficha FIVA 30412 cotejada con el registro</div></div>
  <div class="log" style="border-bottom:0"><time>21 AGO<br>18:12</time><div>Expediente abierto por <b>Rafael A.</b></div></div>
  <div class="rule"></div>
- <button class="btn quiet" onclick="alert('Genera un PDF sellado con las entradas y las huellas de cada documento.')">Exportar la bitácora</button>`};
+ <button class="btn quiet" onclick="EXPMOD='exp';go('export')">Exportar la bitácora</button>`};
 
 const CTY={PT:'Portugal',ES:'España',IT:'Italia',CH:'Suiza',DE:'Alemania',GB:'Reino Unido',MX:'México',US:'Estados Unidos',SA:'Arabia Saudí',AE:'Emiratos'};
 const CORR={
@@ -527,8 +582,8 @@ S.alta1={tab:'op',back:'operaciones',title:'Nueva operación',html:()=>`
  ${Object.keys(TIPOS).map(function(k){var T=TIPOS[k];return `
  <button class="opt" aria-pressed="${st.tipo===k}" onclick="st.tipo='${k}';go('alta1')">
    <span class="thumb" style="width:60px">${pic(k)}</span>
-   <span style="flex:1"><span style="font-size:15px">${T.t}</span><br>
-   <span style="font-size:12px;color:var(--tx3)">${T.d}</span></span>
+   <span style="flex:1"><span style="font-size:16px">${T.t}</span><br>
+   <span style="font-size:13.5px;color:var(--tx3)">${T.d}</span></span>
    ${st.tipo===k?'<span class="chip st">Elegido</span>':''}
  </button>`}).join('')}
  <div style="height:14px"></div>
@@ -550,9 +605,9 @@ S.alta2={tab:'op',back:'alta1',title:'Identificación',html:()=>`
  </div>
  ${err()}
  <div style="height:20px"></div>
- <button class="btn" onclick="next('alta2','alta3',st.desc.trim().length>2&&st.ref.trim().length>0,'Necesitamos al menos la descripción y el número de referencia.')">Continuar</button>
+ <button class="btn" onclick="next('alta2',st.tipo==='lote'?'inventario':'alta3',st.desc.trim().length>2&&st.ref.trim().length>0,'Necesitamos al menos la descripción y el número de referencia.')">Continuar</button>
  <div style="height:12px"></div>
- <div style="font-size:12px;color:var(--tx3);line-height:1.65">Si no tienes el número a mano, escribe lo que sepas. Un expediente sin número identificador no se puede cerrar, pero sí abrir.</div>`};
+ <div style="font-size:13.5px;color:var(--tx3);line-height:1.65">Si no tienes el número a mano, escribe lo que sepas. Un expediente sin número identificador no se puede cerrar, pero sí abrir.</div>`};
 
 S.alta3={tab:'op',back:'alta2',title:'Precio y recorrido',html:()=>`
  <div class="steps in">${steps(3)}</div>
@@ -590,8 +645,8 @@ S.alta4={tab:'op',back:'alta3',title:'Las partes',html:()=>`
  <div class="k">TÚ ERES</div>
  ${[['intermediario','Intermediario','cobras tu comisión aparte, nosotros no la tocamos'],['vendedor','El vendedor','vendes una pieza de tu colección'],['comprador','El comprador','compras y quieres protección'],['asesor','Asesor de la familia','representas a una de las partes']].map(function(r){return `
  <button class="opt" style="margin-top:8px" aria-pressed="${st.rol===r[0]}" onclick="st.rol='${r[0]}';go('alta4')">
-   <span style="flex:1"><span style="font-size:14.5px">${r[1]}</span><br>
-   <span style="font-size:12px;color:var(--tx3)">${r[2]}</span></span></button>`}).join('')}
+   <span style="flex:1"><span style="font-size:16px">${r[1]}</span><br>
+   <span style="font-size:13.5px;color:var(--tx3)">${r[2]}</span></span></button>`}).join('')}
  ${err()}
  <div style="height:18px"></div>
  <button class="btn" onclick="next('alta4','alta5',st.vendedor.trim()&&st.comprador.trim(),'Faltan los nombres de las dos partes.')">Ver el plan</button>`};
@@ -611,21 +666,22 @@ S.alta5={tab:'op',back:'alta4',title:'Plan del expediente',html:()=>{
    <div class="k">LO QUE VAMOS A HACER</div>
    <div style="height:8px"></div>
    <div class="kv"><span>Etapas del expediente</span><b>${T.n}</b></div>
+   ${st.tipo==='lote'?`<div class="kv"><span>Unidades inventariadas</span><b>${LOTE.length}</b></div>`:''}
    <div class="kv"><span>Plazo estimado</span><b>${C.dias} días</b></div>
-   <div class="kv" style="border-bottom:0"><span>Fondos</span><b>en cuenta fiduciaria</b></div>
+   <div class="kv" style="border-bottom:0"><span>Fondos</span><b>los retiene el depositario</b></div>
  </div>
 
  <div class="phase">EN LA ADUANA</div>
- <div style="font-size:13.5px;color:var(--tx2);line-height:1.9">${C.pasos.join('<br>')}</div>
+ <div style="font-size:15px;color:var(--tx2);line-height:1.9">${C.pasos.join('<br>')}</div>
  <div style="height:12px"></div>
  <div class="card" style="border-color:rgba(211,161,85,.4);background:var(--warnbg)">
-   <div style="font-size:13px;color:var(--warn);line-height:1.65">${C.aviso}</div></div>
+   <div style="font-size:14.5px;color:var(--warn);line-height:1.65">${C.aviso}</div></div>
 
  ${P>=250000?`<div style="height:12px"></div>
  <div class="card" style="border-color:var(--stampln);background:var(--stampbg)">
    <div class="k" style="color:var(--stamp)">OBLIGACIÓN LEGAL</div>
-   <div style="font-size:13px;color:var(--stamp);margin-top:9px;line-height:1.65">La operación supera los 250.000 euros, así que entra en el ámbito de la normativa europea de prevención de blanqueo. Verificamos a las dos partes y preparamos el informe. No es opcional.</div></div>`:`<div style="height:12px"></div>
- <div class="card"><div style="font-size:13px;color:var(--tx2);line-height:1.65">Por debajo de 250.000 euros no hay obligación de informe. Aun así verificamos a las partes, porque el riesgo de fraude no entiende de umbrales.</div></div>`}
+   <div style="font-size:14.5px;color:var(--stamp);margin-top:9px;line-height:1.65">La operación supera los 250.000 euros, así que entra en el ámbito de la normativa europea de prevención de blanqueo. Verificamos a las dos partes y preparamos el informe. No es opcional.</div></div>`:`<div style="height:12px"></div>
+ <div class="card"><div style="font-size:14.5px;color:var(--tx2);line-height:1.65">Por debajo de 250.000 euros no hay obligación de informe. Aun así verificamos a las partes, porque el riesgo de fraude no entiende de umbrales.</div></div>`}
 
  <div class="phase">HONORARIOS</div>
  <div class="card">
@@ -634,13 +690,13 @@ S.alta5={tab:'op',back:'alta4',title:'Plan del expediente',html:()=>{
    <div class="kv" style="border-bottom:0"><span>Se cobra</span><b>al cierre, no ahora</b></div>
    <div class="rule" style="margin:12px 0"></div>
    <div class="k">NO INCLUYE</div>
-   <div style="font-size:13px;color:var(--tx2);margin-top:8px;line-height:1.7">Transporte, seguro en tránsito, aranceles e impuestos de destino y la comisión del depositario. Se facturan a coste, estimados en ${C.ter} euros para este recorrido.</div>
+   <div style="font-size:14.5px;color:var(--tx2);margin-top:8px;line-height:1.7">Transporte, seguro en tránsito, aranceles e impuestos de destino y los honorarios del depositario, que se pagan directamente a él. Se facturan a coste, estimados en ${C.ter} euros para este recorrido.</div>
  </div>
 
  <div style="height:20px"></div>
  <button class="btn" onclick="crear()">Abrir el expediente</button>
  <div style="height:12px"></div>
- <div style="font-size:12px;color:var(--tx3);line-height:1.65">Al abrirlo mandamos la invitación a ${st.vendedor} y a ${st.comprador}. Ninguno ve los documentos del otro.</div>`}};
+ <div style="font-size:13.5px;color:var(--tx3);line-height:1.65">Al abrirlo mandamos la invitación a ${st.vendedor} y a ${st.comprador}. Ninguno ve los documentos del otro.</div>`}};
 
 function crear(){
  const T=TIPOS[st.tipo];
@@ -662,18 +718,18 @@ S.nuevo={tab:'op',back:'operaciones',title:'Expediente abierto',html:()=>{
 
  <div class="card up" style="border-color:rgba(211,161,85,.4)">
    <div class="k" style="color:var(--warn)">SIGUIENTE PASO</div>
-   <div style="font-size:14.5px;margin:9px 0 15px;line-height:1.55">Invitar a ${st.vendedor} y a ${st.comprador}. Hasta que los dos entren y se verifiquen, el expediente no avanza.</div>
-   <button class="btn" onclick="alert('Se envían dos invitaciones separadas, cada una con su propia lista de documentos.')">Enviar las invitaciones</button>
+   <div style="font-size:16px;margin:9px 0 15px;line-height:1.55">Invitar a ${st.vendedor} y a ${st.comprador}. Hasta que los dos entren y se verifiquen, el expediente no avanza.</div>
+   <button class="btn" onclick="go('invitacion')">Enviar las invitaciones</button>
  </div>
 
  <div class="phase">YA PREPARADO</div>
- <div style="font-size:13.5px;color:var(--tx2);line-height:1.9">Plantilla de contrato para este corredor<br>Lista de documentos para cada parte<br>Cuenta fiduciaria abierta y a la espera<br>Agente de aduanas asignado en destino</div>
+ <div style="font-size:15px;color:var(--tx2);line-height:1.9">Plantilla de contrato para este corredor<br>Lista de documentos para cada parte<br>Depositario designado y cuenta de cliente abierta<br>Agente de aduanas asignado en destino</div>
 
  <div class="phase">LO QUE FALTA</div>
  ${[['Identidad de las partes','esperando invitación'],['Origen de los fondos','esperando comprador'],
    [st.tipo==='vehiculo'?'Procedencia del vehículo':'Correspondencia y custodia','esperando vendedor'],
    ['Valoración','se hace con la documentación']].map(function(r){
-   return `<div class="row"><span class="mark"></span><span style="flex:1;font-size:14px;color:var(--tx2)">${r[0]}</span><span class="ref">${r[1]}</span></div>`}).join('')}
+   return `<div class="row"><span class="mark"></span><span style="flex:1;font-size:15.5px;color:var(--tx2)">${r[0]}</span><span class="ref">${r[1]}</span></div>`}).join('')}
  <div class="rule"></div>
  <button class="btn quiet" onclick="go('operaciones')">Volver a las operaciones</button>`}};
 
@@ -685,45 +741,885 @@ S.bloqueo={tab:'op',back:'operaciones',title:'Miura SV',sub:'MX US 0118',html:`
  <p class="lede">Ciudad de México a Miami, día 3</p>
  <div class="reg" style="margin-bottom:20px">${reg(3,'f')}</div>
  <div class="card up"><div class="k">ESPERANDO AL VENDEDOR</div>
-  <div style="font-size:14.5px;margin:9px 0 15px;line-height:1.55">Faltan la factura de origen y la constancia de importación de 1974. Sin eso no se puede exportar.</div>
-  <button class="btn quiet" onclick="alert('Envía al vendedor la lista exacta de lo que falta.')">Recordárselo</button></div>
+  <div style="font-size:16px;margin:9px 0 15px;line-height:1.55">Faltan la factura de origen y la constancia de importación de 1974. Sin eso no se puede exportar.</div>
+  <button class="btn quiet" onclick="go('recordatorio')">Recordárselo</button></div>
  <div class="phase">VERIFICACIÓN</div>
- <div class="row"><span class="mark ok">✓</span><span style="flex:1;font-size:14px">Identidad de las partes</span></div>
- <div class="row"><span class="mark ok">✓</span><span style="flex:1;font-size:14px">Origen de los fondos</span></div>
- <div class="row"><span class="mark now">·</span><span style="flex:1;font-size:14px">Procedencia del vehículo</span><span class="chip now">2 faltan</span></div>
- <div class="row" style="border-bottom:0"><span class="mark"></span><span style="flex:1;font-size:14px;color:var(--tx2)">Valoración y comparables</span></div>
+ <div class="row"><span class="mark ok">✓</span><span style="flex:1;font-size:15.5px">Identidad de las partes</span></div>
+ <div class="row"><span class="mark ok">✓</span><span style="flex:1;font-size:15.5px">Origen de los fondos</span></div>
+ <div class="row"><span class="mark now">·</span><span style="flex:1;font-size:15.5px">Procedencia del vehículo</span><span class="chip now">2 faltan</span></div>
+ <div class="row" style="border-bottom:0"><span class="mark"></span><span style="flex:1;font-size:15.5px;color:var(--tx2)">Valoración y comparables</span></div>
  <div class="rule"></div>
- <div style="font-size:12px;color:var(--tx3);line-height:1.65">Mientras falte documentación el comprador no transfiere nada. Nadie corre riesgo por esperar.</div>`};
+ <div style="font-size:13.5px;color:var(--tx3);line-height:1.65">Mientras falte documentación el comprador no transfiere nada. Nadie corre riesgo por esperar.</div>`};
 
 function op(art,name,sub,amt,chip,n,c,t,to,isPart){
   var img = isPart ? part(art, art==='v12'?'#C67F70':'var(--tx2)') : car(art);
   return `<button class="row" style="align-items:stretch" onclick="go('${to}')">
    <span class="thumb">${img}</span>
-   <span style="flex:1"><span style="font-size:15.5px">${name}</span>
-    <span style="display:block;font-size:11.5px;color:var(--tx3);margin:3px 0 9px">${sub}</span>
+   <span style="flex:1"><span style="font-size:16.5px">${name}</span>
+    <span style="display:block;font-size:13px;color:var(--tx3);margin:3px 0 9px">${sub}</span>
     <span class="reg" style="display:flex">${reg(n,c,t)}</span></span>
    <span style="text-align:right;display:flex;flex-direction:column;justify-content:space-between">
-    <span class="amount" style="font-size:15px">${amt}</span>${chip}</span></button>`}
+    <span class="amount" style="font-size:16px">${amt}</span>${chip}</span></button>`}
 function row(m,t,r,to){return `<button class="row" onclick="go('${to}')"><span class="mark ${m}">${m==='ok'?'✓':m==='now'?'·':m==='no'?'!':''}</span>
- <span style="flex:1;font-size:14px${m?'':';color:var(--tx2)'}">${t}</span><span class="ref">${r}</span></button>`}
+ <span style="flex:1;font-size:15.5px${m?'':';color:var(--tx2)'}">${t}</span><span class="ref">${r}</span></button>`}
 function doc(t,s,c,l){return `<button class="row" onclick="go('documento')"><span style="flex:1">
- <span style="font-size:14px">${t}</span><br><span style="font-size:11.5px;color:var(--tx3)">${s}</span></span>
+ <span style="font-size:15.5px">${t}</span><br><span style="font-size:13px;color:var(--tx3)">${s}</span></span>
  <span class="chip ${c}">${l}</span></button>`}
 function per(i,n,r,c,l){return `<button class="row" onclick="go('parte')">
- <span class="seal" style="width:38px;height:38px;margin:0;font-size:12px;letter-spacing:.03em">${i}</span>
- <span style="flex:1"><span style="font-size:15px">${n}</span><br><span style="font-size:11.5px;color:var(--tx3)">${r}</span></span>
+ <span class="seal" style="width:38px;height:38px;margin:0;font-size:13.5px;letter-spacing:.03em">${i}</span>
+ <span style="flex:1"><span style="font-size:16px">${n}</span><br><span style="font-size:13px;color:var(--tx3)">${r}</span></span>
  <span class="chip ${c}">${l}</span></button>`}
 
-const TABS=[['op','Operaciones','operaciones'],['fo','Fondos','fondos'],['pa','Partes','partes'],['bi','Bitácora','bitacora']];
+/* ===================== PERFIL DEL COLECCIONISTA ===================== */
+IC.co='<path d="M2.5 12l2.2-5h8.6l2.2 5v3.5h-13z"/><path d="M2.5 12h13"/><circle cx="5.7" cy="13.7" r="1"/><circle cx="12.3" cy="13.7" r="1"/>';
+IC.ci='<circle cx="9" cy="9" r="6.5"/><circle cx="9" cy="7.5" r="2"/><path d="M5.5 13.5c.5-2 2-3 3.5-3s3 1 3.5 3"/>';
+
+/* siluetas, frente a la izquierda, en un lienzo de 300 x 100 con el suelo en y=73 */
+const SHP={
+ gt:{b:'M14 66C14 58 22 54 38 51C60 48 88 47 106 46C118 38 132 33 152 32C176 31 196 34 214 40C238 48 262 56 278 61C284 63 286 65 286 68L286 73L14 73Z',g:'M118 45L136 35L172 34L200 42Z',w:[66,232],hl:[24,61],tl:[280,63]},
+ wedge:{b:'M10 68C10 62 18 58 34 55C58 51 84 49 104 48C116 42 130 38 152 37C180 36 208 40 232 46C258 52 278 58 286 62C290 64 290 66 290 69L290 73L10 73Z',g:'M116 47L134 39L166 38L196 43Z',w:[62,236],hl:[20,62],tl:[284,64]},
+ p911:{b:'M20 68C20 58 30 53 46 50C62 47 80 45 96 44C110 36 126 31 146 30C172 29 196 34 216 42C240 51 262 58 274 62C280 64 282 66 282 69L282 73L20 73Z',g:'M108 43L128 33L152 32L178 37L192 44Z',w:[66,232],hl:[30,58],tl:[278,63]},
+ f40:{b:'M12 68C12 60 20 57 36 54C58 50 82 49 100 48C112 42 128 38 150 37C172 36 194 39 212 44C232 49 250 54 264 57L268 47L276 47L275 59C282 61 288 64 288 68L288 73L12 73Z',g:'M112 47L130 40L164 39L192 44Z',w:[60,236],hl:[22,62],tl:[283,64]},
+ gull:{b:'M18 69C18 60 26 55 40 52C54 46 68 40 90 36C110 30 130 28 152 29C176 30 196 36 214 44C232 50 254 56 272 60C282 62 286 65 286 69L286 73L18 73Z',g:'M104 40L124 31L160 31L188 42Z',w:[66,232],hl:[28,60],tl:[280,64]},
+ miura:{b:'M12 68C12 61 20 57 36 54C56 50 80 48 100 47C110 42 124 38 146 37C170 35 196 37 216 43C238 49 260 55 276 60C284 62 288 65 288 69L288 73L12 73Z',g:'M104 47L124 39L166 38L198 45Z',w:[62,236],hl:[22,62],tl:[283,63]},
+ etype:{b:'M14 68C14 60 22 56 40 52C70 46 110 42 150 40C170 39 184 36 196 32C210 29 226 31 238 38C256 47 272 56 282 61C286 63 288 66 288 70L288 73L14 73Z',g:'M190 42L204 34L228 34L246 44Z',w:[64,236],hl:[24,60],tl:[283,65]}
+};
+function hex(h){h=h.replace('#','');return [parseInt(h.slice(0,2),16),parseInt(h.slice(2,4),16),parseInt(h.slice(4,6),16)]}
+function mix(h,t,k){var a=hex(h),b=hex(t);return 'rgb('+a.map(function(v,i){return Math.round(v+(b[i]-v)*k)}).join(',')+')'}
+function tyre(x,id){return `<circle cx="${x}" cy="70" r="15.5" fill="#0B0E10" stroke="#3A4247" stroke-width="1"/><circle cx="${x}" cy="70" r="9" fill="url(#rim${id})"/><circle cx="${x}" cy="70" r="2.4" fill="#2A3136"/>
+ <path d="M${x} 61v18M${x-9} 70h18M${x-6.4} 63.6l12.8 12.8M${x+6.4} 63.6l-12.8 12.8" stroke="#1F262A" stroke-width="1.6"/>`}
+/* render de un coche: fondo de estudio, pintura con degradado, cristal, luces, sombra y reflejo */
+function photo(c,mode){mode=mode||'pro';var s=SHP[c.art],p=c.paint,id=c.id+mode,pro=mode==='pro';
+ var bg=pro?`url(#bg${id})`:'#262D31';
+ var carg=`<path d="${s.b}" fill="url(#pt${id})" stroke="${mix(p,'#000000',.55)}" stroke-width=".8"/>
+  <path d="${s.b}" fill="none" stroke="#fff" stroke-opacity="${pro?.14:.06}" stroke-width="1.2"/>
+  <path d="${s.g}" fill="url(#gl${id})" stroke="${mix(p,'#000000',.6)}" stroke-width=".7"/>
+  <ellipse cx="${s.hl[0]}" cy="${s.hl[1]}" rx="4.5" ry="2.6" fill="#FFF4D0" opacity=".9"/>
+  <ellipse cx="${s.tl[0]}" cy="${s.tl[1]}" rx="3.2" ry="2" fill="#E24A3A" opacity=".9"/>
+  ${tyre(s.w[0],id)}${tyre(s.w[1],id)}`;
+ return `<svg viewBox="0 0 300 128" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+  <radialGradient id="bg${id}" cx="50%" cy="18%" r="85%"><stop offset="0" stop-color="#343E45"/><stop offset="1" stop-color="#14191C"/></radialGradient>
+  <linearGradient id="pt${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${mix(p,'#ffffff',pro?.38:.18)}"/><stop offset=".45" stop-color="${p}"/><stop offset="1" stop-color="${mix(p,'#000000',.5)}"/></linearGradient>
+  <linearGradient id="gl${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D8E4EA" stop-opacity=".55"/><stop offset="1" stop-color="#3A4A55" stop-opacity=".9"/></linearGradient>
+  <linearGradient id="rim${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D3D8DB"/><stop offset="1" stop-color="#6B7378"/></linearGradient>
+  <linearGradient id="fd${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#14191C" stop-opacity="0"/><stop offset="1" stop-color="#14191C" stop-opacity="1"/></linearGradient>
+  <filter id="bl${id}" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="4"/></filter></defs>
+  <rect width="300" height="128" fill="${bg}"/>
+  ${pro?`<g transform="translate(0,160) scale(1,-1)" opacity=".2">${carg}</g><rect x="0" y="88" width="300" height="40" fill="url(#fd${id})"/>`:''}
+  <path d="M0 87.5h300" stroke="#fff" stroke-opacity="${pro?.07:.12}"/>
+  <ellipse cx="150" cy="86" rx="132" ry="5" fill="#000" opacity="${pro?.55:.35}" filter="url(#bl${id})"/>
+  <g transform="translate(0,14)">${carg}</g></svg>`}
+function photoPart(p){return `<svg viewBox="0 0 300 128" aria-hidden="true"><defs><radialGradient id="bgp${p.id}" cx="50%" cy="18%" r="85%"><stop offset="0" stop-color="#343E45"/><stop offset="1" stop-color="#14191C"/></radialGradient></defs>
+ <rect width="300" height="128" fill="url(#bgp${p.id})"/><g transform="translate(0,14)">${part(p.art,'#C9CFD2').replace(/^<svg[^>]*>|<\/svg>$/g,'')}</g></svg>`}
+function img(c){return c.img?`<img src="${c.img}" alt="" style="display:block;width:100%;height:auto">`:photo(c,'pro')}
+
+const OWNER='A. Restrepo';
+const CO_CTY={CO:'Colombia',US:'Estados Unidos',EU:'Europa'};
+const VISL={priv:'Privado',circ:'Círculo',memb:'Miembros'};
+const VORD={priv:0,circ:1,memb:2};
+const CARS=[
+ {id:'f40',art:'f40',paint:'#B5121B',name:'Ferrari F40',year:1990,cty:'US',val:2900000,st:'oferta',vis:'circ',ch:'ZFFGJ34B000085341',n:9,d3:1},
+ {id:'countach',art:'wedge',paint:'#D9D6CC',name:'Lamborghini Countach 25º Aniversario',year:1989,cty:'EU',val:620000,st:'subasta',vis:'memb',ch:'ZA9CA05A0KLA12488',n:9},
+ {id:'sl',art:'gull',paint:'#AEB3B8',name:'Mercedes-Benz 300 SL Gullwing',year:1955,cty:'CO',val:1400000,st:'rev',vis:'priv',ch:'1980405500213',n:6},
+ {id:'rs27',art:'p911',paint:'#E4E2D9',name:'Porsche 911 Carrera RS 2.7',year:1973,cty:'EU',val:780000,st:'ok',vis:'circ',ch:'9113600771',n:9,d3:1},
+ {id:'miura',art:'miura',paint:'#5E9A46',name:'Lamborghini Miura P400 S',year:1969,cty:'CO',val:2100000,st:'ok',vis:'priv',ch:'4407',n:9},
+ {id:'daytona',art:'gt',paint:'#E1B31E',name:'Ferrari 365 GTB/4 Daytona',year:1971,cty:'CO',val:650000,st:'ok',vis:'circ',ch:'14381',n:9},
+ {id:'gt2',art:'p911',paint:'#2A7FB8',name:'Porsche 911 GT2 (993)',year:1996,cty:'US',val:1300000,st:'ok',vis:'priv',ch:'WP0ZZZ99ZTS392061',n:9},
+ {id:'etype',art:'etype',paint:'#1F4A2E',name:'Jaguar E-Type Serie 1 roadster',year:1963,cty:'CO',val:220000,st:'rev',vis:'priv',ch:'876543',n:7},
+ {id:'m1',art:'wedge',paint:'#E3671B',name:'BMW M1',year:1980,cty:'EU',val:600000,st:'ok',vis:'circ',ch:'WBS59910004301155',n:9},
+ {id:'eb110',art:'wedge',paint:'#1E3F8F',name:'Bugatti EB110 GT',year:1993,cty:'US',val:2200000,st:'ok',vis:'priv',ch:'ZA9AB01E0PCD39044',n:9}
+];
+const PIEZAS=[{id:'p1',name:'Motor 2.7 original del RS',sub:'para el bastidor 9113600771, números cotejados',art:'v12',val:'€160.000'},
+ {id:'p2',name:'Escape original del F40',sub:'desmontado en 2016, conservado embalado',art:'gbox',val:'€14.000'},
+ {id:'p3',name:'Juego de llantas Campagnolo del Miura',sub:'originales de fábrica, restauradas',art:'gbox',val:'€22.000'}];
+function ctot(){return CARS.reduce(function(a,c){return a+c.val},0)+196000}
+function fmtM(n){if(n>=1e6){var m=(n/1e6).toFixed(1).replace('.',',').replace(',0','');return '€'+m+'M'}return '€'+n.toLocaleString('es-ES')}
+function chipSt(c){return c.st==='oferta'?'<span class="chip now">Oferta recibida</span>':c.st==='subasta'?'<span class="chip st">En subasta</span>':c.st==='rev'?'<span class="chip now">En revisión</span>':c.st==='exp'?'<span class="chip ok">Expediente abierto</span>':''}
+function partial(ch){return '···'+ch.slice(-5)}
+function effVis(c){return c.pub?c.vis:(VORD[c.vis]<=VORD[PROF]?c.vis:PROF)}
+let FILT='all',HIDE=false,PROF='circ',cur=CARS[0],PASO=0,OFF_SENT=0,VIEW3D='raw';
+const BUSCO=[['Ferrari 288 GTO','1985 a 1987',1],['Porsche 964 Carrera RS','1992, sin pintar',0],['Mercedes-Benz 190 E 2.5-16 Evolution II','1990',0]];
+const AUCS=[{id:'countach',car:'countach',salida:520000,reserva:610000,actual:640000,fin:'14 SEP, 18:00',quien:'Tu círculo y quien busca algo así',ven:17,
+ pujas:[['12 SEP 09:40','Miembro verificado, avalado por Rafael A.','€640.000'],['11 SEP 21:15','Miembro verificado, avalado por K. Al-S.','€625.000'],['11 SEP 18:02','Miembro verificado, avalado por M. Duarte','€600.000'],['10 SEP 10:30','Miembro verificado, avalado por Rafael A.','€560.000'],['9 SEP 16:44','Miembro verificado, avalado por J. Ortiz','€520.000']]}];
+let aucId='countach';
+const CHAT=[['them','Vi el F40 en tu círculo. El pasaporte es impecable. ¿Aceptarías 2,85 si el cierre pasa por expediente?','11 SEP 19:20'],
+ ['me','Mi mínimo estaba en 2,8. Con el escape original incluido, sí.','11 SEP 19:34'],
+ ['them','De acuerdo. Te dejo la oferta formal para que quede registrada.','11 SEP 19:36']];
+
+function openCar(id){cur=CARS.filter(function(c){return c.id===id})[0];go('pasaporte')}
+function setVis(v){cur.vis=v;go('pasaporte')}
+function setProf(v){PROF=v;go('coleccion')}
+function ccard(c){var v=effVis(c);return `<button class="ccard" onclick="openCar('${c.id}')">
+ <div class="cimg">${img(c)}${chipSt(c)?'<span class="cchip">'+chipSt(c)+'</span>':''}</div>
+ <div class="cmeta"><div style="flex:1;min-width:0"><div class="cname">${c.name}</div><div class="csub">${c.year} · ${CO_CTY[c.cty]} · ${VISL[v]}${v!==c.vis?' por el perfil':''}</div></div>
+  <div class="amount cval">${HIDE?'····':fmtM(c.val)}</div></div>
+ <div class="reg" style="margin:0 16px 14px">${reg(c.n,c.n<9?'f':'d',9)}</div></button>`}
+function prow(p){return `<button class="row" onclick="openPieza('${p.id}')"><span class="thumb2">${photoPart(p)}</span>
+ <span style="flex:1;min-width:0"><span style="font-size:16px">${p.name}</span><br><span style="font-size:13px;color:var(--tx3)">${p.sub}</span></span><span class="amount" style="font-size:16px">${HIDE?'····':p.val}</span></button>`}
+function hero2(c){return `<div class="cimg hero2">${img(c)}<span class="plate plate-ov">CHASIS ${c.ch}</span><span class="ref ref-ov">${c.year}</span></div>`}
+
+S.coleccion={tab:'co',title:'brand',sub:'PERFIL',html:function(){
+ var list=CARS.filter(function(c){return FILT==='all'||(FILT==='venta'?(c.st==='oferta'||c.st==='subasta'||c.st==='exp'):FILT==='rev'?c.st==='rev':c.cty===FILT)});
+ var pills=[['all','Todos'],['CO','Colombia'],['US','Estados Unidos'],['EU','Europa'],['venta','En venta'],['rev','En revisión']].map(function(p){
+  return `<button class="pill" aria-pressed="${FILT===p[0]}" onclick="FILT='${p[0]}';go('coleccion')">${p[1]}</button>`}).join('');
+ return `<div class="prof in"><div class="seal" style="width:64px;height:64px;margin:0;font-size:18px;letter-spacing:.02em">AR</div>
+  <div><div class="pname">${OWNER}</div><div class="psub">Coleccionista · Colombia · miembro desde 2026</div><div class="psub" style="color:var(--stamp)">Invitado por Rafael A.</div></div></div>
+ <div class="stats">
+  <div><b>10</b><span>coches</span></div><div><b>3</b><span>piezas</span></div><div><b>14</b><span>en el círculo</span></div>
+  <div onclick="HIDE=!HIDE;go('coleccion')" style="cursor:pointer"><b>${HIDE?'····':fmtM(ctot())}</b><span>${HIDE?'valor, mostrar':'valor, ocultar'}</span></div></div>
+ <div class="k">PERFIL VISIBLE PARA</div>
+ <div class="seg">${['priv','circ','memb'].map(function(v){return `<button aria-pressed="${PROF===v}" onclick="setProf('${v}')">${VISL[v]}</button>`}).join('')}</div>
+ <div class="note">${PROF==='priv'?'Nadie sabe que existes. Ni tu círculo.':PROF==='circ'?'Tu círculo ve tu nombre y los coches que compartes con él.':'Cualquier miembro verificado ve tu perfil y los coches que marques como Miembros. Tu nombre, no: hasta abrir expediente eres un miembro verificado.'} El perfil marca el máximo: cada coche puede ser más privado, nunca más público. El valor y dónde está cada coche solo los ves tú.</div>
+ <div class="pills">${pills}</div>
+ ${list.length?list.map(ccard).join(''):'<div class="note" style="padding:24px 0">Nada en este filtro.</div>'}
+ ${FILT==='all'?'<div class="phase">PIEZAS Y COMPONENTES</div>'+PIEZAS.map(prow).join(''):''}
+ <div class="rule"></div>
+ <button class="btn quiet" onclick="go('altacoche')">Añadir un coche</button>
+ <div class="note" style="margin-top:14px">Tener la colección aquí no cuesta nada. El alta en el garaje sí, 1.800 por visita, y se descuenta del primer expediente. Después solo se paga por expediente, y solo al cierre.</div>`}};
+
+/* ---- detalle de los pasaportes ---- */
+const D={
+ f40:{sello:'3 SEP 2026',
+  ficha:[['Motor','V8 biturbo 2.936 cc, tipo F120A'],['Potencia','478 CV a 7.000 rpm'],['Cambio','Manual de cinco velocidades'],['Color','Rosso Corsa, código 300/12'],['Interior','Tela roja, sin aire acondicionado'],['Kilometraje','18.400 km, cotejado con seis revisiones'],['Versión','Europea, sin catalizador, ventanillas fijas']],
+  hist:[['1990','Entregado nuevo por un concesionario de Módena','factura de origen'],['1997','Segundo propietario, Lugano','contrato y libro de mantenimiento'],['2009','Adquirido por la colección en una venta privada','contrato y transporte a Miami'],['HOY','En la colección, mismo garaje desde 2009','']],
+  mant:[['2024','Sustitución de los depósitos de combustible','taller especialista, factura'],['2021','Revisión completa y correas','factura'],['2016','Neumáticos, frenos y retoque frontal','factura y fotografías'],['2009 a 2015','Siete revisiones anuales','facturas']],
+  docs:[['Certificado del fabricante','Ferrari Classiche, 2018','ok','Cotejado'],['Factura de origen','concesionario, 1990','ok','Cotejado'],['Libro de mantenimiento','completo desde nuevo','ok','Cotejado'],['Título de propiedad','Florida, 2009','ok','Cotejado'],['Contrato de compra','2009','ok','Sellado'],['Informe de inspección','2025, 41 páginas','ok','Sellado']],
+  mods:[['Motor y caja','Originales, los números coinciden','ok'],['Pintura','Original, con retoques en el frontal documentados en 2016','ok'],['Escape','No original. El original se conserva en la colección, con su propio pasaporte','now'],['Depósitos de combustible','Sustituidos en 2024 por piezas del fabricante','ok'],['Asientos y tapicería','Originales','ok']],
+  val:{est:'€2.900.000',hor:'€2.700.000 a €3.100.000',comp:[['jun 2026','Subasta, Milán','€2.980.000'],['ene 2026','Subasta, Arizona','$3.140.000'],['oct 2025','Venta privada, Suiza','€2.650.000'],['ago 2025','Subasta, Monterey','$3.300.000']],nota:'Los comparables de 2026 se ajustan por kilometraje y por el escape no original. Sin el certificado del fabricante la horquilla bajaría unos 300.000 euros.'}},
+ sl:{sello:'28 AGO 2026',
+  ficha:[['Motor','Seis cilindros en línea, 2.996 cc, inyección directa'],['Potencia','215 CV'],['Color','Plata, DB 180'],['Interior','Cuero rojo, con las maletas originales'],['Kilometraje','No acreditado antes de 2011'],['Serie','Chasis y motor de 1955, carrocería de acero']],
+  hist:[['1955','Entregado nuevo en Stuttgart','copia de la ficha de fábrica'],['1962','Vendido a un particular en Nueva York','título de la época'],['1998','Comprado por la familia y trasladado a Bogotá','licencia de importación y certificación del Automóvil Club'],['HOY','En la colección','']],
+  mant:[['2019','Restauración mecánica completa','taller de Bogotá, facturas'],['2011 a 2018','Revisiones anuales','facturas'],['1998 a 2011','Sin facturas. Se declara y se descuenta','']],
+  docs:[['Ficha de fábrica','copia certificada, 2019','ok','Cotejado'],['Licencia previa de importación','Ministerio de Comercio, 1998','ok','Cotejado'],['Certificación del Automóvil Club','1998','ok','Cotejado'],['Título vigente','Bogotá','ok','Cotejado'],['Mantenimiento 1998 a 2011','sin acreditar','no','Falta'],['Informe de inspección','pendiente','','Pendiente']],
+  mods:[['Motor','Original, número coincide','ok'],['Pintura','Repintado en 2019, mismo color de fábrica','ok'],['Inyección','Original, revisada en 2019','ok'],['Asientos','Retapizados en 2019 con cuero del mismo tono','now']],
+  val:{est:'€1.400.000',hor:'€1.250.000 a €1.550.000',comp:[['may 2026','Subasta, Villa d\'Este','€1.610.000'],['feb 2026','Subasta, París','€1.380.000'],['nov 2025','Venta privada, Alemania','€1.300.000']],nota:'El hueco de mantenimiento entre 1998 y 2011 descuenta unos 100.000 euros. Con las facturas, o con un informe de inspección que lo supla, la horquilla sube.'}},
+ countach:{sello:'1 SEP 2026',
+  ficha:[['Motor','V12 5.167 cc, inyección'],['Potencia','455 CV'],['Color','Bianco'],['Interior','Cuero azul'],['Kilometraje','21.300 km'],['Serie','Uno de 657 del 25º Aniversario']],
+  hist:[['1989','Entregado nuevo en Milán','factura'],['2003','Segundo propietario, Mónaco','contrato'],['2015','Adquirido por la colección, Múnich','contrato'],['HOY','En venta entre miembros','']],
+  mant:[['2025','Revisión completa antes de la venta','factura'],['2015 a 2024','Revisiones anuales','facturas']],
+  docs:[['Certificado del fabricante','Polo Storico, 2020','ok','Cotejado'],['Factura de origen','1989','ok','Cotejado'],['Título vigente','Alemania','ok','Cotejado'],['Informe de inspección','2025','ok','Sellado']],
+  mods:[['Motor y caja','Originales','ok'],['Pintura','Original','ok'],['Llantas','Originales. El juego de repuesto está en la colección','ok']],
+  val:{est:'€620.000',hor:'€560.000 a €680.000',comp:[['jul 2026','Subasta, Londres','€655.000'],['mar 2026','Venta privada, Suiza','€590.000'],['dic 2025','Subasta, Miami','$640.000']],nota:'Los blancos con certificado del fabricante se pagan por encima de la media del modelo.'}},
+ rs27:{sello:'3 SEP 2026',
+  ficha:[['Motor','Seis cilindros bóxer 2.687 cc'],['Potencia','210 CV'],['Cambio','Manual de cinco velocidades, tipo 915'],['Color','Grand Prix White con letras verdes'],['Kilometraje','58.900 km'],['Serie','Touring, uno de 1.308']],
+  hist:[['1973','Entregado nuevo en Stuttgart','ficha de fábrica'],['1988','Segundo propietario, Zúrich','contrato'],['2012','Adquirido por la colección','contrato'],['HOY','En la colección','']],
+  mant:[['2023','Motor original reconstruido, se conserva el bloque de sustitución','factura'],['2012 a 2022','Revisiones anuales','facturas']],
+  docs:[['Certificado del fabricante','Porsche, 2014','ok','Cotejado'],['Ficha de fábrica','copia','ok','Cotejado'],['Título vigente','Suiza','ok','Cotejado'],['Informe de inspección','2024','ok','Sellado']],
+  mods:[['Motor','Original, reconstruido en 2023, número coincide','ok'],['Caja','Original','ok'],['Pintura','Repintada en 1996 en su color original','now']],
+  val:{est:'€780.000',hor:'€720.000 a €850.000',comp:[['jun 2026','Subasta, Milán','€810.000'],['ene 2026','Subasta, Arizona','$790.000'],['sep 2025','Venta privada, Alemania','€740.000']],nota:'La captura 3D con luz controlada muestra el repintado de 1996. Se declara y no descuenta: es conocido en el mercado.'}},
+ miura:{sello:'22 AGO 2026',
+  ficha:[['Motor','V12 3.929 cc transversal'],['Potencia','370 CV'],['Color','Verde Miura'],['Interior','Cuero negro'],['Kilometraje','41.200 km'],['Serie','P400 S, uno de 338']],
+  hist:[['1969','Entregado nuevo en Roma','factura'],['1984','Segundo propietario, Bogotá','licencia de importación'],['2006','Adquirido por la colección','contrato'],['HOY','En la colección','']],
+  mant:[['2022','Revisión de motor y suspensiones','factura'],['2006 a 2021','Revisiones anuales','facturas']],
+  docs:[['Certificado del fabricante','Polo Storico, 2019','ok','Cotejado'],['Licencia previa de importación','1984','ok','Cotejado'],['Título vigente','Bogotá','ok','Cotejado'],['Informe de inspección','2024','ok','Sellado']],
+  mods:[['Motor y caja','Originales','ok'],['Pintura','Repintada en 2006 en su color de fábrica','now'],['Llantas','Originales, restauradas','ok']],
+  val:{est:'€2.100.000',hor:'€1.900.000 a €2.400.000',comp:[['ago 2026','Subasta, Monterey','$2.480.000'],['feb 2026','Subasta, París','€2.050.000'],['sep 2025','Venta privada, Italia','€1.950.000']],nota:'El certificado del fabricante y la cadena completa sostienen la parte alta de la horquilla.'}},
+ daytona:{sello:'22 AGO 2026',
+  ficha:[['Motor','V12 4.390 cc'],['Potencia','352 CV'],['Color','Giallo Fly'],['Interior','Cuero negro'],['Kilometraje','63.500 km'],['Serie','Faros carenados en plexiglás']],
+  hist:[['1971','Entregado nuevo en Milán','factura'],['1989','Segundo propietario, Miami','título'],['2011','Adquirido por la colección y trasladado a Bogotá','contrato y licencia de importación'],['HOY','En la colección','']],
+  mant:[['2024','Revisión completa','factura'],['2011 a 2023','Revisiones anuales','facturas']],
+  docs:[['Certificado del fabricante','Ferrari Classiche, 2013','ok','Cotejado'],['Factura de origen','1971','ok','Cotejado'],['Título vigente','Bogotá','ok','Cotejado']],
+  mods:[['Motor y caja','Originales','ok'],['Pintura','Original con retoques documentados','ok']],
+  val:{est:'€650.000',hor:'€600.000 a €720.000',comp:[['jun 2026','Subasta, Milán','€690.000'],['ene 2026','Subasta, Arizona','$705.000']],nota:'Los faros en plexiglás se pagan con prima. El color amarillo se vende por debajo del rojo.'}},
+ gt2:{sello:'30 AGO 2026',
+  ficha:[['Motor','Seis cilindros bóxer biturbo 3.6'],['Potencia','430 CV'],['Color','Riviera Blue'],['Interior','Cuero negro, jaula de origen'],['Kilometraje','12.800 km'],['Serie','Uno de 57 de calle']],
+  hist:[['1996','Entregado nuevo en Alemania','factura'],['2008','Segundo propietario, Miami','título'],['2019','Adquirido por la colección','contrato'],['HOY','En la colección, Miami','']],
+  mant:[['2025','Revisión anual','factura'],['2019 a 2024','Revisiones anuales','facturas']],
+  docs:[['Certificado del fabricante','Porsche, 2020','ok','Cotejado'],['Título vigente','Florida','ok','Cotejado'],['Informe de inspección','2025','ok','Sellado']],
+  mods:[['Motor y caja','Originales','ok'],['Pintura','Original','ok']],
+  val:{est:'€1.300.000',hor:'€1.200.000 a €1.450.000',comp:[['ago 2026','Subasta, Monterey','$1.520.000'],['mar 2026','Subasta, Ámelia','$1.380.000']],nota:'Los GT2 de calle con bajo kilometraje se han revalorizado más que ningún 993 en tres años.'}},
+ etype:{sello:'18 AGO 2026',
+  ficha:[['Motor','Seis cilindros en línea, 3.8 litros'],['Potencia','265 CV'],['Color','British Racing Green'],['Interior','Cuero beige'],['Kilometraje','No acreditado antes de 2004'],['Serie','Serie 1 de 3.8, suelo plano']],
+  hist:[['1963','Entregado nuevo en Londres','copia del registro'],['1978','Vendido a un particular en Cali','sin documento'],['2004','Adquirido por la colección','contrato'],['HOY','En la colección','']],
+  mant:[['2020','Restauración de carrocería y pintura','facturas'],['2004 a 2019','Revisiones','facturas parciales'],['1978 a 2004','Sin acreditar','']],
+  docs:[['Certificado del club','Jaguar Heritage, 2010','ok','Cotejado'],['Título vigente','Cali','ok','Cotejado'],['Cadena 1978 a 2004','sin documento','no','Falta']],
+  mods:[['Motor','Original, número coincide','ok'],['Pintura','Repintado en 2020 en su color original','now'],['Capota','Sustituida','now']],
+  val:{est:'€220.000',hor:'€190.000 a €250.000',comp:[['may 2026','Subasta, Londres','£215.000'],['nov 2025','Venta privada, España','€205.000']],nota:'El hueco de 1978 a 2004 en la cadena descuenta y se declara. Un informe de inspección lo compensa en parte.'}},
+ m1:{sello:'1 SEP 2026',
+  ficha:[['Motor','Seis cilindros en línea, 3.5 litros'],['Potencia','277 CV'],['Color','Naranja'],['Interior','Tela y cuero negro'],['Kilometraje','29.700 km'],['Serie','Uno de 399 de calle']],
+  hist:[['1980','Entregado nuevo en Múnich','factura'],['1995','Segundo propietario, Zúrich','contrato'],['2017','Adquirido por la colección','contrato'],['HOY','En la colección, Múnich','']],
+  mant:[['2024','Revisión completa','factura'],['2017 a 2023','Revisiones anuales','facturas']],
+  docs:[['Certificado del fabricante','BMW Classic, 2018','ok','Cotejado'],['Título vigente','Alemania','ok','Cotejado'],['Informe de inspección','2024','ok','Sellado']],
+  mods:[['Motor y caja','Originales','ok'],['Pintura','Original','ok']],
+  val:{est:'€600.000',hor:'€540.000 a €660.000',comp:[['jul 2026','Subasta, Londres','€640.000'],['ene 2026','Venta privada, Alemania','€560.000']],nota:'El naranja es el color más buscado del modelo.'}},
+ eb110:{sello:'30 AGO 2026',
+  ficha:[['Motor','V12 3.5 litros con cuatro turbos'],['Potencia','560 CV'],['Color','Blu Bugatti'],['Interior','Cuero gris'],['Kilometraje','9.400 km'],['Serie','GT, uno de 95']],
+  hist:[['1993','Entregado nuevo en Mónaco','factura'],['2007','Segundo propietario, Dubái','contrato'],['2021','Adquirido por la colección','contrato'],['HOY','En la colección, Miami','']],
+  mant:[['2025','Revisión de turbos','factura, taller especialista'],['2021 a 2024','Revisiones anuales','facturas']],
+  docs:[['Certificado del club','EB110 Registry, 2022','ok','Cotejado'],['Título vigente','Florida','ok','Cotejado'],['Informe de inspección','2025','ok','Sellado']],
+  mods:[['Motor y caja','Originales','ok'],['Pintura','Original','ok']],
+  val:{est:'€2.200.000',hor:'€2.000.000 a €2.500.000',comp:[['ago 2026','Subasta, Monterey','$2.640.000'],['may 2026','Venta privada, Suiza','€2.150.000']],nota:'Los GT con menos de 10.000 kilómetros son muy escasos.'}}
+};
+function dd(c){return D[c.id]}
+function sealed(c){return `<div class="sealed">SELLADO ${dd(c).sello} · ${OWNER.toUpperCase()} · HUELLA 7F3A…C21E</div>`}
+function vistext(c){var v=effVis(c);return (c.pub?'Lo has publicado tú para esta venta, así que se ve aunque tu perfil sea más privado. Solo este coche. ':'')+(v!==c.vis&&!c.pub?'Tu perfil está en '+VISL[PROF].toLowerCase()+', así que este coche no puede verse más. ':'')+(v==='priv'?'Solo tú y tu equipo, cada uno con su papel. Nadie más sabe que existe.'
+ :v==='circ'?'Tu círculo ve el coche, el pasaporte resumido y el bastidor completo. Nunca dónde está ni cuánto vale para ti.'
+ :'Los miembros verificados ven el coche y el resumen del pasaporte. Bastidor incompleto: '+partial(c.ch)+'. Nunca dónde está, ni cuánto vale para ti, ni quién eres hasta abrir expediente.')}
+
+S.pasaporte={tab:'co',back:'coleccion',title:'Pasaporte',sub:function(){return partial(cur.ch)},html:function(){var c=cur,d=dd(c),v=effVis(c);
+ var alerta=c.st==='oferta'?`<div class="card up" style="border-color:rgba(211,161,85,.4)"><div class="k" style="color:var(--warn)">OFERTA RECIBIDA</div>
+   <div class="cardtx">M. Duarte, de tu círculo, ofrece €2.850.000. Tu mínimo era €2.800.000.</div><button class="btn" onclick="go('oferta')">Ver la oferta</button></div>`
+  :c.st==='subasta'?`<div class="card up" style="border-color:var(--stampln)"><div class="k" style="color:var(--stamp)">EN SUBASTA ENTRE MIEMBROS</div>
+   <div class="cardtx">Puja actual €640.000, reserva alcanzada. Termina el 14 de septiembre.</div><button class="btn ghost" onclick="aucId='countach';go('subasta')">Ver la subasta</button></div>`
+  :c.st==='exp'?`<div class="card up" style="border-color:rgba(111,179,146,.4)"><div class="k" style="color:var(--ok)">EXPEDIENTE ABIERTO</div>
+   <div class="cardtx">La oferta aceptada abrió el expediente con la verificación medio hecha.</div><button class="btn ghost" onclick="go('paso')">Ver el expediente</button></div>`
+  :c.n<9?`<div class="card up" style="border-color:rgba(211,161,85,.4)"><div class="k" style="color:var(--warn)">FALTA POR ACREDITAR</div>
+   <div class="cardtx">${c.id==='sl'?'Mantenimiento entre 1998 y 2011 sin facturas. Se declara en el pasaporte y descuenta en la valoración.':'La cadena de propietarios entre 1978 y 2004 no tiene documento. Se declara y descuenta.'}</div>
+   <button class="btn quiet" onclick="go('subir')">Subir documentos</button></div>`:'';
+ var nm=d.mods.filter(function(m){return m[2]==='now'}).length;
+ return `${hero2(c)}
+ <h2 class="sc">${c.name}</h2>
+ <p class="lede">${c.year}, ${CO_CTY[c.cty]}. Pasaporte ${c.n===9?'completo, sellado el '+d.sello:'en revisión, '+c.n+' de 9 apartados'}</p>
+ <div class="reg" style="margin-bottom:22px">${reg(c.n,c.n<9?'f':'d',9)}</div>
+ ${alerta}
+ <div class="phase">VISIBILIDAD</div>
+ <div class="seg">${['priv','circ','memb'].map(function(x){return `<button aria-pressed="${c.vis===x}" onclick="setVis('${x}')">${VISL[x]}</button>`}).join('')}</div>
+ <div class="note" style="margin:12px 0 4px">${vistext(c)}</div>
+ ${v!=='priv'?`<div class="kv"><span>Ficha y fotografías</span><b>Se ven</b></div>
+ <div class="kv"><span>Historia y procedencia</span><b>Resumen y resultado</b></div>
+ <div class="kv"><span>Bastidor</span><b>${v==='circ'?'Completo':partial(c.ch)}</b></div>
+ <div class="kv"><span>Documentos</span><b>Nunca. Solo el resultado</b></div>
+ <div class="kv"><span>Dónde está, cuánto vale para ti</span><b>Nunca</b></div>`:''}
+ <div class="phase">VALOR</div>
+ <button class="row" onclick="go('valor')"><span style="flex:1"><span style="font-size:16px">Estimación con ${d.val.comp.length} comparables</span><br><span style="font-size:13px;color:var(--tx3)">${d.val.hor}</span></span><span class="amount" style="font-size:18px">${HIDE?'····':d.val.est}</span></button>
+ <div class="phase">EL PASAPORTE</div>
+ ${row('ok','Ficha técnica',d.ficha.length+' datos','ficha')}
+ ${row(c.id==='etype'?'now':'ok','Historia y propietarios',d.hist.length-1+' tenedores','historia')}
+ ${row(c.n<9?'now':'ok','Procedencia y certificaciones',d.docs.length+' docs','pdocs')}
+ ${row('ok','Modificaciones declaradas',nm===1?'1 no original':nm?nm+' no originales':'todo original','mods')}
+ ${row(c.n<9?'no':'ok','Mantenimiento',d.mant.length+' periodos','historia')}
+ ${row('ok','Fotografías','24','fotos')}
+ ${row(c.d3?'ok':'','Captura 3D',c.d3?'sellada':'pendiente','captura3d')}
+ <div class="rule"></div>
+ ${c.st==='oferta'||c.st==='subasta'||c.st==='exp'?'':`<button class="btn ghost" onclick="go('sacar')">Ofrecer o sacar a subasta</button><div style="height:10px"></div>`}
+ ${c.st==='oferta'?`<button class="btn quiet" onclick="go('chat')">Ver la conversación</button><div style="height:10px"></div>`:''}
+ <button class="btn quiet" onclick="EXPMOD='pas';go('export')">Exportar el pasaporte</button>
+ <div class="note" style="margin-top:14px">Cada dato lleva su sello: fecha, huella y quién lo aportó. Lo que falta se declara, no se esconde.</div>`}};
+
+S.ficha={tab:'co',back:'pasaporte',title:'Ficha técnica',sub:function(){return partial(cur.ch)},html:function(){var d=dd(cur);
+ return `<h2 class="sc in">${cur.name}</h2>${sealed(cur)}<div style="height:14px"></div>
+ ${d.ficha.map(function(f){return `<div class="kv"><span>${f[0]}</span><b>${f[1]}</b></div>`}).join('')}
+ <div class="note" style="margin-top:16px">Lo que dice la ficha se coteja con el certificado del fabricante y con el informe de inspección. Si algo no coincide, se declara.</div>`}};
+
+S.historia={tab:'co',back:'pasaporte',title:'Historia',sub:function(){return partial(cur.ch)},html:function(){var d=dd(cur);
+ return `<h2 class="sc in">De quién ha sido</h2><p class="lede">Cada tenedor con su prueba. El hueco, si lo hay, se señala.</p>
+ <div class="phase">PROPIETARIOS</div>
+ ${d.hist.map(function(h){return `<div class="log"><time>${h[0]}</time><div><b>${h[1]}</b><div style="color:${h[2]||h[0]==='HOY'?'var(--tx3)':'var(--stop)'};font-size:13px;margin-top:3px">${h[2]||(h[0]==='HOY'?'':'sin documento, señalado')}</div></div></div>`}).join('')}
+ <div class="phase">MANTENIMIENTO</div>
+ ${d.mant.map(function(h){return `<div class="log"><time>${h[0]}</time><div><b>${h[1]}</b><div style="color:${h[2]?'var(--tx3)':'var(--stop)'};font-size:13px;margin-top:3px">${h[2]||'sin acreditar, descontado en la valoración'}</div></div></div>`}).join('')}
+ <div style="height:14px"></div>${sealed(cur)}`}};
+
+S.pdocs={tab:'co',back:'pasaporte',title:'Procedencia',sub:function(){return partial(cur.ch)},html:function(){var d=dd(cur);
+ return `<h2 class="sc in">Lo que lo sostiene</h2><p class="lede">Documentos cotejados con su fuente. Un documento sin cotejar no suma.</p>
+ ${d.docs.map(function(x,i){return `<button class="row" onclick="opendoc(${i})"><span style="flex:1"><span style="font-size:16px">${x[0]}</span><br><span style="font-size:13px;color:var(--tx3)">${x[1]}</span></span><span class="chip ${x[2]||'wait'}">${x[3]}</span></button>`}).join('')}
+ <div style="height:14px"></div>${sealed(cur)}
+ <div class="note" style="margin-top:14px">Fuera del círculo nadie ve estos documentos. Solo el resultado: cuántos hay y cuántos están cotejados.</div>`}};
+
+S.mods={tab:'co',back:'pasaporte',title:'Modificaciones',sub:function(){return partial(cur.ch)},html:function(){var d=dd(cur);
+ return `<h2 class="sc in">Qué es original y qué no</h2><p class="lede">Declarado por el propietario y contrastado con la inspección. Lo que no es original no descuenta si se declara y se conserva la pieza.</p>
+ ${d.mods.map(function(m){return `<div class="row" style="cursor:default"><span class="mark ${m[2]}">${m[2]==='ok'?'✓':'·'}</span><span style="flex:1"><span style="font-size:16px">${m[0]}</span><br><span style="font-size:13px;color:var(--tx3);line-height:1.5">${m[1]}</span></span></div>`}).join('')}
+ <div style="height:14px"></div>${sealed(cur)}`}};
+
+S.valor={tab:'co',back:'pasaporte',title:'Valor',sub:function(){return partial(cur.ch)},html:function(){var d=dd(cur);
+ return `<div class="in" style="padding:10px 0 2px"><div class="k">ESTIMACIÓN</div>
+  <div class="amount big">${HIDE?'€ ·· ··· ···':d.val.est}</div>
+  <div style="font-size:15px;color:var(--tx2)">Horquilla ${d.val.hor}</div></div>
+ <div class="rule"></div>
+ <div class="phase">COMPARABLES</div>
+ ${d.val.comp.map(function(x){return `<div class="kv"><span>${x[0]}<br><span style="font-size:13px;color:var(--tx3)">${x[1]}</span></span><b>${x[2]}</b></div>`}).join('')}
+ <div style="height:16px"></div>
+ <div class="card"><div class="k">CÓMO SE AJUSTA</div><div class="cardtx" style="margin-bottom:0">${d.val.nota}</div></div>
+ <div class="note" style="margin-top:16px">Solo tú ves esta cifra. Es una estimación, no una tasación. La tasación formal llega con el expediente, y parte de estos comparables.</div>`}};
+
+S.fotos={tab:'co',back:'pasaporte',title:'Fotografías',sub:'24',html:function(){
+ var cells='';for(var i=0;i<9;i++)cells+=`<div style="border-radius:4px;overflow:hidden;background:#14191C"><div style="transform:scale(${1.15+(i%3)*.25}) translate(${(i%3-1)*8}%,${(i%2)*4}%);transform-origin:center">${photo(cur,i%2?'pro':'raw')}</div></div>`;
+ return `<h2 class="sc in">${cur.name}</h2><p class="lede">Una sola imagen grande por coche en el pasaporte compartido. Aquí, las de la captura.</p>
+ <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px">${cells}</div>
+ <div style="height:16px"></div>${sealed(cur)}
+ <div class="note" style="margin-top:14px">La ubicación que llevan dentro las fotos se borra al subirlas. Ninguna imagen muestra el garaje.</div>`}};
+
+S.captura3d={tab:'co',back:'pasaporte',title:'Captura 3D',sub:function(){return partial(cur.ch)},html:function(){var c=cur;
+ if(!c.d3)return `<h2 class="sc in">Pendiente de captura</h2><p class="lede">La captura se hace en el alta asistida, con luz controlada. La pintura y el cromo reflejan la luz y una captura a mano en el garaje no sirve.</p>
+  <div class="card"><div class="k">CÓMO SE HACE</div><div class="cardtx" style="margin-bottom:0">El teléfono recorre el coche y la aplicación genera un modelo navegable, como se hace con los pisos. Unos 200 fotogramas y veinte minutos por coche. No se desarrolla un motor propio: se integra uno existente.</div></div>`;
+ var pro=VIEW3D==='pro';
+ return `<div class="stage"><div id="rot" style="width:100%;transform:rotateY(0deg)">${photo(c,VIEW3D)}</div><div class="mark3d" style="left:35%;top:56%"></div></div>
+ <input type="range" min="-35" max="35" value="0" oninput="document.getElementById('rot').style.transform='rotateY('+this.value+'deg)'" aria-label="Girar">
+ <div class="seg"><button aria-pressed="${!pro}" onclick="VIEW3D='raw';go('captura3d')">Original</button><button aria-pressed="${pro}" onclick="VIEW3D='pro';go('captura3d')">Presentación</button></div>
+ <div class="note" style="margin:14px 0 4px;color:var(--tx2)">${pro?'La IA ha cambiado el fondo y la luz. El coche es el mismo: el arañazo de la puerta izquierda sigue ahí.':'Tal y como se capturó: garaje, luz plana y el arañazo de la puerta izquierda marcado.'}</div>
+ <div class="kv"><span>Arañazo, puerta izquierda</span><b style="color:var(--stop)">En las dos versiones</b></div>
+ <div class="kv"><span>Captura</span><b>${dd(c).sello}, luz controlada, 212 fotogramas</b></div>
+ <div class="kv"><span>Versión que cuenta en una operación</span><b>La original, sellada</b></div>
+ <div style="height:14px"></div>${sealed(c)}
+ <div class="card" style="margin-top:16px;border-color:var(--stampln);background:var(--stampbg)"><div class="cardtx" style="margin:0;color:var(--stamp)">La IA nunca toca el coche. Un comprador que descubre un arañazo que la IA borró no vuelve, y cuenta por qué.</div></div>`}};
+
+/* ---- ofrecer o subastar ---- */
+const sc={modo:'circ',salida:'',reserva:'',quien:'circ'};
+function nbuscan(c){return (c.name.charCodeAt(0)+c.year)%14+3}
+S.sacar={tab:'co',back:'pasaporte',title:'Vender',sub:function(){return partial(cur.ch)},html:function(){var c=cur;
+ return `<h2 class="sc in">${c.name}</h2><p class="lede">Elige cómo. En los dos casos, el cierre pasa por el expediente y ahí es donde se cobra.</p>
+ <button class="opt" aria-pressed="${sc.modo==='circ'}" onclick="sc.modo='circ';go('sacar')"><span style="flex:1"><span style="font-size:16px">Aceptar ofertas de mi círculo</span><br><span style="font-size:13px;color:var(--tx3)">Sin anunciar nada. Fijas un mínimo y lo que queda por debajo no te llega</span></span></button>
+ <button class="opt" aria-pressed="${sc.modo==='sub'}" onclick="sc.modo='sub';go('sacar')"><span style="flex:1"><span style="font-size:16px">Subasta entre miembros</span><br><span style="font-size:13px;color:var(--tx3)">Precio de salida y reserva. Eliges quién la ve</span></span></button>
+ <div class="k" style="margin-top:14px">${sc.modo==='circ'?'MÍNIMO QUE TE LLEGA':'PRECIO DE SALIDA'}</div>
+ <input class="inp" inputmode="numeric" placeholder="${c.val.toLocaleString('es-ES')}" value="${sc.salida}" oninput="sc.salida=this.value">
+ ${sc.modo==='sub'?`<div class="k" style="margin-top:14px">RESERVA, SOLO LA VES TÚ</div><input class="inp" inputmode="numeric" placeholder="Por debajo no se adjudica" value="${sc.reserva}" oninput="sc.reserva=this.value">
+ <div class="k" style="margin-top:14px">QUIÉN LA VE</div>
+ <select class="sel" onchange="sc.quien=this.value"><option value="circ"${sc.quien==='circ'?' selected':''}>Mi círculo</option><option value="busca"${sc.quien==='busca'?' selected':''}>Mi círculo y quien busca algo así</option><option value="todos"${sc.quien==='todos'?' selected':''}>Todos los miembros verificados</option></select>`:''}
+ <div class="card" style="margin-top:18px"><div class="k">QUIÉN BUSCA ALGO ASÍ</div><div class="cardtx" style="margin-bottom:0"><b style="color:var(--tx);font-weight:400">${nbuscan(c)} miembros verificados</b> tienen un ${c.name.split(' ').slice(0,2).join(' ')} en su lista. Ves cuántos son, nunca quiénes.</div></div>
+ <div style="height:14px"></div>
+ <button class="btn" onclick="publicar()">${sc.modo==='circ'?'Activar ofertas del círculo':'Publicar la subasta'}</button>
+ <div class="note" style="margin-top:14px">${c.vis==='priv'?'El coche está en privado. Se te pedirá confirmación antes de cambiarlo, y solo cambia este coche: tu perfil y el resto de la colección se quedan como están. ':''}Dónde está y cuánto vale para ti siguen sin verse nunca.</div>`}};
+function publicar(){var c=cur;var v=num(sc.salida)||c.val;
+ var destino=sc.modo==='circ'?'circ':(sc.quien==='circ'?'circ':'memb');
+ if(VORD[destino]>VORD[c.vis]){
+  var q=destino==='circ'?'tu círculo':'los miembros verificados que elijas';
+  if(!confirm(c.name+' está en '+VISL[c.vis].toLowerCase()+'.\n\nPara esto tiene que verlo '+q+'.\n\nSolo cambia este coche. Tu perfil sigue en '+VISL[PROF].toLowerCase()+', y el resto de la colección no se toca. Dónde está y cuánto vale para ti siguen sin verse.')) return;
+ }
+ c.pub=1; c.vis=destino;
+ if(sc.modo==='circ'){c.st='ok';alert('Ofertas activadas. Tu círculo puede ofertar por '+c.name+' con un mínimo de '+money(v,'EUR')+'. Lo que quede por debajo no te llega.');go('pasaporte');return}
+ c.st='subasta';aucId='a'+AUCS.length;
+ AUCS.push({id:aucId,car:c.id,salida:v,reserva:num(sc.reserva)||Math.round(v*1.15),actual:0,fin:'en 7 días',quien:sc.quien==='circ'?'Tu círculo':sc.quien==='busca'?'Tu círculo y quien busca algo así':'Todos los miembros verificados',ven:sc.quien==='circ'?14:sc.quien==='busca'?14+nbuscan(c):210,pujas:[]});
+ sc.salida='';sc.reserva='';go('subasta')}
+
+S.subasta={tab:'ci',back:'circulo',title:'Subasta',sub:function(){var a=AUCS.filter(function(x){return x.id===aucId})[0];return a.fin.toUpperCase()},html:function(){
+ var a=AUCS.filter(function(x){return x.id===aucId})[0],c=CARS.filter(function(x){return x.id===a.car})[0];
+ return `${hero2(c)}
+ <h2 class="sc">${c.name}</h2><p class="lede">${a.pujas.length?'Termina el '+a.fin:'Publicada. Termina '+a.fin}</p>
+ <div class="k">${a.actual?'PUJA ACTUAL':'PRECIO DE SALIDA'}</div>
+ <div class="amount big">${money(a.actual||a.salida,'EUR')}</div>
+ <div style="font-size:15px;color:${a.actual>=a.reserva?'var(--ok)':'var(--tx2)'}">${a.actual>=a.reserva?'Reserva alcanzada':a.actual?'Por debajo de la reserva':'Sin pujas todavía. Se ha avisado a '+a.ven+' miembros'}</div>
+ <div class="rule"></div>
+ <div class="kv"><span>Precio de salida</span><b>${money(a.salida,'EUR')}</b></div>
+ <div class="kv"><span>Reserva, solo la ves tú</span><b>${money(a.reserva,'EUR')}</b></div>
+ <div class="kv"><span>Quién la ve</span><b>${a.quien}</b></div>
+ <div class="kv"><span>La han visto</span><b>${a.ven} miembros</b></div>
+ <div class="kv"><span>Lo que ven</span><b>El coche y el resumen del pasaporte</b></div>
+ <div class="kv" style="border-bottom:0"><span>Lo que no ven</span><b>Quién eres ni dónde está</b></div>
+ ${a.pujas.length?'<div class="phase">PUJAS</div>'+a.pujas.map(function(p){return `<div class="log"><time>${p[0].replace(' ','<br>')}</time><div>${p[1]}<div style="margin-top:3px"><span class="amount" style="font-size:16px;color:var(--tx)">${p[2]}</span></div></div></div>`}).join(''):''}
+ <div class="rule"></div>
+ <div class="card" style="border-color:var(--stampln);background:var(--stampbg)"><div class="cardtx" style="margin:0;color:var(--stamp)">Nadie puja sin identidad verificada. Nadie cierra sin origen de fondos acreditado. Si la adjudicas, se abre el expediente con la verificación medio hecha.</div></div>
+ <div style="height:14px"></div>
+ <button class="btn quiet" onclick="go('adjudicar')">${a.pujas.length?'Adjudicar al cierre':'Retirar la subasta'}</button>`}};
+
+/* ---- círculo ---- */
+const MEMB=[['MD','M. Duarte','Lisboa, coleccionista','avalado por Rafael A.'],['KA','K. Al-S.','Riad, sociedad de inversión','avalado por Rafael A.'],['RA','Rafael A.','México, intermediario','miembro fundador'],['JO','J. Ortiz','Ciudad de México, coleccionista','avalado por ti'],['LB','L. Bauer','Múnich, gestor de colección','avalado por K. Al-S.']];
+function carRow(c,sub,chip,to){return `<button class="row" onclick="${to}"><span class="thumb2">${img(c)}</span><span style="flex:1;min-width:0"><span style="font-size:16px">${c.name}</span><br><span style="font-size:13px;color:var(--tx3)">${sub}</span></span>${chip}</button>`}
+S.circulo={tab:'ci',title:'Círculo',sub:'14 MIEMBROS',html:function(){var f40=CARS[0];
+ return `<h2 class="sc in">Quién puede hablarte</h2><p class="lede">Solo quien tú has aceptado. Cada uno entró invitado por alguien, y ves por quién.</p>
+ <div class="phase">OFERTAS</div>
+ ${PASO?carRow(f40,'oferta aceptada, expediente abierto','<span class="chip ok">Expediente</span>',"go('paso')"):carRow(f40,'M. Duarte ofrece €2.850.000','<span class="chip now">Nueva</span>',"cur=CARS[0];go('oferta')")}
+ ${OFF_SENT?carRow({id:'gto',art:'gt',paint:'#B5121B',name:'Ferrari 288 GTO'},'tu oferta de €'+num(OFF_SENT).toLocaleString('es-ES'),'<span class="chip st">Enviada</span>',"go('match')"):''}
+ <div class="phase">SUBASTAS</div>
+ ${AUCS.map(function(a){var c=CARS.filter(function(x){return x.id===a.car})[0];return carRow(c,a.actual?'puja actual '+money(a.actual,'EUR')+', reserva alcanzada':'sin pujas, '+a.ven+' avisados','<span class="chip st">'+(a.pujas.length?'2 días':'Nueva')+'</span>',"aucId='"+a.id+"';go('subasta')")}).join('')}
+ <div class="phase">LO QUE BUSCO</div>
+ ${BUSCO.map(function(b){return `<button class="row" onclick="${b[2]?"go('match')":"go('busco')"}"><span style="flex:1"><span style="font-size:16px">${b[0]}</span><br><span style="font-size:13px;color:var(--tx3)">${b[1]}</span></span><span class="chip ${b[2]?'now':'wait'}">${b[2]?b[2]+' coincidencia':'Nada aún'}</span></button>`}).join('')}
+ <button class="btn quiet" style="margin-top:14px" onclick="go('busco')">Añadir a la lista</button>
+ <div class="phase">CONVERSACIONES</div>
+ <button class="row" onclick="cur=CARS[0];go('chat')"><span class="seal" style="width:42px;height:42px;margin:0;font-size:13px;letter-spacing:.03em">MD</span><span style="flex:1"><span style="font-size:16px">M. Duarte</span><br><span style="font-size:13px;color:var(--tx3)">De acuerdo. Te dejo la oferta formal…</span></span><span class="ref">11 SEP</span></button>
+ <div class="phase">AVALES</div>
+ <button class="card" style="width:100%;text-align:left;font:inherit;color:var(--tx);border-color:var(--stampln);background:var(--stampbg)" onclick="go('avales')">
+  <div class="k" style="color:var(--stamp)">HAS AVALADO A 1 MIEMBRO</div>
+  <div class="cardtx" style="margin-bottom:0;color:var(--stamp)">Cuando dos de tus avalados cierran una operación, cobras el 20% de nuestros honorarios. Nunca sale del precio del coche.</div></button>
+ <div class="phase">MI CÍRCULO</div>
+ ${MEMB.map(function(m,i){return `<button class="row" onclick="mem=${i};go('miembro')"><span class="seal" style="width:42px;height:42px;margin:0;font-size:13px;letter-spacing:.03em">${m[0]}</span><span style="flex:1"><span style="font-size:16px">${m[1]}</span><br><span style="font-size:13px;color:var(--tx3)">${m[2]} · ${m[3]}</span></span><span class="chip ok">Verificado</span></button>`}).join('')}
+ <div class="note" style="padding:12px 0">y nueve más</div>
+ <div class="rule"></div>
+ <button class="btn quiet" onclick="go('invitar')">Invitar a alguien</button>`}};
+
+let mem=0;
+const EX=[{id:'x1',art:'gt',paint:'#8B1E2B',name:'Ferrari 250 GT Lusso',year:1963},{id:'x2',art:'p911',paint:'#2F3A44',name:'Porsche 911 Turbo (993)',year:1996},{id:'x3',art:'wedge',paint:'#C9A227',name:'Lamborghini Diablo SV',year:1997}];
+S.miembro={tab:'ci',back:'circulo',title:'Miembro',sub:function(){return MEMB[mem][0]},html:function(){var m=MEMB[mem];
+ return `<div class="prof in"><div class="seal" style="width:64px;height:64px;margin:0;font-size:18px;letter-spacing:.02em">${m[0]}</div>
+  <div><div class="pname">${m[1]}</div><div class="psub">${m[2]}</div><div class="psub" style="color:var(--stamp)">${m[3]}</div></div></div>
+ <div class="kv"><span>Identidad</span><span class="chip ok">Verificada</span></div>
+ <div class="kv"><span>Origen de fondos</span><b>Se acredita en cada operación</b></div>
+ <div class="kv" style="border-bottom:0"><span>Comparte contigo</span><b>${mem===2?'Nada. Es intermediario':'9 de sus coches'}</b></div>
+ ${mem===2?'':`<div class="phase">SU COLECCIÓN, COMO TE LA ENSEÑA</div>
+ ${EX.map(function(e){return carRow(e,e.year+' · chasis ··· · dónde está: no se muestra','<span class="chip wait">Pasaporte</span>',"openEx('"+e.id+"')")}).join('')}`}
+ <div class="note" style="margin-top:16px">Lo que él ve de ti es exactamente lo que tú has decidido, coche a coche. Nada más.</div>`}};
+
+S.oferta={tab:'ci',back:'circulo',title:'Oferta',sub:'HASTA 18 SEP',html:function(){var c=CARS[0];
+ return `${hero2(c)}
+ <h2 class="sc">Ferrari F40</h2><p class="lede">Oferta de tu círculo por un coche que no estaba en venta</p>
+ <div class="k">OFRECE</div>
+ <div class="amount big">€2.850.000</div>
+ <div style="font-size:15px;color:var(--ok)">Por encima de tu mínimo, €2.800.000</div>
+ <div class="rule"></div>
+ <div class="kv"><span>De</span><b>M. Duarte, Lisboa</b></div>
+ <div class="kv"><span>Identidad</span><span class="chip ok">Verificada</span></div>
+ <div class="kv"><span>Entró</span><b>avalado por Rafael A.</b></div>
+ <div class="kv"><span>Origen de los fondos</span><span class="chip ok">Acreditado</span></div>
+ <div class="kv"><span>Condición</span><b>Escape original incluido</b></div>
+ <div class="kv" style="border-bottom:0"><span>Válida hasta</span><b>18 de septiembre</b></div>
+ <div class="msg them" style="margin-top:16px">Cierre por expediente, con el transporte a Lisboa a mi cargo. Puedo firmar esta semana.<time>11 SEP 19:41</time></div>
+ <div style="height:18px"></div>
+ <button class="btn" onclick="aceptar()">Aceptar y abrir el expediente</button><div style="height:10px"></div>
+ <div class="two"><button class="btn quiet" onclick="go('contraoferta')">Contraoferta</button><button class="btn quiet" onclick="go('rechazar')">Rechazar</button></div>
+ <div class="note" style="margin-top:16px">Hasta que aceptes, él ve el coche y el pasaporte, no tu nombre. Tú ves el resultado de su verificación, nunca sus documentos. Al aceptar, los nombres se revelan a las dos partes y a nadie más.</div>`}};
+function aceptar(){PASO=1;CARS[0].st='exp';go('paso')}
+
+S.paso={tab:'op',back:'operaciones',title:'Expediente',sub:'US PT 0124',html:function(){var c=CARS[0];
+ return `${hero2(c)}
+ <h2 class="sc">Ferrari F40</h2><p class="lede">Miami a Lisboa. Abierto hoy desde el pasaporte</p>
+ <div class="reg" style="margin-bottom:22px">${reg(4,'d')}</div>
+ <div class="card up" style="border-color:rgba(111,179,146,.4)"><div class="k" style="color:var(--ok)">CUATRO ETAPAS DE DIEZ, HECHAS AL ABRIR</div>
+  <div class="cardtx" style="margin-bottom:0">La verificación venía del pasaporte y del alta de los dos miembros. Unas diez horas y tres semanas menos.</div></div>
+ <div class="phase">VERIFICACIÓN</div>
+ ${row('ok','Identidad de las partes','del alta','partes')}
+ ${row('ok','Origen de los fondos','del alta','parte')}
+ ${row('ok','Procedencia del vehículo','del pasaporte, 6 docs','pdocs')}
+ ${row('ok','Valoración y comparables','del pasaporte, 4 ventas','valor')}
+ <div class="phase">ACUERDO</div>
+ ${row('now','Contrato de compraventa','<span class="chip now">Redacción</span>','contrato')}
+ ${row('','Fondos en custodia','€2,85M','fondos')}
+ <div class="phase">FISCALIDAD Y ADUANA</div>
+ ${row('','Exportación desde Estados Unidos','bloqueada','aduana')}
+ ${row('','Importación en la UE','bloqueada','aduana')}
+ <div class="phase">ENTREGA</div>
+ ${row('','Transporte y seguro','presupuestado','aduana')}
+ ${row('','Entrega y matriculación','','aduana')}
+ <div class="rule"></div>
+ <div class="kv"><span>Honorarios de expediente</span><b>€17.100, al cierre</b></div>
+ <div class="kv"><span>Comisión sobre el precio</span><b>Ninguna</b></div>
+ <div class="kv" style="border-bottom:0"><span>Aval de Rafael A.</span><b>€3.420, lo pagamos nosotros</b></div>
+ <div class="note" style="margin-top:14px">Mismo expediente y mismos honorarios que si hubierais cerrado fuera. Custodia no cobra por haberos encontrado, y quien os avaló a los dos cobra por haberlo hecho.</div>
+ <div style="height:14px"></div>
+ <button class="btn quiet" onclick="go('avales')">Cómo funciona el aval</button>`}};
+
+S.chat={tab:'ci',back:'circulo',title:'M. Duarte',sub:'CIFRADO',html:function(){
+ return `<div class="note" style="text-align:center;padding:14px 0 8px">Cifrado de extremo a extremo. Si se abre expediente, la conversación queda en su bitácora.</div>
+ ${CHAT.map(function(m){return `<div class="msg ${m[0]}">${m[1]}<time>${m[2]}</time></div>`}).join('')}
+ ${PASO?'<div class="note" style="color:var(--ok);text-align:center;padding:12px 0">Expediente abierto. La conversación ha quedado sellada en su bitácora.</div>':''}
+ <div class="two" style="margin-top:18px"><input class="inp" id="msgin" placeholder="Escribe" style="margin:0"><button class="btn" style="width:auto;padding:13px 16px" onclick="var v=document.getElementById('msgin').value.trim();if(v){CHAT.push(['me',v,'AHORA']);go('chat')}">Enviar</button></div>`}};
+
+S.busco={tab:'ci',back:'circulo',title:'Lo que busco',html:function(){
+ return `<h2 class="sc in">Lo que busco</h2><p class="lede">Privado. Un vendedor solo sabe cuántos miembros buscan algo como lo suyo, nunca quiénes.</p>
+ ${BUSCO.map(function(b){return `<div class="kv"><span>${b[0]}<br><span style="font-size:13px;color:var(--tx3)">${b[1]}</span></span><b>${b[2]?b[2]+' coincidencia':'nada aún'}</b></div>`}).join('')}
+ <div class="k" style="margin-top:20px">AÑADIR</div>
+ <input class="inp" id="bin" placeholder="Modelo, años, condiciones">
+ <div style="height:14px"></div>
+ <button class="btn ghost" onclick="var v=document.getElementById('bin').value.trim();if(v){BUSCO.push([v,'añadido hoy',0]);go('busco')}">Guardar</button>`}};
+
+S.match={tab:'ci',back:'circulo',title:'Coincidencia',sub:'288 GTO',html:function(){var g={id:'gto',art:'gt',paint:'#B5121B',name:'Ferrari 288 GTO',year:1985,ch:'ZFFPA16B000058421'};
+ return `<div class="cimg hero2">${img(g)}<span class="plate plate-ov">CHASIS ${partial(g.ch)}</span><span class="ref ref-ov">1985</span></div>
+ <h2 class="sc">Ferrari 288 GTO</h2><p class="lede">Ofrecido a quien busca algo así. Así es como lo ves tú</p>
+ <div class="kv"><span>Propietario</span><b>Miembro verificado, avalado por Rafael A.</b></div>
+ <div class="kv"><span>Dónde está</span><b>No se muestra</b></div>
+ <div class="kv"><span>Pasaporte</span><b>9 de 9 apartados, certificado del fabricante</b></div>
+ <div class="kv"><span>Modificaciones declaradas</span><b>Ninguna</b></div>
+ <div class="kv" style="border-bottom:0"><span>Precio orientativo del vendedor</span><b>€3.600.000</b></div>
+ <div style="height:18px"></div>
+ ${OFF_SENT?`<div class="card up"><div class="k" style="color:var(--stamp)">OFERTA ENVIADA</div><div class="cardtx" style="margin-bottom:0">€${num(OFF_SENT).toLocaleString('es-ES')}. El propietario ve la oferta y el resultado de tu verificación, nunca tus documentos. Te responde aquí.</div></div>`
+  :`<div class="k">TU OFERTA</div><input class="inp" id="ofin" inputmode="numeric" placeholder="3.400.000">
+ <div style="height:14px"></div><button class="btn" onclick="var v=document.getElementById('ofin').value;OFF_SENT=num(v)?v:'3400000';go('match')">Enviar la oferta</button>`}
+ <div class="note" style="margin-top:16px">Si la acepta, se revelan los nombres a los dos y se abre el expediente. Hasta entonces, nadie sabe que has ofertado.</div>`}};
+
+S.avales={tab:'ci',back:'circulo',title:'Avales',sub:'20%',html:function(){
+ return `<h2 class="sc in">Quien avala, cobra</h2>
+ <p class="lede">Nadie entra sin invitación, y quien invita responde. Si dos de tus avalados cierran, el 20% de nuestros honorarios es tuyo.</p>
+ <div class="card up"><div class="k">EN LA OPERACIÓN DEL F40</div><div style="height:8px"></div>
+  <div class="kv"><span>Honorarios de Custodia</span><b class="amount">€17.100</b></div>
+  <div class="kv"><span>Aval de Rafael A., 20%</span><b class="amount" style="color:var(--ok)">€3.420</b></div>
+  <div class="kv" style="border-bottom:0"><span>Sale de</span><b>nuestros honorarios, no del precio</b></div>
+  <div class="rule" style="margin:12px 0"></div>
+  <div style="font-size:14.5px;color:var(--tx2);line-height:1.65">Rafael te avaló a ti y avaló a M. Duarte. Vosotros dos habéis cerrado, así que cobra sin haber intervenido.</div></div>
+ <div class="phase">TU POSICIÓN</div>
+ <div class="kv"><span>Te avaló</span><b>Rafael A.</b></div>
+ <div class="kv"><span>Has avalado</span><b>J. Ortiz</b></div>
+ <div class="kv" style="border-bottom:0"><span>Cobrado hasta hoy</span><b class="amount">€0</b></div>
+ <div class="phase">POR QUÉ ESTÁ ASÍ</div>
+ <div style="font-size:15px;color:var(--tx2);line-height:1.8">El intermediario sigue cobrando su comisión de su cliente, como siempre.<br>Custodia nunca cobra sobre el precio del coche.<br>El aval se paga de nuestros honorarios, al cierre.<br>Si el expediente no cierra, no cobra nadie.</div>
+ <div class="rule"></div>
+ <div class="card" style="border-color:var(--stampln);background:var(--stampbg)">
+  <div class="cardtx" style="margin:0;color:var(--stamp)">Un intermediario no pierde nada porque dos de sus clientes se encuentren aquí: cobra igual. Por eso trae a los suyos en vez de mantenerlos fuera.</div></div>`}};
+
+
+/* ===================== PANTALLAS DE DETALLE, RELEASE 3 ===================== */
+let curp=PIEZAS[0], curex=EX[0], curdoc=null, CONTRA='', FIRMADO=0, RECORD=0, INV=0;
+function openPieza(id){curp=PIEZAS.filter(function(x){return x.id===id})[0];go('piezapass')}
+function openEx(id){curex=EX.filter(function(x){return x.id===id})[0];go('cocheajeno')}
+function opendoc(i){curdoc=dd(cur).docs[i];go('docdet')}
+
+/* --- firma del contrato --- */
+S.firma={tab:'op',back:'contrato',title:'Firma',sub:'PT SA 0117',html:function(){
+ return `<h2 class="sc in">Firmar el contrato</h2>
+ <p class="lede">Firma electrónica cualificada. Tiene el mismo valor que la manuscrita en toda la Unión Europea.</p>
+ <div class="card up"><div class="k">QUÉ ESTÁS FIRMANDO</div><div style="height:8px"></div>
+  <div class="kv"><span>Documento</span><b>Compraventa, versión 3</b></div>
+  <div class="kv"><span>Precio</span><b class="amount">€2.400.000</b></div>
+  <div class="kv"><span>Huella del documento</span><b>4c81 9ab0</b></div>
+  <div class="kv" style="border-bottom:0"><span>La otra parte</span><b>João P., firmó el 8 de septiembre</b></div></div>
+ <div class="phase">CÓMO SE VERIFICA</div>
+ <div style="font-size:15px;color:var(--tx2);line-height:1.9">Certificado cualificado a tu nombre<br>Código de un solo uso a tu teléfono<br>Sello de tiempo de una autoridad de confianza<br>La huella firmada se guarda en la bitácora</div>
+ <div style="height:20px"></div>
+ <button class="btn" onclick="FIRMADO=1;go('firmado')">Firmar ahora</button>
+ <div style="height:10px"></div>
+ <button class="btn quiet" onclick="go('contrato')">Leerlo otra vez antes</button>
+ <div class="note" style="margin-top:16px">Si algo no te cuadra, no firmes. Pedir un cambio no retrasa la aduana más que un día; firmar algo que no querías sí.</div>`}};
+
+S.firmado={tab:'op',back:'expediente',title:'Firmado',sub:'HOY',html:function(){
+ return `<div class="cert in" style="margin:14px 0 22px"><div class="cert-in">
+  <div class="seal">FIRMADO</div>
+  <div class="ref">CONTRATO DE COMPRAVENTA, VERSIÓN 3</div>
+  <div class="amount" style="font-size:30px;margin:14px 0 6px">€2.400.000</div>
+  <div style="font-size:14px;color:var(--tx3)">las dos partes, hoy</div></div></div>
+ <div class="phase">QUÉ SE HA DESBLOQUEADO</div>
+ <div class="row"><span class="mark ok">✓</span><span style="flex:1;font-size:15.5px">Exportación desde Portugal</span><span class="ref">arranca hoy</span></div>
+ <div class="row"><span class="mark ok">✓</span><span style="flex:1;font-size:15.5px">Reserva del transporte</span><span class="ref">confirmada</span></div>
+ <div class="row" style="border-bottom:0"><span class="mark now">·</span><span style="flex:1;font-size:15.5px">Importación en destino</span><span class="ref">al salir el barco</span></div>
+ <div class="rule"></div>
+ <div class="card" style="border-color:var(--stampln);background:var(--stampbg)">
+  <div class="cardtx" style="margin:0;color:var(--stamp)">La firma y su huella quedan en la bitácora con sello de tiempo. Ni tú ni nosotros podemos cambiarlas después.</div></div>
+ <div style="height:16px"></div>
+ <button class="btn quiet" onclick="go('bitacora')">Ver la bitácora</button>`}};
+
+/* --- exportar --- */
+let EXPMOD='exp';
+S.export={tab:'op',back:'bitacora',title:'Exportar',html:function(){var pas=EXPMOD==='pas';
+ return `<h2 class="sc in">${pas?'Exportar el pasaporte':'Exportar la bitácora'}</h2>
+ <p class="lede">${pas?'Un PDF con todo el pasaporte del coche, sello a sello. Es tuyo: si te vas de Custodia, te lo llevas.':'Un PDF sellado con cada entrada del expediente y la huella de cada documento. Se adjunta como anexo del contrato.'}</p>
+ <div class="card up"><div class="k">QUÉ LLEVA DENTRO</div><div style="height:8px"></div>
+  ${(pas?[['Ficha técnica cotejada','6 datos'],['Historia y propietarios','4 tenedores'],['Procedencia','6 documentos con su huella'],['Modificaciones declaradas','1 no original'],['Valoración con comparables','4 ventas'],['Captura 3D original','sellada']]
+        :[['Entradas del expediente','8, con fecha y autor'],['Huella de cada documento','6'],['Firmas electrónicas','2'],['Movimientos de fondos','3'],['Conversaciones selladas','1']]).map(function(x){
+   return `<div class="kv"><span>${x[0]}</span><b>${x[1]}</b></div>`}).join('').replace(/border-bottom:1px solid var\(--line\)/,'')}
+ </div>
+ <div class="phase">CÓMO SE COMPRUEBA</div>
+ <div style="font-size:15px;color:var(--tx2);line-height:1.9">Cada página lleva la huella del documento original<br>Quien lo reciba puede verificarla sin tener cuenta<br>Si alguien altera una página, la huella deja de cuadrar</div>
+ <div style="height:20px"></div>
+ <button class="btn" onclick="alert('En el producto real se descarga el PDF. Aquí es una maqueta.')">Generar el PDF</button>
+ <div style="height:10px"></div>
+ <button class="btn quiet" onclick="go(EXPMOD==='pas'?'pasaporte':'bitacora')">Volver</button>
+ <div class="note" style="margin-top:16px">${pas?'No incluye dónde está el coche ni lo que vale para ti. Eso no sale nunca, ni en tus propias exportaciones compartidas.':'La bitácora no se puede editar, tampoco por nosotros. Por eso sirve como prueba.'}</div>`}};
+
+/* --- invitaciones a las partes --- */
+S.invitacion={tab:'op',back:'nuevo',title:'Invitaciones',html:function(){
+ return `<h2 class="sc in">Dos invitaciones, no una</h2>
+ <p class="lede">Cada parte recibe la suya, con su propia lista. Ninguno ve lo que se le pide al otro.</p>
+ <div class="card up"><div class="k">AL VENDEDOR, ${(st.vendedor||'VENDEDOR').toUpperCase()}</div><div style="height:9px"></div>
+  <div style="font-size:15px;color:var(--tx2);line-height:1.9">Documento de identidad<br>Título de propiedad libre de cargas<br>Documentación de procedencia<br>Factura de origen si existe<br>Autorización para la inspección física</div></div>
+ <div style="height:12px"></div>
+ <div class="card up"><div class="k">AL COMPRADOR, ${(st.comprador||'COMPRADOR').toUpperCase()}</div><div style="height:9px"></div>
+  <div style="font-size:15px;color:var(--tx2);line-height:1.9">Documento de identidad con lectura del chip<br>Titularidad real si compra una sociedad<br>Soporte del origen de los fondos<br>Datos de entrega en destino</div></div>
+ <div class="phase">LO QUE VE CADA UNO</div>
+ <div class="kv"><span>Sus propios documentos</span><b>Sí</b></div>
+ <div class="kv"><span>Los documentos del otro</span><b>Nunca</b></div>
+ <div class="kv"><span>El resultado de la comprobación del otro</span><b>Sí</b></div>
+ <div class="kv" style="border-bottom:0"><span>Tus honorarios y tu acuerdo</span><b>No</b></div>
+ <div style="height:20px"></div>
+ <button class="btn" onclick="INV=1;alert('Enviadas. Te avisamos cuando cada parte complete la suya.');go('nuevo')">Enviar las dos</button>
+ <div class="note" style="margin-top:16px">El comprador solo se verifica cuando ya ha decidido comprar, y sabiendo que el vendedor jamás verá sus papeles. Esa asimetría es la que hace que acepte.</div>`}};
+
+/* --- recordatorio al vendedor --- */
+S.recordatorio={tab:'op',back:'bloqueo',title:'Recordatorio',html:function(){
+ return `<h2 class="sc in">Lo que falta, exacto</h2>
+ <p class="lede">No se le pide que mande documentación. Se le dice qué documento, de qué año y para qué sirve.</p>
+ <div class="card up"><div class="k">SE LE PEDIRÁ</div><div style="height:9px"></div>
+  <div class="kv"><span>Factura de origen</span><b>1971, concesionario</b></div>
+  <div class="kv"><span>Constancia de importación</span><b>1974, aduana mexicana</b></div>
+  <div class="kv" style="border-bottom:0"><span>Para qué</span><b>sin esto no hay pedimento de exportación</b></div></div>
+ <div class="msg them" style="margin-top:16px">Buenos días. Para exportar el Miura faltan dos documentos: la factura de origen de 1971 y la constancia de importación de 1974. Sin ellos la aduana no abre el pedimento y la operación no puede avanzar. Puede subirlos desde el enlace de su expediente.<time>BORRADOR</time></div>
+ <div class="phase">CADENCIA</div>
+ <div style="font-size:15px;color:var(--tx2);line-height:1.9">Hoy, este mensaje<br>A los tres días, recordatorio automático<br>A los siete, aviso al intermediario<br>A los catorce, el expediente se marca detenido</div>
+ <div style="height:20px"></div>
+ <button class="btn" onclick="RECORD=1;alert('Enviado. El seguimiento queda en la bitácora del expediente.');go('bloqueo')">Enviar</button>
+ <div class="note" style="margin-top:16px">Perseguir documentos es la mitad del trabajo de una operación. Aquí lo hace el sistema y queda registrado quién no responde.</div>`}};
+
+/* --- subir documentos al pasaporte --- */
+S.subir={tab:'co',back:'pasaporte',title:'Subir',sub:function(){return partial(cur.ch)},html:function(){var c=cur;
+ return `<h2 class="sc in">Completar el pasaporte</h2>
+ <p class="lede">${c.id==='sl'?'Faltan las facturas de mantenimiento entre 1998 y 2011.':'Falta la cadena de propietarios entre 1978 y 2004.'} Mientras falte, se declara y descuenta.</p>
+ <div class="phase">QUIÉN PUEDE APORTARLO</div>
+ <button class="row" onclick="alert('Le llega un enlace que solo sirve para este apartado. No ve el resto del pasaporte ni el valor.')"><span class="seal" style="width:40px;height:40px;margin:0;font-size:13px">TB</span><span style="flex:1"><span style="font-size:16px">Tu taller de Bogotá</span><br><span style="font-size:13px;color:var(--tx3)">tiene las facturas en papel</span></span><span class="chip st">Pedir</span></button>
+ <button class="row" onclick="alert('El gestor sube desde el escritorio, que es donde está el trabajo pesado.')"><span class="seal" style="width:40px;height:40px;margin:0;font-size:13px">GC</span><span style="flex:1"><span style="font-size:16px">Tu gestor de colección</span><br><span style="font-size:13px;color:var(--tx3)">acceso completo al pasaporte</span></span><span class="chip st">Pedir</span></button>
+ <button class="row" style="border-bottom:0" onclick="alert('Desde el teléfono se fotografía un documento suelto. Los lotes grandes, desde el escritorio.')"><span class="seal" style="width:40px;height:40px;margin:0;font-size:13px">AR</span><span style="flex:1"><span style="font-size:16px">Tú mismo, ahora</span><br><span style="font-size:13px;color:var(--tx3)">fotografiar un documento</span></span><span class="chip st">Subir</span></button>
+ <div class="phase">QUÉ PASA DESPUÉS</div>
+ <div style="font-size:15px;color:var(--tx2);line-height:1.9">Se coteja con su fuente cuando existe<br>Se sella con fecha, huella y quién lo aportó<br>El apartado pasa de falta a acreditado<br>La valoración se recalcula y se avisa</div>
+ <div class="note" style="margin-top:16px">Un documento sin cotejar no suma. Es mejor un pasaporte con un hueco declarado que uno lleno de papeles que nadie ha comprobado.</div>`}};
+
+/* --- alta de coche en el garaje --- */
+S.altacoche={tab:'co',back:'coleccion',title:'Alta',html:function(){
+ return `<h2 class="sc in">Alta en tu garaje</h2>
+ <p class="lede">Una visita, hasta seis coches. La captura con luz controlada es la diferencia entre un pasaporte que vale y uno que no.</p>
+ <div class="card up"><div class="k">QUÉ INCLUYE LA VISITA</div><div style="height:9px"></div>
+  <div style="font-size:15px;color:var(--tx2);line-height:1.9">Captura 3D con luz controlada, unos 200 fotogramas por coche<br>Fotografía de cada número identificador<br>Digitalización de la documentación que tengas<br>Ficha técnica cotejada con el fabricante<br>Primera valoración con comparables</div></div>
+ <div style="height:14px"></div>
+ <div class="card">
+  <div class="kv"><span>Por visita, hasta seis coches</span><b class="amount" style="font-size:16px">€1.800</b></div>
+  <div class="kv"><span>Duración</span><b>unas cuatro horas</b></div>
+  <div class="kv" style="border-bottom:0"><span>Se descuenta</span><b>íntegro del primer expediente</b></div></div>
+ <div class="phase">CUÁNDO</div>
+ <div class="seg"><button aria-pressed="true">Esta semana</button><button aria-pressed="false">En quince días</button><button aria-pressed="false">Aún no</button></div>
+ <div style="height:18px"></div>
+ <button class="btn" onclick="alert('En el producto real se reserva la visita. Aquí es una maqueta.')">Reservar la visita</button>
+ <div class="note" style="margin-top:16px">La captura a mano en un garaje oscuro no sirve: la pintura y el cromo reflejan y el modelo sale sucio. Por eso el alta es presencial y por eso se cobra.</div>`}};
+
+/* --- detalle de documento del pasaporte --- */
+S.docdet={tab:'co',back:'pdocs',title:'Documento',sub:function(){return partial(cur.ch)},html:function(){var d=curdoc||dd(cur).docs[0];
+ var ok=d[2]==='ok';
+ return `<div class="cert in" style="margin:10px 0 22px"><div class="cert-in">
+  <div class="ref">${d[0].toUpperCase()}</div>
+  <div style="font-size:15px;color:var(--tx2);margin:14px 0 6px">${d[1]}</div>
+  <div class="chip ${d[2]||'wait'}">${d[3]}</div></div></div>
+ ${ok?`<div class="kv"><span>Aportado por</span><b>${OWNER}</b></div>
+ <div class="kv"><span>Sellado</span><b>${dd(cur).sello}</b></div>
+ <div class="kv"><span>Cotejado con</span><b>la fuente que lo emite</b></div>
+ <div class="kv" style="border-bottom:0"><span>Huella del archivo</span><b>7f3a c21e</b></div>`
+ :`<div class="card stop"><div class="k" style="color:var(--stop)">NO CONSTA</div>
+ <div class="cardtx" style="margin-bottom:0">Este apartado está declarado como incompleto en el pasaporte y descuenta en la valoración. No se disimula: quien lo vea, lo ve.</div></div>
+ <div style="height:14px"></div><button class="btn quiet" onclick="go('subir')">Aportar este documento</button>`}
+ <div class="phase">QUIÉN LO VE</div>
+ <div class="kv"><span>Tú y tu equipo</span><b>El documento entero</b></div>
+ <div class="kv"><span>Tu círculo</span><b>Solo que existe y está cotejado</b></div>
+ <div class="kv" style="border-bottom:0"><span>Miembros verificados</span><b>Solo el recuento</b></div>
+ <div class="note" style="margin-top:16px">Los documentos no circulan. Circula el resultado de haberlos comprobado, que es lo único que necesita un comprador.</div>`}};
+
+/* --- pasaporte de una pieza --- */
+const DP={
+ p1:{cad:[['1973','Montado en el bastidor 9113600771, Stuttgart','ficha de fábrica'],['2023','Desmontado en la reconstrucción y conservado','factura del taller'],['HOY','En la colección, embalado y etiquetado','']],
+  comp:[['Número de motor','6631234, coincide con la ficha'],['Correspondencia','bastidor 9113600771, el RS de la colección'],['Estado','reconstruido en 2023, 400 km desde entonces']],
+  riesgo:'Si esta pieza se vende separada, el coche pierde entre un 15 y un 25% de valor. Está marcada para no salir suelta.'},
+ p2:{cad:[['1990','De origen, montado en el F40','factura de origen'],['2016','Sustituido por uno deportivo, conservado embalado','factura'],['HOY','En la colección','']],
+  comp:[['Número de pieza','F40 129811, de fábrica'],['Correspondencia','bastidor ZFFGJ34B000085341'],['Estado','original, sin restaurar']],
+  riesgo:'Va incluido en la oferta de M. Duarte por el F40. Vendido aparte valdría menos que dentro de la operación.'},
+ p3:{cad:[['1969','De origen con el coche','ficha de fábrica'],['2014','Restauradas, se conservan las originales','factura'],['HOY','En la colección','']],
+  comp:[['Marcaje','Campagnolo, fundición de 1969'],['Correspondencia','bastidor 4407, el Miura de la colección'],['Estado','restauradas en 2014']],
+  riesgo:'Las llantas originales del Miura son de las piezas más falsificadas del modelo. El marcaje de fundición es lo que las distingue.'}};
+S.piezapass={tab:'co',back:'coleccion',title:'Pasaporte',sub:'PIEZA',html:function(){var p=curp,d=DP[p.id];
+ return `<div class="cimg hero2">${photoPart(p)}<span class="plate plate-ov">PIEZA ${p.id.toUpperCase()}</span></div>
+ <h2 class="sc">${p.name}</h2>
+ <p class="lede">${p.sub}</p>
+ <div class="card up"><div class="k">CORRESPONDENCIA</div><div style="height:8px"></div>
+  ${d.comp.map(function(x,i){return `<div class="kv"${i===d.comp.length-1?' style="border-bottom:0"':''}><span>${x[0]}</span><b>${x[1]}</b></div>`}).join('')}</div>
+ <div class="phase">CADENA DE CUSTODIA</div>
+ ${d.cad.map(function(h){return `<div class="log"><time>${h[0]}</time><div><b>${h[1]}</b>${h[2]?`<div style="color:var(--tx3);font-size:13px;margin-top:3px">${h[2]}</div>`:''}</div></div>`}).join('')}
+ <div class="phase">VALOR</div>
+ <div class="kv" style="border-bottom:0"><span>Estimación</span><b class="amount" style="font-size:18px">${HIDE?'····':p.val}</b></div>
+ <div style="height:14px"></div>
+ <div class="card stop"><div class="k" style="color:var(--stop)">POR QUÉ IMPORTA</div>
+  <div class="cardtx" style="margin-bottom:0">${d.riesgo}</div></div>
+ <div class="rule"></div>
+ <div class="card" style="border-color:var(--stampln);background:var(--stampbg)">
+  <div class="cardtx" style="margin:0;color:var(--stamp)">Una pieza no tiene matrícula, ni registro público, ni forma oficial de saber quién la tuvo. Este pasaporte es el único documento que la identifica.</div></div>`}};
+
+/* --- coche de otro miembro, visto desde fuera --- */
+S.cocheajeno={tab:'ci',back:'miembro',title:'Coche',sub:'DE OTRO',html:function(){var e=curex,m=MEMB[mem];
+ return `<div class="cimg hero2">${img(e)}<span class="plate plate-ov">CHASIS ···</span><span class="ref ref-ov">${e.year}</span></div>
+ <h2 class="sc">${e.name}</h2>
+ <p class="lede">De ${m[1]}. Esto es todo lo que él te deja ver</p>
+ <div class="kv"><span>Pasaporte</span><b>9 de 9 apartados</b></div>
+ <div class="kv"><span>Certificado del fabricante</span><span class="chip ok">Sí</span></div>
+ <div class="kv"><span>Modificaciones declaradas</span><b>Ninguna</b></div>
+ <div class="kv"><span>Bastidor</span><b>Completo al abrir expediente</b></div>
+ <div class="kv"><span>Dónde está</span><b>No se muestra</b></div>
+ <div class="kv" style="border-bottom:0"><span>Cuánto vale para él</span><b>No se muestra</b></div>
+ <div class="phase">SI TE INTERESA</div>
+ <div style="font-size:15px;color:var(--tx2);line-height:1.9">Le ofertas y solo lo sabe él<br>Ve tu oferta y el resultado de tu verificación<br>No ve tus documentos, ni ahora ni nunca<br>Si acepta, se revelan los nombres y se abre expediente</div>
+ <div style="height:20px"></div>
+ <button class="btn ghost" onclick="go('match')">Hacer una oferta</button>
+ <div class="note" style="margin-top:16px">No hay lista de precios, ni catálogo, ni buscador abierto. Solo lo que cada miembro decide enseñar a quién.</div>`}};
+
+/* --- adjudicar la subasta --- */
+S.adjudicar={tab:'ci',back:'subasta',title:'Adjudicar',html:function(){
+ var a=AUCS.filter(function(x){return x.id===aucId})[0],c=CARS.filter(function(x){return x.id===a.car})[0];
+ var hay=a.pujas.length&&a.actual>=a.reserva;
+ return `<h2 class="sc in">${hay?'Adjudicar al cierre':'Retirar la subasta'}</h2>
+ <p class="lede">${hay?'La puja supera tu reserva. Adjudicar es tuyo, no automático.':'Sin pujas por encima de la reserva no se adjudica nada y el coche vuelve a donde estaba.'}</p>
+ ${hay?`<div class="card up">
+  <div class="kv"><span>Puja ganadora</span><b class="amount" style="font-size:16px">${money(a.actual,'EUR')}</b></div>
+  <div class="kv"><span>Tu reserva</span><b class="amount">${money(a.reserva,'EUR')}</b></div>
+  <div class="kv"><span>Quién puja</span><b>miembro verificado, avalado por Rafael A.</b></div>
+  <div class="kv" style="border-bottom:0"><span>Honorarios de expediente</span><b>€${fee2(a.actual).toLocaleString('es-ES')}, al cierre</b></div></div>
+ <div class="phase">QUÉ PASA AL ADJUDICAR</div>
+ <div style="font-size:15px;color:var(--tx2);line-height:1.9">Se revelan los nombres a las dos partes, a nadie más<br>Se abre el expediente con la verificación medio hecha<br>El depositario recibe los fondos del comprador<br>Quien avaló a los dos cobra su parte al cierre</div>
+ <div style="height:20px"></div>
+ <button class="btn" onclick="alert('Adjudicada. En el producto real se abriría el expediente, como pasó con el F40.');go('subasta')">Adjudicar</button>
+ <div style="height:10px"></div>`:''}
+ <button class="btn quiet" onclick="alert('Retirada. El coche vuelve a su visibilidad anterior y no queda rastro público.');c_retirar()">Retirar la subasta</button>
+ <div class="note" style="margin-top:16px">Una subasta que no alcanza reserva no quema el coche aquí: nadie fuera de la audiencia elegida ha sabido que estaba en venta.</div>`}};
+function fee2(p){if(p<=1250000)return 7500;return Math.min(Math.round(p*0.006),30000)}
+function c_retirar(){var a=AUCS.filter(function(x){return x.id===aucId})[0];var c=CARS.filter(function(x){return x.id===a.car})[0];c.st='ok';c.pub=0;go('coleccion')}
+
+/* --- contraoferta y rechazo --- */
+S.contraoferta={tab:'ci',back:'oferta',title:'Contraoferta',html:function(){
+ return `<h2 class="sc in">Contraoferta</h2>
+ <p class="lede">Le llega sin tu nombre. Sigue viendo el coche y el pasaporte, no a ti.</p>
+ <div class="kv"><span>Su oferta</span><b class="amount">€2.850.000</b></div>
+ <div class="kv"><span>Tu mínimo</span><b class="amount">€2.800.000</b></div>
+ <div class="kv" style="border-bottom:0"><span>Estimación del pasaporte</span><b class="amount">€2.900.000</b></div>
+ <div class="k" style="margin-top:20px">TU CONTRAOFERTA</div>
+ <input class="inp" id="cin" inputmode="numeric" placeholder="2.950.000" value="${CONTRA}">
+ <div class="k" style="margin-top:16px">CONDICIONES</div>
+ <div style="font-size:15px;color:var(--tx2);line-height:1.9">Escape original incluido<br>Transporte a Lisboa a su cargo<br>Cierre por expediente</div>
+ <div style="height:20px"></div>
+ <button class="btn" onclick="CONTRA=document.getElementById('cin').value;CHAT.push(['me','Te contraofertó '+(CONTRA||'2.950.000')+' con el escape original incluido y el transporte a tu cargo.','AHORA']);go('chat')">Enviar</button>
+ <div class="note" style="margin-top:16px">Mientras negociáis, ninguno de los dos sabe el nombre del otro. Se revelan al aceptar, no antes.</div>`}};
+
+S.rechazar={tab:'ci',back:'oferta',title:'Rechazar',html:function(){
+ return `<h2 class="sc in">Rechazar la oferta</h2>
+ <p class="lede">No queda rastro fuera de vuestra conversación. Ni el coche ni tú quedáis marcados.</p>
+ <div class="kv"><span>Él sabrá</span><b>Que la has rechazado</b></div>
+ <div class="kv"><span>Sabrá por qué</span><b>Solo si se lo dices</b></div>
+ <div class="kv"><span>Otros miembros</span><b>No se enteran</b></div>
+ <div class="kv" style="border-bottom:0"><span>El coche</span><b>Vuelve a ${VISL[CARS[0].vis]}</b></div>
+ <div style="height:20px"></div>
+ <button class="btn stop" onclick="CARS[0].st='ok';alert('Rechazada.');go('coleccion')">Rechazar</button>
+ <div style="height:10px"></div>
+ <button class="btn quiet" onclick="go('oferta')">Volver a pensarlo</button>
+ <div class="note" style="margin-top:16px">En una subasta pública, un coche que no se vende queda quemado durante años. Aquí no, porque nadie fuera de tu círculo ha sabido nunca que estaba en juego.</div>`}};
+
+/* --- invitar a alguien --- */
+S.invitar={tab:'ci',back:'circulo',title:'Invitar',html:function(){
+ return `<h2 class="sc in">Invitar a alguien</h2>
+ <p class="lede">Solo se entra por invitación. Quien invita, avala. Y quien avala, cobra.</p>
+ <div class="k">A QUIÉN</div>
+ <input class="inp" placeholder="Nombre">
+ <div style="height:14px"></div>
+ <input class="inp" placeholder="Correo o teléfono">
+ <div class="k" style="margin-top:18px">QUÉ ES PARA TI</div>
+ <div class="seg"><button aria-pressed="true">Le conozco bien</button><button aria-pressed="false">Es un contacto</button></div>
+ <div class="phase">LO QUE ESTÁS HACIENDO</div>
+ <div class="kv"><span>Respondes de él</span><b>Ante el resto del círculo</b></div>
+ <div class="kv"><span>Verificará su identidad</span><b>Antes de ver un solo coche</b></div>
+ <div class="kv"><span>Verá tu colección</span><b>Solo lo que marques para el círculo</b></div>
+ <div class="kv" style="border-bottom:0"><span>Si cierra con otro avalado tuyo</span><b class="amount" style="color:var(--ok)">cobras el 20%</b></div>
+ <div style="height:20px"></div>
+ <button class="btn" onclick="alert('En el producto real se envía la invitación. Aquí es una maqueta.')">Enviar la invitación</button>
+ <div style="height:10px"></div>
+ <button class="btn quiet" onclick="go('avales')">Cómo funciona el aval</button>
+ <div class="note" style="margin-top:16px">Si avalas a alguien que se porta mal, lo sabe todo el círculo. Por eso un aval aquí vale algo, y por eso nadie avala a la ligera.</div>`}};
+/* ============ PAPELES, INVITACIONES E INVENTARIO DE LOTE ============ */
+const PERMS=['Ver los documentos','Aportar documentos','Firmar','Ver la valoración','Ver el estado'];
+const ROLES={
+ titular:{t:'Titular',d:'decide, firma y lo ve todo',p:[1,1,1,1,1],
+  pide:'Verificar su identidad y aceptar el contrato',cuenta:'Identidad verificada'},
+ gestor:{t:'Gestor de la colección',d:'organiza y sube, no firma ni ve precios',p:[1,1,0,0,1],
+  pide:'Subir la documentación que falta',cuenta:'Código al móvil'},
+ abogado:{t:'Abogado o asesor',d:'revisa el contrato y la procedencia',p:[1,0,0,0,1],
+  pide:'Revisar el contrato y los documentos',cuenta:'Código al móvil'},
+ taller:{t:'Taller o especialista',d:'entra a un solo apartado, no ve el resto',p:[0,1,0,0,0],
+  pide:'Aportar el informe de inspección',cuenta:'Enlace de un solo uso'},
+ inter:{t:'Intermediario',d:'ve el estado, nunca los papeles',p:[0,0,0,0,1],
+  pide:'Seguir el avance de la operación',cuenta:'Código al móvil'}};
+const CANAL={wa:'WhatsApp',mail:'Correo',sms:'SMS'};
+const INVS=[];
+let invRol='gestor', invCanal='wa', invNom='', invUlt=null;
+const LOTE=[];
+let lotN='', lotV='';
+
+function permRow(k){var r=ROLES[k];return PERMS.map(function(p,i){
+ return '<div class="kv"'+(i===PERMS.length-1?' style="border-bottom:0"':'')+'><span>'+p+'</span><b style="color:'+(r.p[i]?'var(--ok)':'var(--tx3)')+'">'+(r.p[i]?'Sí':'No')+'</b></div>'}).join('')}
+
+S.invrol={tab:'pa',back:'partes',title:'Invitar',html:()=>{var r=ROLES[invRol];
+ return `<h2 class="sc in">Invitar a alguien</h2>
+ <p class="lede">No hay nada que instalar. Le llega un enlace por donde ya habláis, con tu nombre delante.</p>
+ <div class="k">QUIÉN</div>
+ <input class="inp" value="${invNom}" oninput="invNom=this.value" placeholder="Nombre y apellido">
+ <div class="k" style="margin-top:18px">QUÉ PAPEL TIENE</div>
+ ${Object.keys(ROLES).map(function(k){var x=ROLES[k];return `
+ <button class="opt" style="margin-top:8px" aria-pressed="${invRol===k}" onclick="invRol='${k}';go('invrol')">
+  <span style="flex:1"><span style="font-size:14.5px">${x.t}</span><br>
+  <span style="font-size:12px;color:var(--tx3)">${x.d}</span></span>
+  ${invRol===k?'<span class="chip st">Elegido</span>':''}</button>`}).join('')}
+ <div class="phase">LO QUE PODRÁ HACER</div>
+ <div class="card up">${permRow(invRol)}</div>
+ <div class="k" style="margin-top:18px">POR DÓNDE SE LO MANDAS</div>
+ <div style="display:flex;gap:8px;margin-top:8px">
+ ${Object.keys(CANAL).map(function(k){return `<button class="opt" style="margin:0;justify-content:center" aria-pressed="${invCanal===k}" onclick="invCanal='${k}';go('invrol')"><span style="font-size:13.5px">${CANAL[k]}</span></button>`}).join('')}
+ </div>
+ <div class="phase">LO QUE VA A LEER</div>
+ <div class="msg them" style="max-width:100%">Rafael A. te ha dado acceso a un expediente en Custodia.<br><br>${r.pide}.<br><br>No hace falta crear cuenta. El enlace caduca en 7 días.<time>BORRADOR</time></div>
+ <div style="height:16px"></div>
+ <button class="btn" onclick="enviarInv()">Enviar la invitación</button>
+ <div style="font-size:11.5px;color:var(--tx3);line-height:1.65;margin-top:14px">La primera frase la escribes tú, no nosotros. Para él, esto es algo que le manda alguien que conoce, no una marca que no ha oído nunca.</div>`}};
+
+function enviarInv(){
+ if(!invNom.trim()){alert('Escribe al menos el nombre.');return}
+ invUlt={n:invNom.trim(),r:invRol,c:invCanal};
+ INVS.unshift(invUlt); invNom=''; go('invenviada')}
+
+S.invenviada={tab:'pa',back:'partes',title:'Enviada',html:()=>{var i=invUlt,r=ROLES[i.r];
+ return `<div class="cert in" style="margin:10px 0 20px"><div class="cert-in">
+  <div class="seal">ENVIADA</div>
+  <div class="ref">${CANAL[i.c].toUpperCase()}</div>
+  <div style="font-size:19px;margin:14px 0 5px">${i.n}</div>
+  <div style="font-size:12.5px;color:var(--tx3)">${r.t}</div></div></div>
+ <div class="kv"><span>Cómo entra</span><b>${r.cuenta}</b></div>
+ <div class="kv"><span>Qué se le pide</span><b>${r.pide}</b></div>
+ <div class="kv"><span>Caduca</span><b>en 7 días</b></div>
+ <div class="kv" style="border-bottom:0"><span>Si reenvía el enlace</span><b>no sirve, va atado a su número</b></div>
+ <div style="height:18px"></div>
+ <button class="btn" onclick="go('invvista')">Ver lo que recibe él</button>
+ <div style="height:10px"></div>
+ <button class="btn quiet" onclick="go('partes')">Volver a las partes</button>
+ <div style="font-size:11.5px;color:var(--tx3);line-height:1.65;margin-top:14px">Mientras no entre, en Partes aparece como pendiente. A los tres días se le recuerda solo.</div>`}};
+
+S.invvista={tab:'pa',back:'enviada',title:'Su móvil',sub:'SIMULACIÓN',html:()=>{var i=invUlt,r=ROLES[i.r];
+ return `<div style="font-size:11.5px;color:var(--tx3);letter-spacing:.1em;margin:6px 0 12px">ASÍ LO VE ${i.n.toUpperCase()}</div>
+ <div class="card" style="background:var(--bg2);border-color:var(--line2)">
+  <div style="font-size:11px;color:var(--tx3);margin-bottom:8px">${CANAL[i.c]}, de Rafael A.</div>
+  <div class="msg them" style="max-width:100%;margin:0">Hola ${i.n.split(' ')[0]}, te paso el acceso al expediente del Ferrari. ${r.pide}. Es un enlace, no hay que instalar nada.<br><br><span style="color:var(--stamp)">custodia.app/e/7f3a-c21e</span><time>AHORA</time></div></div>
+ <div style="height:16px"></div>
+ <div class="card up" style="border-color:var(--stampln)">
+  <div style="text-align:center;padding:6px 0 2px">
+   <div style="font-family:Spectral,serif;font-size:22px;font-weight:300">Custodia</div>
+   <div style="font-size:12.5px;color:var(--tx3);margin-top:6px">Expediente PT SA 0117</div>
+   <div style="font-size:15px;margin:14px 0 4px">${r.pide}</div>
+   <div style="font-size:12px;color:var(--tx2);line-height:1.6;margin-bottom:14px">Te ha dado acceso Rafael A.<br>No hace falta crear cuenta.</div>
+   <div class="btn" style="pointer-events:none">${i.r==='titular'?'Verificar mi identidad':'Recibir un código'}</div>
+  </div></div>
+ <div class="phase">LO QUE NO VE</div>
+ <div style="font-size:13px;color:var(--tx2);line-height:2">${ROLES[i.r].p[3]?'':'Cuánto vale el coche<br>'}${ROLES[i.r].p[0]?'':'Los documentos de las otras partes<br>'}Dónde está guardado<br>Tus honorarios y tu acuerdo<br>El resto de tu colección</div>
+ <div class="rule"></div>
+ <div class="card"><div class="k">POR QUÉ NO PEDIMOS CUENTA</div>
+  <div style="font-size:13px;color:var(--tx2);margin-top:9px;line-height:1.65">Un taller que tiene que subir una factura no se va a registrar en una plataforma que no conoce. Entra con el enlace y un código, hace lo suyo y se va. La cuenta con identidad verificada solo aparece cuando alguien firma o cobra, que es donde de verdad hace falta.</div></div>`}};
+
+S.invequipo={tab:'pa',back:'partes',title:'Invitados',html:()=>{
+ return `<h2 class="sc in">Quién más tiene acceso</h2>
+ <p class="lede">Cada uno con su papel. Se puede quitar el acceso en cualquier momento y queda registrado.</p>
+ ${INVS.length?INVS.map(function(i){var r=ROLES[i.r];return `<button class="row" onclick="invUlt=INVS[${INVS.indexOf(i)}];go('invvista')">
+  <span class="seal" style="width:36px;height:36px;margin:0;font-size:11px">${i.n.split(' ').map(function(w){return w[0]}).join('').slice(0,2).toUpperCase()}</span>
+  <span style="flex:1"><span style="font-size:14px">${i.n}</span><br><span style="font-size:11px;color:var(--tx3)">${r.t}, por ${CANAL[i.c]}</span></span>
+  <span class="chip now">Pendiente</span></button>`}).join(''):'<div style="font-size:13px;color:var(--tx3);padding:16px 0">Todavía no has invitado a nadie.</div>'}
+ <div class="rule"></div>
+ <button class="btn quiet" onclick="go('invrol')">Invitar a alguien</button>`}};
+
+/* ---- inventario del lote ---- */
+S.inventario={tab:'op',back:'alta2',title:'Inventario',html:()=>{
+ var tot=LOTE.reduce(function(a,x){return a+x.v},0);
+ return `<div class="steps in">${steps(2)}</div>
+ <h2 class="sc">Qué hay en el lote</h2>
+ <p class="lede">Unidad por unidad. Un lote sin inventario no se puede asegurar, ni despachar en aduana, ni valorar.</p>
+ ${LOTE.length?LOTE.map(function(x,i){return `<div class="row" style="cursor:default">
+   <span class="mark ok">✓</span>
+   <span style="flex:1"><span style="font-size:14px">${x.n}</span><br><span style="font-size:11px;color:var(--tx3)">unidad ${i+1} de ${LOTE.length}</span></span>
+   <span class="amount" style="font-size:14px">€${x.v.toLocaleString('es-ES')}</span></div>`}).join('')
+  :'<div style="font-size:13px;color:var(--tx3);padding:14px 0">Vacío. Añade la primera unidad.</div>'}
+ ${LOTE.length?`<div class="kv" style="border-bottom:0;margin-top:8px"><span>Total declarado</span><b class="amount" style="font-size:16px">€${tot.toLocaleString('es-ES')}</b></div>`:''}
+ <div class="phase">AÑADIR UNIDAD</div>
+ <input class="inp" id="ln" value="${lotN}" oninput="lotN=this.value" placeholder="Juego de llantas Campagnolo">
+ <div style="height:10px"></div>
+ <input class="inp" id="lv" inputmode="numeric" value="${lotV}" oninput="lotV=this.value" placeholder="22000">
+ <div style="height:12px"></div>
+ <button class="btn quiet" onclick="addLote()">Añadir al lote</button>
+ <div style="height:18px"></div>
+ <button class="btn" onclick="next('inventario','alta3',LOTE.length>0,'Un lote necesita al menos una unidad antes de seguir.')">Continuar</button>
+ ${err()}
+ <div style="font-size:11.5px;color:var(--tx3);line-height:1.65;margin-top:14px">Cada unidad tendrá su propia fila en la declaración de aduana y su propio apartado en el expediente. Lo que no esté aquí, no viaja.</div>`}};
+
+function addLote(){
+ var n=lotN.trim(), v=num(lotV);
+ if(!n||!v){alert('Hacen falta la descripción y el valor de la unidad.');return}
+ LOTE.push({n:n,v:v}); lotN=''; lotV=''; st.err=''; go('inventario')}
+
+const TABS=[['co','Perfil','coleccion'],['ci','Círculo','circulo'],['op','Operaciones','operaciones'],['fo','Fondos','fondos'],['bi','Bitácora','bitacora']];
 function go(id){
   const s=S[id],v=document.getElementById('view');
   v.innerHTML=(typeof s.html==='function'?s.html():s.html); v.scrollTop=0;
-  const nv=document.getElementById('nav');
+  const nv=document.getElementById('nav'),sub=typeof s.sub==='function'?s.sub():s.sub;
   nv.style.display=s.bare?'none':'flex';
   nv.innerHTML=s.bare?'':
    (s.back?`<button class="back" onclick="go('${s.back}')" aria-label="Volver">&#8249;</button>`:'')
    +(s.title==='brand'?`<span class="brand">Custodia</span>`:`<span class="title">${s.title}</span>`)
-   +(s.sub?`<span class="sub">${s.sub}</span>`:'');
+   +(sub?`<span class="sub">${sub}</span>`:'');
   const tb=document.getElementById('tabs');
   tb.style.display=s.tab?'flex':'none';
   tb.innerHTML=TABS.map(t=>`<button onclick="go('${t[2]}')" aria-current="${s.tab===t[0]}">
