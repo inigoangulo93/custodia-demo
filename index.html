@@ -811,7 +811,10 @@ function photo(c,mode){mode=mode||'pro';var s=SHP[c.art],p=c.paint,id=c.id+mode,
   <g transform="translate(0,14)">${carg}</g></svg>`}
 function photoPart(p){return `<svg viewBox="0 0 300 128" aria-hidden="true"><defs><radialGradient id="bgp${p.id}" cx="50%" cy="18%" r="85%"><stop offset="0" stop-color="#343E45"/><stop offset="1" stop-color="#14191C"/></radialGradient></defs>
  <rect width="300" height="128" fill="url(#bgp${p.id})"/><g transform="translate(0,14)">${part(p.art,'#C9CFD2').replace(/^<svg[^>]*>|<\/svg>$/g,'')}</g></svg>`}
-function img(c){return c.img?`<img src="${c.img}" alt="" style="display:block;width:100%;height:auto">`:photo(c,'pro')}
+const FOTOS=['countach','daytona','eb110','etype','f40','gt2','gto','m1','miura','op275','op959','opmiura','rs27','sl','v1','v2','v3','v4','v5','x1','x2','x3'];
+function img(c){return c.img?`<img src="${c.img}" alt="" style="display:block;width:100%;height:auto">`
+ :FOTOS.indexOf(c.id)>=0?`<img src="img/${c.id}.webp" alt="" loading="lazy" style="display:block;width:100%;height:auto">`
+ :photo(c,'pro')}
 
 const OWNER='A. Restrepo';
 const CO_CTY={CO:'Colombia',US:'Estados Unidos',EU:'Europa'};
@@ -1113,6 +1116,7 @@ S.subasta={tab:'ci',back:'circulo',title:'Subasta',sub:function(){var a=AUCS.fil
  <div class="kv"><span>Reserva, solo la ves tú</span><b>${money(a.reserva,'EUR')}</b></div>
  <div class="kv"><span>Quién la ve</span><b>${a.quien}</b></div>
  <div class="kv"><span>La han visto</span><b>${a.ven} miembros</b></div>
+ <div class="kv"><span>Piden acceso</span><b>${REQS.filter(function(x){return x.car===a.car}).length}, sin nombre hasta que aceptes</b></div>
  <div class="kv"><span>Lo que ven</span><b>El coche y el resumen del pasaporte</b></div>
  <div class="kv" style="border-bottom:0"><span>Lo que no ven</span><b>Quién eres ni dónde está</b></div>
  ${a.pujas.length?'<div class="phase">PUJAS</div>'+a.pujas.map(function(p){return `<div class="log"><time>${p[0].replace(' ','<br>')}</time><div>${p[1]}<div style="margin-top:3px"><span class="amount" style="font-size:16px;color:var(--tx)">${p[2]}</span></div></div></div>`}).join(''):''}
@@ -1126,6 +1130,17 @@ const MEMB=[['MD','M. Duarte','Lisboa, coleccionista','avalado por Rafael A.'],[
 function carRow(c,sub,chip,to){return `<button class="row" onclick="${to}"><span class="thumb2">${img(c)}</span><span style="flex:1;min-width:0"><span style="font-size:16px">${c.name}</span><br><span style="font-size:13px;color:var(--tx3)">${sub}</span></span>${chip}</button>`}
 S.circulo={tab:'ci',title:'Círculo',sub:'14 MIEMBROS',html:function(){var f40=CARS[0];
  return `<h2 class="sc in">Quién puede hablarte</h2><p class="lede">Solo quien tú has aceptado. Cada uno entró invitado por alguien, y ves por quién.</p>
+ <div class="phase">PETICIONES DE ACCESO</div>
+ <button class="row" onclick="go('peticiones')">
+  <span class="seal" style="width:42px;height:42px;margin:0;font-size:13px">?</span>
+  <span style="flex:1"><span style="font-size:16px">${REQS.length} quiere${REQS.length===1?'':'n'} entrar</span><br>
+  <span style="font-size:13px;color:var(--tx3)">han visto un coche tuyo en la vitrina</span></span>
+  <span class="chip ${REQS.length?'now':'wait'}">${REQS.length?'Nueva':'Ninguna'}</span></button>
+ <button class="row" onclick="go('vitrina')">
+  <span class="seal" style="width:42px;height:42px;margin:0;font-size:13px">V</span>
+  <span style="flex:1"><span style="font-size:16px">Vitrina</span><br>
+  <span style="font-size:13px;color:var(--tx3)">${VIT.length} coches de fuera de tu círculo</span></span>
+  <span class="chip st">Ver</span></button>
  <div class="phase">OFERTAS</div>
  ${PASO?carRow(f40,'oferta aceptada, expediente abierto','<span class="chip ok">Expediente</span>',"go('paso')"):carRow(f40,'M. Duarte ofrece €2.850.000','<span class="chip now">Nueva</span>',"cur=CARS[0];go('oferta')")}
  ${OFF_SENT?carRow({id:'gto',art:'gt',paint:'#B5121B',name:'Ferrari 288 GTO'},'tu oferta de €'+num(OFF_SENT).toLocaleString('es-ES'),'<span class="chip st">Enviada</span>',"go('match')"):''}
@@ -1653,6 +1668,134 @@ S.privacidad={tab:'co',back:'coleccion',title:'Privacidad',html:function(){
  <div class="rule"></div>
  <div class="card"><div class="k">SI TE VAS</div>
   <div style="font-size:14.5px;color:var(--tx2);margin-top:9px;line-height:1.65">Te llevas los pasaportes enteros, con cada sello y cada huella, y todo deja de verse el mismo día. No hay copia nuestra que siga circulando.</div></div>`}};
+
+/* ============ VITRINA Y PETICIONES DE ACCESO, RELEASE 6 ============ */
+const VIT=[
+ {id:'v1',art:'gt',paint:'#7E2230',name:'Ferrari 275 GTS',year:1964,pas:9,reg:'Europa',cert:1,mods:'Ninguna',vistas:11},
+ {id:'v2',art:'gull',paint:'#2E3B45',name:'Mercedes-Benz 300 SL roadster',year:1958,pas:9,reg:'Norteamérica',cert:1,mods:'1 declarada',vistas:6},
+ {id:'v3',art:'wedge',paint:'#0E3B2E',name:'Lamborghini Countach LP400 periscopio',year:1976,pas:8,reg:'Europa',cert:0,mods:'2 declaradas',vistas:19},
+ {id:'v4',art:'p911',paint:'#B8912A',name:'Porsche 911 2.7 RS Sport',year:1973,pas:9,reg:'Oriente Medio',cert:1,mods:'Ninguna',vistas:14},
+ {id:'v5',art:'etype',paint:'#6E1620',name:'Jaguar E-Type lightweight, réplica de época',year:1964,pas:7,reg:'Europa',cert:0,mods:'3 declaradas',vistas:4}];
+const PET=[];
+const REQS=[{id:'r1',de:'Miembro verificado',aval:'Rafael A.',aval2:'K. Al-S.',car:'countach',
+ msg:'Busco un 25º Aniversario blanco documentado desde hace dos años. Tengo uno vendido con vosotros en Múnich.',fecha:'hoy, 09:12'}];
+let curvit=VIT[0], curreq=REQS[0], pedAval='Rafael A.', pedMsg='', pedNivel='coche';
+
+function vitCard(v){return `<button class="ccard" onclick="curvit=VIT[${VIT.indexOf(v)}];go('vitcoche')">
+ <div class="cimg" style="position:relative">${img(v)}
+  <span class="cchip"><span class="chip wait">Fuera de tu círculo</span></span></div>
+ <div class="cmeta"><div style="flex:1;min-width:0"><div class="cname">${v.name}</div>
+  <div class="csub">${v.year} · ${v.reg} · pasaporte ${v.pas} de 9</div></div>
+  <div class="cval" style="font-size:14px;color:var(--tx3)">precio<br>oculto</div></div></button>`}
+
+S.vitrina={tab:'ci',back:'circulo',title:'Vitrina',sub:'NIVEL 0',html:function(){
+ return `<h2 class="sc in">Lo que enseñan otros</h2>
+ <p class="lede">Coches de miembros que no están en tu círculo. Se navega, no se busca: no hay buscador ni filtro por precio, a propósito.</p>
+ ${VIT.map(vitCard).join('')}
+ <div class="rule"></div>
+ <div class="card"><div class="k">LO QUE NO SE VE AQUÍ</div>
+  <div style="font-size:14.5px;color:var(--tx2);margin-top:9px;line-height:1.7">El precio, el bastidor, la procedencia, quién es el dueño y dónde está el coche. Para eso hay que pedir acceso, y que te lo den.</div></div>`}};
+
+S.vitcoche={tab:'ci',back:'vitrina',title:'Vitrina',sub:'NIVEL 0',html:function(){var v=curvit;
+ var ped=PET.filter(function(p){return p.car===v.id})[0];
+ return `<div class="cimg hero2">${img(v)}<span class="plate plate-ov">CHASIS OCULTO</span><span class="ref ref-ov">${v.year}</span></div>
+ <h2 class="sc">${v.name}</h2>
+ <p class="lede">${v.reg}. Todo lo que puedes ver sin estar en su círculo</p>
+ <div class="kv"><span>Pasaporte</span><b>${v.pas} de 9 apartados</b></div>
+ <div class="kv"><span>Certificado del fabricante</span><b>${v.cert?'Sí':'No consta'}</b></div>
+ <div class="kv"><span>Modificaciones declaradas</span><b>${v.mods}</b></div>
+ <div class="kv" style="border-bottom:0"><span>Lo han visto</span><b>${v.vistas} miembros</b></div>
+ <div class="phase">OCULTO HASTA QUE TE ACEPTE</div>
+ <div style="font-size:15px;color:var(--tx2);line-height:1.9">Precio y comparables<br>Número de bastidor<br>Historia y propietarios<br>Quién es el dueño<br>Dónde está el coche</div>
+ <div style="height:20px"></div>
+ ${ped?`<div class="card up" style="border-color:var(--stampln)"><div class="k" style="color:var(--stamp)">PETICIÓN ENVIADA</div>
+  <div class="cardtx" style="margin-bottom:0">Avalada por ${ped.aval}. Caduca en 7 días. Solo lo sabe él.</div></div>`
+ :`<button class="btn" onclick="go('pedir')">Pedir acceso</button>
+ <div style="height:10px"></div>
+ <div style="font-size:13.5px;color:var(--tx3);line-height:1.65">Al pedirlo le dices quién eres. Él no te dice quién es hasta que acepta. Tienes ${3-PET.length} peticiones disponibles de 3.</div>`}`}};
+
+S.pedir={tab:'ci',back:'vitcoche',title:'Pedir acceso',html:function(){var v=curvit;
+ return `<h2 class="sc in">Pedir acceso</h2>
+ <p class="lede">Una petición no es un mensaje frío: llega con quien responde por ti.</p>
+ <div class="k">QUIÉN TE AVALA</div>
+ ${['Rafael A.','K. Al-S.','Nadie, voy solo'].map(function(a){return `
+ <button class="opt" style="margin-top:8px" aria-pressed="${pedAval===a}" onclick="pedAval='${a}';go('pedir')">
+  <span style="flex:1"><span style="font-size:15px">${a}</span><br>
+  <span style="font-size:12.5px;color:var(--tx3)">${a==='Nadie, voy solo'?'se acepta mucho menos, y es normal':'está en su círculo y en el tuyo'}</span></span>
+  ${pedAval===a?'<span class="chip st">Elegido</span>':''}</button>`}).join('')}
+ <div class="k" style="margin-top:18px">POR QUÉ TE INTERESA</div>
+ <input class="inp" value="${pedMsg}" oninput="pedMsg=this.value" placeholder="Una línea. Obligatoria.">
+ <div class="k" style="margin-top:18px">QUÉ PIDES</div>
+ <button class="opt" style="margin-top:8px" aria-pressed="${pedNivel==='coche'}" onclick="pedNivel='coche';go('pedir')">
+  <span style="flex:1"><span style="font-size:15px">Solo este coche</span><br>
+  <span style="font-size:12.5px;color:var(--tx3)">30 días, se cierra solo si no hay operación</span></span></button>
+ <button class="opt" aria-pressed="${pedNivel==='circ'}" onclick="pedNivel='circ';go('pedir')">
+  <span style="flex:1"><span style="font-size:15px">Entrar en su círculo</span><br>
+  <span style="font-size:12.5px;color:var(--tx3)">permanente, verías todo lo que él comparta</span></span></button>
+ <div style="height:18px"></div>
+ <button class="btn" onclick="enviarPet()">Enviar la petición</button>
+ <div style="font-size:13.5px;color:var(--tx3);line-height:1.65;margin-top:14px">Si te dice que no, no sabrás por qué y este coche se te bloquea 90 días. Por eso una petición vale algo y no se manda a la ligera.</div>`}};
+
+function enviarPet(){
+ if(!pedMsg.trim()){alert('La línea de por qué te interesa es obligatoria. Es lo que le da con qué decidir.');return}
+ if(PET.length>=3){alert('Tienes tres peticiones abiertas, el máximo. Espera a que caduquen o te contesten.');return}
+ PET.unshift({car:curvit.id,aval:pedAval,msg:pedMsg.trim(),niv:pedNivel});
+ pedMsg=''; go('vitcoche')}
+
+S.peticiones={tab:'ci',back:'circulo',title:'Peticiones',html:function(){
+ return `<h2 class="sc in">Quieren entrar</h2>
+ <p class="lede">Alguien fuera de tu círculo ha visto un coche tuyo y pide acceso. Tú decides cuánto le abres.</p>
+ ${REQS.map(function(r){var c=CARS.filter(function(x){return x.id===r.car})[0];return `
+ <button class="row" onclick="curreq=REQS[${REQS.indexOf(r)}];go('peticion')">
+  <span class="thumb2">${img(c)}</span>
+  <span style="flex:1;min-width:0"><span style="font-size:16px">${c.name}</span><br>
+  <span style="font-size:13px;color:var(--tx3)">${r.de}, avalado por ${r.aval}</span></span>
+  <span class="chip now">Nueva</span></button>`}).join('')}
+ ${PET.length?`<div class="phase">LAS TUYAS, ENVIADAS</div>
+ ${PET.map(function(p){var v=VIT.filter(function(x){return x.id===p.car})[0];return `
+ <div class="row" style="cursor:default"><span class="thumb2">${img(v)}</span>
+  <span style="flex:1;min-width:0"><span style="font-size:16px">${v.name}</span><br>
+  <span style="font-size:13px;color:var(--tx3)">avalada por ${p.aval}, caduca en 7 días</span></span>
+  <span class="chip wait">Esperando</span></div>`}).join('')}`:''}
+ <div class="rule"></div>
+ <button class="btn quiet" onclick="go('vitrina')">Ver la vitrina</button>`}};
+
+S.peticion={tab:'ci',back:'peticiones',title:'Petición',html:function(){var r=curreq,c=CARS.filter(function(x){return x.id===r.car})[0];
+ return `<div class="cimg hero2">${img(c)}<span class="plate plate-ov">${c.name.toUpperCase()}</span></div>
+ <h2 class="sc">${r.de}</h2>
+ <p class="lede">Pide acceso a tu ${c.name}. ${r.fecha}</p>
+ <div class="card up"><div class="k">CADENA DE CONFIANZA</div>
+  <div style="height:9px"></div>
+  <div class="kv"><span>Responde por él</span><b>${r.aval}</b></div>
+  <div class="kv"><span>También lo conoce</span><b>${r.aval2}</b></div>
+  <div class="kv"><span>Identidad</span><span class="chip ok">Verificada</span></div>
+  <div class="kv" style="border-bottom:0"><span>Operaciones cerradas aquí</span><b>1</b></div></div>
+ <div class="msg them" style="margin-top:16px;max-width:100%">${r.msg}<time>${r.fecha.toUpperCase()}</time></div>
+ <div class="phase">QUÉ VERÁ SEGÚN LO QUE LE DES</div>
+ <div class="card">
+  <div style="font-size:12.5px;color:var(--tx3);letter-spacing:.1em">SOLO ESTE COCHE, 30 DÍAS</div>
+  <div style="font-size:14.5px;color:var(--tx2);margin:8px 0 14px;line-height:1.65">El pasaporte completo del Countach y el bastidor. Nada del resto de tu colección. Caduca solo.</div>
+  <div style="font-size:12.5px;color:var(--tx3);letter-spacing:.1em">TU CÍRCULO, PERMANENTE</div>
+  <div style="font-size:14.5px;color:var(--tx2);margin-top:8px;line-height:1.65">Todo lo que marques para el círculo, hoy y en adelante. Puede ofertarte por cualquiera de ellos.</div>
+  <div class="rule" style="margin:14px 0"></div>
+  <div style="font-size:14px;color:var(--tx2);line-height:1.65">En los dos casos: nunca ve cuánto vale para ti, ni dónde está, ni tus documentos originales.</div></div>
+ <div style="height:20px"></div>
+ <button class="btn" onclick="aceptarPet('coche')">Darle acceso a este coche</button>
+ <div style="height:10px"></div>
+ <button class="btn ghost" onclick="aceptarPet('circ')">Aceptarle en mi círculo</button>
+ <div style="height:10px"></div>
+ <button class="btn quiet" onclick="rechazarPet()">No, gracias</button>
+ <div style="font-size:13.5px;color:var(--tx3);line-height:1.65;margin-top:14px">Si dices que no, no se le explica nada y no sabe si lo has llegado a ver. Rechazar aquí no cuesta nada, y por eso la gente publica.</div>`}};
+
+function aceptarPet(n){
+ REQS.splice(REQS.indexOf(curreq),1);
+ alert(n==='coche'?'Acceso dado solo al Countach, 30 días. Ya puede ver el pasaporte completo y ofertarte.'
+  :'Aceptado en tu círculo. Ve todo lo que compartas con él, desde ahora.');
+ go('circulo')}
+function rechazarPet(){
+ REQS.splice(REQS.indexOf(curreq),1);
+ alert('Rechazada en silencio. Ese coche se le bloquea 90 días.');
+ go('circulo')}
 
 const TABS=[['co','Perfil','coleccion'],['ci','Círculo','circulo'],['op','Operaciones','operaciones'],['fo','Fondos','fondos'],['bi','Bitácora','bitacora']];
 function go(id){
