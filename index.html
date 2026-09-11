@@ -32,7 +32,7 @@ body{margin:0;background:var(--bg0);color:var(--tx);font-family:Archivo,system-u
 .nav .title{font-size:15.5px;font-weight:500}
 .nav .sub{font-size:11.5px;color:var(--tx3);margin-left:auto;letter-spacing:.14em}
 .brand{font-family:Spectral,serif;font-size:23px;font-weight:300}
-.view{flex:1 1 auto;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:0 20px 30px;scrollbar-width:none}
+.view{flex:1 1 auto;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:0 20px;scrollbar-width:none}
 .view::-webkit-scrollbar{width:0}
 .tabs{flex:0 0 auto;display:flex;border-top:1px solid var(--line);background:var(--bg1);padding-bottom:calc(var(--sab) + 4px)}
 .tabs button{flex:1;border:0;background:none;font:inherit;font-size:10.5px;color:var(--tx3);
@@ -63,13 +63,10 @@ body{margin:0;background:var(--bg0);color:var(--tx);font-family:Archivo,system-u
 .btn.ghost{background:none;color:var(--stamp);font-weight:400}
 .btn.quiet{background:none;color:var(--tx2);border-color:var(--line2)}
 /* ---- accion principal, fija abajo ---- */
-.cta{position:sticky;bottom:0;z-index:5;margin:30px -20px 0;
-  padding:16px 20px calc(24px + var(--sab));
-  background:rgba(13,17,20,.86);
-  backdrop-filter:blur(16px) saturate(115%);-webkit-backdrop-filter:blur(16px) saturate(115%);
-  border-top:1px solid rgba(255,255,255,.055)}
-.cta::before{content:"";position:absolute;left:0;right:0;top:-34px;height:34px;pointer-events:none;
-  background:linear-gradient(to top,rgba(13,17,20,.62),rgba(13,17,20,0))}
+.cta{position:sticky;bottom:0;z-index:5;margin:26px -20px 0;
+  padding:66px 20px calc(12px + var(--sab));pointer-events:none;
+  background:linear-gradient(to top,var(--bg0) 0,var(--bg0) 52%,rgba(18,23,26,.92) 66%,rgba(18,23,26,.55) 84%,rgba(18,23,26,0) 100%)}
+.cta>*{pointer-events:auto}
 .btn.go{display:flex;align-items:center;justify-content:center;gap:9px;font-weight:600;padding:16px;
   border-radius:7px;background:var(--stamp);color:#141731;border-color:var(--stamp)}
 .btn.go svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.7}
@@ -265,6 +262,22 @@ p.lede{margin:0 0 20px;font-size:15.5px;color:var(--tx2);line-height:1.6}
 .sealed:before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--stamp);margin-right:7px;vertical-align:1px}
 input[type=range]{width:100%;accent-color:#9095E4;margin:14px 0 2px}
 .cover{flex:1;display:flex;flex-direction:column;justify-content:center;padding:0 30px}
+/* ---- portada ---- */
+.hero{position:relative;min-height:100%;box-sizing:border-box;margin:0 -20px -30px;
+  display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+.heroimg{position:absolute;inset:0;line-height:0}
+.heroimg img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 42%;
+  filter:saturate(.78) contrast(1.04)}
+.heroimg::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(to top,var(--bg0) 2%,rgba(18,23,26,.97) 26%,rgba(18,23,26,.55) 52%,rgba(18,23,26,.30) 100%)}
+.herotx{position:relative;padding:0 26px calc(28px + var(--sab));display:flex;flex-direction:column}
+.herotx .wm{font-family:Spectral,serif;font-size:44px;font-weight:300;line-height:1;color:var(--tx)}
+.heroline{font-family:Spectral,serif;font-weight:300;font-size:17.5px;color:var(--tx2);line-height:1.5;margin:14px 0 0}
+.herostats{display:flex;gap:26px;margin:24px 0 26px;padding-top:20px;border-top:1px solid var(--line)}
+.herostats span{display:flex;flex-direction:column;gap:3px;font-size:11.5px;color:var(--tx3);letter-spacing:.06em}
+.herostats b{font-family:Spectral,serif;font-weight:300;font-size:26px;color:var(--tx);letter-spacing:0}
+.hero-cta{width:100%}
+.herofoot{margin-top:18px;text-align:center;font-size:11.5px}
 .cover .wm{font-family:Spectral,serif;font-size:46px;font-weight:300;line-height:1}
 .cover .sub{font-family:Spectral,serif;font-weight:300;font-size:17.5px;color:var(--tx2);line-height:1.5;margin:22px 0 10px}
 .cover .tiny{font-size:12.5px;color:var(--tx3);line-height:1.6}
@@ -324,16 +337,20 @@ const IC={co:'<path d="M2.5 11.5h13M4.2 11.5V9l1.5-3.1A1.5 1.5 0 0 1 7 5h4a1.5 1
  bi:'<path d="M4 3h8l3 3v11H4z"/><path d="M6.5 9h6M6.5 12h4"/>'};
 const S={};
 
-S.splash={bare:true,html:`<div class="cover in">
- <div class="wm">Custodia</div>
- <div class="sub">El registro privado de una colección<br>y el cierre de sus operaciones</div>
- <div class="tiny">Vehículos, piezas y componentes de colección</div>
- <div style="height:40px"></div>
- <div style="width:100%">${car('gt','#9095E4')}</div>
- <div style="height:40px"></div>
- <button class="btn ghost" style="width:auto;padding:13px 32px;align-self:flex-start" onclick="go('coleccion')">Entrar</button>
- <div class="tiny" style="margin-top:34px">Maqueta, septiembre de 2026. Nada de lo que se ve está construido.<br>Los nombres, coches y cifras son ilustrativos.</div>
-</div>`};
+S.splash={bare:true,html:function(){
+ return `<div class="hero">
+ <div class="heroimg"><img src="img/x1.webp" alt=""></div>
+ <div class="herotx">
+  <div class="wm">Custodia</div>
+  <div class="heroline">El registro privado de una colección<br>y el cierre de sus operaciones</div>
+  <div class="herostats">
+   <span><b>${CARS.length}</b>coches</span>
+   <span><b>${PIEZAS.length}</b>piezas</span>
+   <span><b>${MEMB.length}</b>en el círculo</span>
+  </div>
+  <button class="btn hero-cta" onclick="go('coleccion')">Entrar en la colección</button>
+  <div class="tiny herofoot">Maqueta, septiembre de 2026. Nada de lo que se ve está construido.<br>Los nombres, coches y cifras son ilustrativos.</div>
+ </div></div>`}};
 
 S.operaciones={tab:'op',title:'brand',html:()=>`
  <div class="in" style="padding:10px 0 2px">
@@ -950,7 +967,7 @@ const VISL={priv:'Privado',circ:'Círculo',memb:'Miembros'};
 const VORD={priv:0,circ:1,memb:2};
 const CARS=[
  {id:'f40',art:'f40',paint:'#B5121B',name:'Ferrari F40',year:1990,cty:'US',val:2900000,st:'oferta',vis:'circ',ch:'ZFFGJ34B000085341',n:9,d3:1},
- {id:'countach',art:'wedge',paint:'#D9D6CC',name:'Lamborghini Countach 25º Aniversario',year:1989,cty:'EU',val:620000,st:'subasta',vis:'memb',ch:'ZA9CA05A0KLA12488',n:9},
+ {id:'countach',art:'wedge',paint:'#D9D6CC',name:'Lamborghini Countach 25º Aniversario',year:1989,cty:'EU',val:620000,st:'',vis:'memb',ch:'ZA9CA05A0KLA12488',n:9},
  {id:'sl',art:'gull',paint:'#AEB3B8',name:'Mercedes-Benz 300 SL Gullwing',year:1955,cty:'CO',val:1400000,st:'rev',vis:'priv',ch:'1980405500213',n:6},
  {id:'rs27',art:'p911',paint:'#E4E2D9',name:'Porsche 911 Carrera RS 2.7',year:1973,cty:'EU',val:780000,st:'ok',vis:'circ',ch:'9113600771',n:9,d3:1},
  {id:'miura',art:'miura',paint:'#5E9A46',name:'Lamborghini Miura P400 S',year:1969,cty:'CO',val:2100000,st:'ok',vis:'priv',ch:'4407',n:9},
@@ -965,17 +982,16 @@ const PIEZAS=[{id:'p1',name:'Motor 2.7 original del RS',sub:'para el bastidor 91
  {id:'p3',name:'Juego de llantas Campagnolo del Miura',sub:'originales de fábrica, restauradas',art:'gbox',val:'€22.000'}];
 function ctot(){return CARS.reduce(function(a,c){return a+c.val},0)+196000}
 function fmtM(n){if(n>=1e6){var m=(n/1e6).toFixed(1).replace('.',',').replace(',0','');return '€'+m+'M'}return '€'+n.toLocaleString('es-ES')}
-function chipSt(c){return c.st==='oferta'?'<span class="chip now">Oferta recibida</span>':c.st==='subasta'?'<span class="chip st">En subasta</span>':c.st==='rev'?'<span class="chip now">En revisión</span>':c.st==='exp'?'<span class="chip ok">Expediente abierto</span>':''}
+function chipSt(c){return c.st==='oferta'?'<span class="chip now">Oferta recibida</span>':c.st==='rev'?'<span class="chip now">En revisión</span>':c.st==='exp'?'<span class="chip ok">Expediente abierto</span>':''}
 function partial(ch){return '···'+ch.slice(-5)}
 function effVis(c){return c.pub?c.vis:(VORD[c.vis]<=VORD[PROF]?c.vis:PROF)}
 let FILT='all',HIDE=false,PROF='circ',cur=CARS[0],PASO=0,OFF_SENT=0,VIEW3D='raw';
 let VMODE='lista',SORT='estado',QQ='';
 const SORTS=[['estado','Estado'],['valor','Valor'],['ano','Año'],['nombre','Nombre'],['pasaporte','Pasaporte']];
-function stOrd(c){return c.st==='oferta'?0:c.st==='subasta'?1:c.st==='exp'?2:c.st==='rev'?3:c.n<9?4:5}
+function stOrd(c){return c.st==='oferta'?0:c.st==='exp'?1:c.st==='rev'?2:c.n<9?3:4}
 const FILTROS=[['all','Todos',function(){return true}],
  ['inc','Pasaporte incompleto',function(c){return c.n<9}],
  ['oferta','Con oferta',function(c){return c.st==='oferta'}],
- ['subasta','En subasta',function(c){return c.st==='subasta'}],
  ['exped','Expediente abierto',function(c){return c.st==='exp'}],
  ['rev','En revisión',function(c){return c.st==='rev'}],
  ['att','Requieren atención',needsAttn],
@@ -993,7 +1009,7 @@ function ordenar(l){var a=l.slice();
  return a}
 function buscar(l){var q=QQ.trim().toLowerCase(); if(!q) return l;
  return l.filter(function(c){return (c.name+' '+c.year+' '+(CO_CTY[c.cty]||'')).toLowerCase().indexOf(q)>=0})}
-function dotSt(c){return c.st==='oferta'?'var(--stamp)':c.st==='subasta'?'var(--warn)':c.st==='exp'?'var(--ok)':c.st==='rev'?'var(--warn)':c.n<9?'var(--warn)':'transparent'}
+function dotSt(c){return c.st==='oferta'?'var(--stamp)':c.st==='exp'?'var(--ok)':c.st==='rev'?'var(--warn)':c.n<9?'var(--warn)':'transparent'}
 function gcard(c){var v=effVis(c);return `<button class="gcard" onclick="openCar('${c.id}')">
  <div class="cimg">${img(c)}</div>
  <div class="gmeta"><div class="gname">${c.name}</div>
@@ -1008,13 +1024,7 @@ const VIC={lista:'<rect x="2.5" y="3" width="13" height="5" rx="1"/><rect x="2.5
  mosaico:'<rect x="2.5" y="2.5" width="5.5" height="5.5" rx="1"/><rect x="10" y="2.5" width="5.5" height="5.5" rx="1"/><rect x="2.5" y="10" width="5.5" height="5.5" rx="1"/><rect x="10" y="10" width="5.5" height="5.5" rx="1"/>',
  compacto:'<path d="M2.5 4.5h13M2.5 9h13M2.5 13.5h13"/>'};
 const BUSCO=[['Ferrari 288 GTO','1985 a 1987',1],['Porsche 964 Carrera RS','1992, sin pintar',0],['Mercedes-Benz 190 E 2.5-16 Evolution II','1990',0]];
-const AUCS=[{id:'countach',car:'countach',salida:520000,reserva:610000,actual:640000,fin:'14 SEP, 18:00',quien:'Tu círculo y quien busca algo así',ven:17,
- pujas:[['12 SEP 09:40','Miembro verificado, avalado por Rafael A.','€640.000'],['11 SEP 21:15','Miembro verificado, avalado por K. Al-S.','€625.000'],['11 SEP 18:02','Miembro verificado, avalado por M. Duarte','€600.000'],['10 SEP 10:30','Miembro verificado, avalado por Rafael A.','€560.000'],['9 SEP 16:44','Miembro verificado, avalado por J. Ortiz','€520.000']]}];
-let aucId='countach';
-AUCS.push({id:'gt2',car:'gt2',mia:false,salida:280000,reserva:0,actual:312000,fin:'16 SEP, 20:00',
- quien:'Subasta de L. Bauer, abierta a su círculo',ven:9,mipuja:312000,
- pujas:[['12 SEP 11:02','Tú','€312.000'],['11 SEP 19:40','Miembro verificado, avalado por L. Bauer','€296.000'],['10 SEP 12:10','Miembro verificado, avalado por M. Duarte','€280.000']]});
-AUCS[0].mia=true;
+
 
 /* ---- invitaciones al círculo ---- */
 let INVS_IN=[{id:'i1',ini:'HL',de:'H. Lindqvist',donde:'Estocolmo',rol:'coleccionista',
@@ -1035,11 +1045,6 @@ function notifs(){
  if(OFF_SENT) L.push({id:'n_sent',t1:'Tu oferta sigue sin respuesta',t2:'Ferrari 288 GTO · '+money(OFF_SENT,'EUR'),when:'hace 5 h',to:"go('match')"});
  INVS_IN.forEach(function(v){L.push({id:'n_inv_'+v.id,t1:v.de+' te invita a su círculo',t2:'avalado por '+v.aval,when:v.cuando,to:"go('circulo')"})});
  if(REQS.length) L.push({id:'n_req',t1:REQS.length+' quiere'+(REQS.length===1?'':'n')+' entrar en tu círculo',t2:'han visto un coche tuyo en la vitrina',when:'hace 6 h',to:"go('peticiones')"});
- AUCS.forEach(function(a){var c=CARS.filter(function(x){return x.id===a.car})[0];if(!c)return;
-  var gano=!a.mia&&a.pujas.length&&a.pujas[0][1]==='Tú';
-  L.push({id:'n_auc_'+a.id,t1:a.mia?(a.actual?'Puja de '+money(a.actual,'EUR')+' en tu subasta':'Tu subasta sigue sin pujas')
-    :(gano?'Tu puja sigue siendo la más alta':'Te han superado la puja'),
-    t2:c.name+' · termina el '+a.fin,when:'hace 8 h',to:"aucId='"+a.id+"';go('subasta')"})});
  BUSCO.forEach(function(b,i){if(b[2])L.push({id:'n_bus_'+i,t1:b[2]+' coincidencia con lo que buscas',t2:b[0],when:'ayer',to:"go('match')"})});
  L.push({id:'n_chat',t1:'M. Duarte te ha escrito',t2:'De acuerdo. Te dejo la oferta formal…',when:'11 SEP',to:"cur=CARS[0];go('chat')"});
  return L}
@@ -1067,7 +1072,7 @@ function prow(p){return `<button class="row" onclick="openPieza('${p.id}')"><spa
 function hero2(c){return `<div class="cimg hero2">${img(c)}<span class="plate plate-ov">CHASIS ${c.ch}</span><span class="ref ref-ov">${c.year}</span></div>`}
 
 function needsAttn(c){return c.n<9||c.st==='oferta'||c.st==='rev'}
-function inMotion(c){return c.st==='oferta'||c.st==='subasta'||c.st==='exp'}
+function inMotion(c){return c.st==='oferta'||c.st==='exp'}
 function isExposed(c){return effVis(c)!=='priv'}
 function whyAttn(c){return c.st==='oferta'?'oferta esperando respuesta':c.n<9?'pasaporte incompleto, '+c.n+' de 9':'documentación en revisión'}
 function counter(k,n,l1,l2,col,bg,bd){
@@ -1194,8 +1199,6 @@ function vistext(c){var v=effVis(c);return (c.pub?'Lo has publicado tú para est
 S.pasaporte={tab:'co',back:'coleccion',title:'Pasaporte',sub:function(){return partial(cur.ch)},html:function(){var c=cur,d=dd(c),v=effVis(c);
  var alerta=c.st==='oferta'?`<div class="card up" style="border-color:rgba(211,161,85,.4)"><div class="k" style="color:var(--warn)">OFERTA RECIBIDA</div>
    <div class="cardtx">M. Duarte, de tu círculo, ofrece €2.850.000. Tu mínimo era €2.800.000.</div><button class="btn" onclick="go('oferta')">Ver la oferta</button></div>`
-  :c.st==='subasta'?`<div class="card up" style="border-color:var(--stampln)"><div class="k" style="color:var(--stamp)">EN SUBASTA ENTRE MIEMBROS</div>
-   <div class="cardtx">Puja actual €640.000, reserva alcanzada. Termina el 14 de septiembre.</div><button class="btn ghost" onclick="aucId='countach';go('subasta')">Ver la subasta</button></div>`
   :c.st==='exp'?`<div class="card up" style="border-color:rgba(111,179,146,.4)"><div class="k" style="color:var(--ok)">EXPEDIENTE ABIERTO</div>
    <div class="cardtx">La oferta aceptada abrió el expediente con la verificación medio hecha.</div><button class="btn ghost" onclick="go('paso')">Ver el expediente</button></div>`
   :c.n<9?`<div class="card up" style="border-color:rgba(211,161,85,.4)"><div class="k" style="color:var(--warn)">FALTA POR ACREDITAR</div>
@@ -1226,7 +1229,7 @@ S.pasaporte={tab:'co',back:'coleccion',title:'Pasaporte',sub:function(){return p
  ${row('ok','Fotografías','24','fotos')}
  ${row(c.d3?'ok':'','Captura 3D',c.d3?'sellada':'pendiente','captura3d')}
  <div class="rule"></div>
- ${c.st==='oferta'||c.st==='subasta'||c.st==='exp'?'':`<button class="btn ghost" onclick="go('sacar')">Ofrecer o sacar a subasta</button><div style="height:10px"></div>`}
+ ${c.st==='oferta'||c.st==='exp'?'':`<button class="btn ghost" onclick="go('sacar')">Ofrecer a mi círculo</button><div style="height:10px"></div>`}
  ${c.st==='oferta'?`<button class="btn quiet" onclick="go('chat')">Ver la conversación</button><div style="height:10px"></div>`:''}
  <button class="btn quiet" onclick="EXPMOD='pas';go('export')">Exportar el pasaporte</button>`}};
 
@@ -1282,55 +1285,28 @@ S.captura3d={tab:'co',back:'pasaporte',title:'Captura 3D',sub:function(){return 
  <div style="height:14px"></div>${sealed(c)}
  <div class="card" style="margin-top:16px;border-color:var(--stampln);background:var(--stampbg)"><div class="cardtx" style="margin:0;color:var(--stamp)">La IA nunca toca el coche. Un comprador que descubre un arañazo que la IA borró no vuelve, y cuenta por qué.</div></div>`}};
 
-/* ---- ofrecer o subastar ---- */
+/* ---- ofrecer ---- */
 const sc={modo:'circ',salida:'',reserva:'',quien:'circ'};
 function nbuscan(c){return (c.name.charCodeAt(0)+c.year)%14+3}
 S.sacar={tab:'co',back:'pasaporte',title:'Vender',sub:function(){return partial(cur.ch)},html:function(){var c=cur;
- return `<h2 class="sc in">${c.name}</h2><p class="lede">Elige cómo. En los dos casos, el cierre pasa por el expediente y ahí es donde se cobra.</p>
- <button class="opt" aria-pressed="${sc.modo==='circ'}" onclick="sc.modo='circ';go('sacar')"><span style="flex:1"><span style="font-size:16px">Aceptar ofertas de mi círculo</span><br><span style="font-size:13px;color:var(--tx3)">Sin anunciar nada. Fijas un mínimo y lo que queda por debajo no te llega</span></span></button>
- <button class="opt" aria-pressed="${sc.modo==='sub'}" onclick="sc.modo='sub';go('sacar')"><span style="flex:1"><span style="font-size:16px">Subasta entre miembros</span><br><span style="font-size:13px;color:var(--tx3)">Precio de salida y reserva. Eliges quién la ve</span></span></button>
- <div class="k" style="margin-top:14px">${sc.modo==='circ'?'MÍNIMO QUE TE LLEGA':'PRECIO DE SALIDA'}</div>
+ return `<h2 class="sc in">${c.name}</h2><p class="lede">El cierre pasa por el expediente, y ahí es donde se cobra.</p>
+ <div class="k" style="margin-top:14px">MÍNIMO QUE TE LLEGA</div>
  <input class="inp" inputmode="numeric" placeholder="${c.val.toLocaleString('es-ES')}" value="${sc.salida}" oninput="sc.salida=this.value">
- ${sc.modo==='sub'?`<div class="k" style="margin-top:14px">RESERVA, SOLO LA VES TÚ</div><input class="inp" inputmode="numeric" placeholder="Por debajo no se adjudica" value="${sc.reserva}" oninput="sc.reserva=this.value">
- <div class="k" style="margin-top:14px">QUIÉN LA VE</div>
- <select class="sel" onchange="sc.quien=this.value"><option value="circ"${sc.quien==='circ'?' selected':''}>Mi círculo</option><option value="busca"${sc.quien==='busca'?' selected':''}>Mi círculo y quien busca algo así</option><option value="todos"${sc.quien==='todos'?' selected':''}>Todos los miembros verificados</option></select>`:''}
+ <div class="k" style="margin-top:14px">QUIÉN PUEDE OFERTAR</div>
+ <select class="sel" onchange="sc.quien=this.value"><option value="circ"${sc.quien==='circ'?' selected':''}>Mi círculo</option><option value="busca"${sc.quien==='busca'?' selected':''}>Mi círculo y quien busca algo así</option></select>
  <div class="card" style="margin-top:18px"><div class="k">QUIÉN BUSCA ALGO ASÍ</div><div class="cardtx" style="margin-bottom:0"><b style="color:var(--tx);font-weight:400">${nbuscan(c)} miembros verificados</b> tienen un ${c.name.split(' ').slice(0,2).join(' ')} en su lista. Ves cuántos son, nunca quiénes.</div></div>
  <div style="height:14px"></div>
- <button class="btn" onclick="publicar()">${sc.modo==='circ'?'Activar ofertas del círculo':'Publicar la subasta'}</button>`}};
+ <button class="btn" onclick="publicar()">Activar ofertas</button>`}};
 function publicar(){var c=cur;var v=num(sc.salida)||c.val;
- var destino=sc.modo==='circ'?'circ':(sc.quien==='circ'?'circ':'memb');
+ var destino=sc.quien==='circ'?'circ':'memb';
  if(VORD[destino]>VORD[c.vis]){
   var q=destino==='circ'?'tu círculo':'los miembros verificados que elijas';
   if(!confirm(c.name+' está en '+VISL[c.vis].toLowerCase()+'.\n\nPara esto tiene que verlo '+q+'.\n\nSolo cambia este coche. Tu perfil sigue en '+VISL[PROF].toLowerCase()+', y el resto de la colección no se toca. Dónde está y cuánto vale para ti siguen sin verse.')) return;
  }
- c.pub=1; c.vis=destino;
- if(sc.modo==='circ'){c.st='ok';alert('Ofertas activadas. Tu círculo puede ofertar por '+c.name+' con un mínimo de '+money(v,'EUR')+'. Lo que quede por debajo no te llega.');go('pasaporte');return}
- c.st='subasta';aucId='a'+AUCS.length;
- AUCS.push({id:aucId,car:c.id,salida:v,reserva:num(sc.reserva)||Math.round(v*1.15),actual:0,fin:'en 7 días',quien:sc.quien==='circ'?'Tu círculo':sc.quien==='busca'?'Tu círculo y quien busca algo así':'Todos los miembros verificados',ven:sc.quien==='circ'?14:sc.quien==='busca'?14+nbuscan(c):210,pujas:[]});
- sc.salida='';sc.reserva='';go('subasta')}
+ c.pub=1; c.vis=destino; c.st='ok'; sc.salida='';
+ alert('Ofertas activadas. Pueden ofertar por '+c.name+' con un mínimo de '+money(v,'EUR')+'. Lo que quede por debajo no te llega.');
+ go('pasaporte')}
 
-S.subasta={tab:'pe',back:'subastas',title:'Subasta',sub:function(){var a=AUCS.filter(function(x){return x.id===aucId})[0];return a.fin.toUpperCase()},html:function(){
- var a=AUCS.filter(function(x){return x.id===aucId})[0],c=CARS.filter(function(x){return x.id===a.car})[0];
- return `${hero2(c)}
- <h2 class="sc">${c.name}</h2><p class="lede">${a.pujas.length?'Termina el '+a.fin:'Publicada. Termina '+a.fin}</p>
- <div class="k">${a.actual?'PUJA ACTUAL':'PRECIO DE SALIDA'}</div>
- <div class="amount big">${money(a.actual||a.salida,'EUR')}</div>
- <div style="font-size:15px;color:${a.actual>=a.reserva?'var(--ok)':'var(--tx2)'}">${a.actual>=a.reserva?'Reserva alcanzada':a.actual?'Por debajo de la reserva':'Sin pujas todavía. Se ha avisado a '+a.ven+' miembros'}</div>
- <div class="rule"></div>
- <div class="kv"><span>Precio de salida</span><b>${money(a.salida,'EUR')}</b></div>
- <div class="kv"><span>Reserva, solo la ves tú</span><b>${money(a.reserva,'EUR')}</b></div>
- <div class="kv"><span>Quién la ve</span><b>${a.quien}</b></div>
- <div class="kv"><span>La han visto</span><b>${a.ven} miembros</b></div>
- <div class="kv"><span>Piden acceso</span><b>${REQS.filter(function(x){return x.car===a.car}).length}, sin nombre hasta que aceptes</b></div>
- <div class="kv"><span>Lo que ven</span><b>El coche y el resumen del pasaporte</b></div>
- <div class="kv" style="border-bottom:0"><span>Lo que no ven</span><b>Quién eres ni dónde está</b></div>
- ${a.pujas.length?'<div class="phase">PUJAS</div>'+a.pujas.map(function(p){return `<div class="log"><time>${p[0].replace(' ','<br>')}</time><div>${p[1]}<div style="margin-top:3px"><span class="amount" style="font-size:16px;color:var(--tx)">${p[2]}</span></div></div></div>`}).join(''):''}
- <div class="rule"></div>
- <div class="card" style="border-color:var(--stampln);background:var(--stampbg)"><div class="cardtx" style="margin:0;color:var(--stamp)">Nadie puja sin identidad verificada. Nadie cierra sin origen de fondos acreditado. Si la adjudicas, se abre el expediente con la verificación medio hecha.</div></div>
- <div style="height:14px"></div>
- <button class="btn quiet" onclick="go('adjudicar')">${a.pujas.length?'Adjudicar al cierre':'Retirar la subasta'}</button>`}};
-
-/* ---- círculo ---- */
 const MEMB=[['MD','M. Duarte','Lisboa, coleccionista','avalado por Rafael A.'],['KA','K. Al-S.','Riad, sociedad de inversión','avalado por Rafael A.'],['RA','Rafael A.','México, intermediario','miembro fundador'],['JO','J. Ortiz','Ciudad de México, coleccionista','avalado por ti'],['LB','L. Bauer','Múnich, gestor de colección','avalado por K. Al-S.'],['PV','P. Vermeer','Ámsterdam, marchante','avalado por M. Duarte'],['SN','S. Nakamura','Tokio, coleccionista','avalado por Rafael A.'],['GT','G. Tremonti','Módena, especialista en motores','avalado por Rafael A.'],['EF','E. Fontaine','Ginebra, gestora de patrimonio','avalado por K. Al-S.'],['AB','A. Bianchi','Milán, restaurador','avalado por G. Tremonti'],['DM','D. Mensah','Londres, coleccionista','avalado por M. Duarte'],['RK','R. Kowalski','Varsovia, tasador','avalado por L. Bauer'],['TS','T. Sørensen','Copenhague, coleccionista','avalado por P. Vermeer'],['MC','M. Castro','Bogotá, abogado de la familia','miembro fundador']];
 let CQ='';
 function carRow(c,sub,chip,to){return `<button class="row" onclick="${to}"><span class="thumb2">${img(c)}</span><span class="rtx"><span class="rn">${c.name}</span><span class="rs">${sub}</span></span>${chip}</button>`}
@@ -1668,26 +1644,6 @@ S.cocheajeno={tab:'ci',back:'miembro',title:'Coche',sub:'DE OTRO',html:function(
  <div style="height:20px"></div>
  <button class="btn ghost" onclick="go('match')">Hacer una oferta</button>`}};
 
-/* --- adjudicar la subasta --- */
-S.adjudicar={tab:'ci',back:'subasta',title:'Adjudicar',html:function(){
- var a=AUCS.filter(function(x){return x.id===aucId})[0],c=CARS.filter(function(x){return x.id===a.car})[0];
- var hay=a.pujas.length&&a.actual>=a.reserva;
- return `<h2 class="sc in">${hay?'Adjudicar al cierre':'Retirar la subasta'}</h2>
- <p class="lede">${hay?'La puja supera tu reserva. Adjudicar es tuyo, no automático.':'Sin pujas por encima de la reserva no se adjudica nada y el coche vuelve a donde estaba.'}</p>
- ${hay?`<div class="card up">
-  <div class="kv"><span>Puja ganadora</span><b class="amount" style="font-size:16px">${money(a.actual,'EUR')}</b></div>
-  <div class="kv"><span>Tu reserva</span><b class="amount">${money(a.reserva,'EUR')}</b></div>
-  <div class="kv"><span>Quién puja</span><b>miembro verificado, avalado por Rafael A.</b></div>
-  <div class="kv" style="border-bottom:0"><span>Honorarios de expediente</span><b>€${fee2(a.actual).toLocaleString('es-ES')}, al cierre</b></div></div>
- <div class="phase">QUÉ PASA AL ADJUDICAR</div>
- <div style="font-size:15px;color:var(--tx2);line-height:1.9">Se revelan los nombres a las dos partes, a nadie más<br>Se abre el expediente con la verificación medio hecha<br>El depositario recibe los fondos del comprador<br>Quien avaló a los dos cobra su parte al cierre</div>
- <div style="height:20px"></div>
- <button class="btn" onclick="alert('Adjudicada. En el producto real se abriría el expediente, como pasó con el F40.');go('subasta')">Adjudicar</button>
- <div style="height:10px"></div>`:''}
- <button class="btn quiet" onclick="alert('Retirada. El coche vuelve a su visibilidad anterior y no queda rastro público.');c_retirar()">Retirar la subasta</button>`}};
-function fee2(p){if(p<=1250000)return 7500;return Math.min(Math.round(p*0.006),30000)}
-function c_retirar(){var a=AUCS.filter(function(x){return x.id===aucId})[0];var c=CARS.filter(function(x){return x.id===a.car})[0];c.st='ok';c.pub=0;go('coleccion')}
-
 /* --- contraoferta y rechazo --- */
 S.contraoferta={tab:'ci',back:'oferta',title:'Contraoferta',html:function(){
  return `<h2 class="sc in">Contraoferta</h2>
@@ -2015,25 +1971,11 @@ S.avisos={tab:'pe',back:'coleccion',title:'Avisos',sub:function(){var n=nSin();r
    <span class="dot"></span><span class="tx"><span class="t1">${n.t1}</span><span class="t2">${n.t2}</span></span>
    <span class="when">${n.when}</span></button>`}
  return `<h2 class="sc in">Todo lo que pide algo de ti</h2>
- <p class="lede">Ofertas, subastas, peticiones y mensajes.</p>
+ <p class="lede">Ofertas, peticiones y mensajes.</p>
  ${sin.length?`<div class="phase">SIN LEER</div>${sin.map(fila).join('')}
   <button class="btn quiet" style="margin-top:14px" onclick="leerTodo()">Marcar todo como leído</button>`
   :'<div class="note" style="padding:22px 0">Nada sin leer. Estás al día.</div>'}
  ${ley.length?'<div class="phase">YA VISTO</div>'+ley.map(fila).join(''):''}`}};
-
-/* ===================== SUBASTAS ===================== */
-S.subastas={tab:'pe',back:'perfil',title:'Subastas',sub:function(){return AUCS.length+(AUCS.length===1?' ABIERTA':' ABIERTAS')},html:function(){
- var mias=AUCS.filter(function(a){return a.mia}), otras=AUCS.filter(function(a){return !a.mia});
- function fila(a){var c=CARS.filter(function(x){return x.id===a.car})[0]; if(!c) return '';
-  var sub=a.mia?(a.actual?'puja actual '+money(a.actual,'EUR')+(a.reserva&&a.actual>=a.reserva?', reserva alcanzada':', bajo reserva'):'sin pujas, '+a.ven+' avisados')
-    :'tu puja '+money(a.mipuja,'EUR')+', termina el '+a.fin;
-  return carRow(c,sub,'<span class="chip '+(a.mia?(a.pujas.length?'ok':'wait'):'now')+'">'+(a.mia?(a.pujas.length?a.pujas.length+' pujas':'Sin pujas'):'Vas ganando')+'</span>',"aucId='"+a.id+"';go('subasta')")}
- return `<h2 class="sc in">Subastas</h2>
- <p class="lede">Las tuyas y aquellas en las que pujas. Nadie ve quién puja: solo quién avala a quién.</p>
- ${mias.length?'<div class="phase">LAS TUYAS</div>'+mias.map(fila).join(''):''}
- ${otras.length?'<div class="phase">DONDE PUJAS</div>'+otras.map(fila).join(''):''}
- <div class="cta on"><button class="btn go" onclick="go('coleccion')">
-  <svg viewBox="0 0 18 18" stroke-linecap="round"><path d="M9 2.6 15.4 7M9 2.6 2.6 7M4.6 8.2v6.3M13.4 8.2v6.3M2.6 15.4h12.8"/></svg>Poner un coche en subasta</button></div>`}};
 
 /* ===================== MI PERFIL ===================== */
 S.perfil={tab:'pe',title:'Mi perfil',sub:'AR 0114',html:function(){
@@ -2048,7 +1990,6 @@ S.perfil={tab:'pe',title:'Mi perfil',sub:'AR 0114',html:function(){
  </div>
  <div class="rule"></div>
  <div class="phase">MERCADO</div>
- ${fila('Subastas',AUCS.length+' abiertas','subastas',AUCS.length?'<span class="chip st">'+AUCS.length+'</span>':'')}
  ${fila('Vitrina',VIT.length+' coches de fuera de tu círculo','vitrina')}
  ${fila('Lo que busco',BUSCO.length+' búsquedas activas','busco')}
  ${fila('Peticiones recibidas',REQS.length?REQS.length+' esperando respuesta':'ninguna pendiente','peticiones',REQS.length?'<span class="chip now">'+REQS.length+'</span>':'')}
@@ -2094,6 +2035,7 @@ function pinCta(v){
  var box=document.createElement('div'); box.className='cta';
  grupo.forEach(function(k){box.appendChild(k)});
  v.appendChild(box);
+ return true;
 }
 function go(id){
   const s=S[id],v=document.getElementById('view');
@@ -2110,7 +2052,7 @@ function go(id){
   tb.style.display=s.tab?'flex':'none';
   tb.innerHTML=TABS.map(t=>`<button onclick="go('${t[2]}')" aria-current="${s.tab===t[0]}">
    <span class="ico"><svg viewBox="0 0 18 18" stroke-linecap="round" stroke-linejoin="round">${IC[t[0]]}</svg>${B[t[0]]?`<span class="badge">${B[t[0]]}</span>`:''}</span><span>${t[1]}</span></button>`).join('');
-  pinCta(v);
+  if(!pinCta(v)) v.insertAdjacentHTML('beforeend','<div style="height:30px"></div>');
   const r=v.querySelectorAll('.reg i');
   if(r.length && !matchMedia('(prefers-reduced-motion:reduce)').matches)
     r.forEach((el,i)=>{const c=el.className;el.className='';setTimeout(()=>el.className=c,120+i*45)});
