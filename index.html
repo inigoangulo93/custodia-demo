@@ -52,10 +52,47 @@ body{margin:0;background:var(--bg0);color:var(--tx);font-family:Archivo,system-u
 .chip.wait{background:var(--bg2);color:var(--tx2)}.chip.st{background:var(--stampbg);color:var(--stamp)}
 .chip.no{background:var(--stopbg);color:var(--stop)}
 .rule{height:1px;background:var(--line);margin:18px 0}
-.btn{width:100%;font:inherit;font-size:16px;padding:15px;border-radius:5px;border:1px solid var(--stamp);
-  background:var(--stamp);color:#131627;font-weight:500}
+.btn{width:100%;font:inherit;font-size:16px;padding:16px;border-radius:7px;border:1px solid var(--stamp);
+  background:var(--stamp);color:#141731;font-weight:600;
+  box-shadow:0 1px 0 rgba(255,255,255,.14) inset;
+  transition:transform .12s ease,filter .12s ease}
+.btn:active{transform:translateY(1px);filter:brightness(.94)}
+.btn.quiet{box-shadow:none;font-weight:500}
+.cta .btn+.btn,.cta>div+div,.cta>.btn+div,.cta>div+.btn{margin-top:9px}
+.cta .btn{margin-bottom:0}
 .btn.ghost{background:none;color:var(--stamp);font-weight:400}
 .btn.quiet{background:none;color:var(--tx2);border-color:var(--line2)}
+/* ---- accion principal, fija abajo ---- */
+.cta{position:sticky;bottom:0;z-index:5;margin:30px -20px 0;
+  padding:16px 20px calc(24px + var(--sab));
+  background:rgba(13,17,20,.86);
+  backdrop-filter:blur(16px) saturate(115%);-webkit-backdrop-filter:blur(16px) saturate(115%);
+  border-top:1px solid rgba(255,255,255,.055)}
+.cta::before{content:"";position:absolute;left:0;right:0;top:-34px;height:34px;pointer-events:none;
+  background:linear-gradient(to top,rgba(13,17,20,.62),rgba(13,17,20,0))}
+.btn.go{display:flex;align-items:center;justify-content:center;gap:9px;font-weight:600;padding:16px;
+  border-radius:7px;background:var(--stamp);color:#141731;border-color:var(--stamp)}
+.btn.go svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:1.7}
+.ctanote{font-size:12px;color:var(--tx3);text-align:center;margin-top:9px;line-height:1.45}
+/* ---- pulido general ---- */
+.tabs button[aria-current="true"]::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:26px;height:2px;border-radius:0 0 2px 2px;background:var(--stamp)}
+.tabs button{transition:color .15s ease}
+.ccard{transition:border-color .15s ease,transform .12s ease}
+.ccard:active,.gcard:active{transform:scale(.993)}
+.gcard{transition:border-color .15s ease,transform .12s ease}
+.row{transition:background .12s ease}
+.row:active{background:rgba(255,255,255,.022)}
+.phase{display:flex;align-items:center;gap:12px}
+.phase::after{content:"";flex:1;height:1px;background:var(--line)}
+.chip{border-radius:3px;font-weight:500;letter-spacing:.01em}
+.srch:focus{outline:none;border-color:var(--stampln);background:var(--bg2)}
+.lnk{border:0;background:none;font:inherit;color:var(--stamp);text-decoration:underline;cursor:pointer;padding:0}
+.pp{font-size:11.5px;white-space:nowrap;letter-spacing:.02em}
+.lab{font-size:10.5px;letter-spacing:.14em;color:var(--tx3);margin:16px 0 0}
+.sortbar button b{color:var(--tx2)}
+.sortbar button[aria-current="true"] b{color:var(--stamp)}
+.seg button{transition:background .12s ease,color .12s ease}
 .btn.stop{background:none;color:var(--stop);border-color:var(--stopln)}
 .row{display:flex;align-items:center;gap:14px;padding:16px 0;line-height:1.35;border:0;border-bottom:1px solid var(--line);
   text-align:left;width:100%;background:none;font:inherit;color:var(--tx)}
@@ -123,17 +160,98 @@ p.lede{margin:0 0 20px;font-size:15.5px;color:var(--tx2);line-height:1.6}
 .seg button+button{border-left:1px solid var(--line2)}
 .seg button[aria-pressed="true"]{background:var(--stampbg);color:var(--stamp)}
 .ccard{display:block;width:100%;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--bg1);margin:0 0 14px;padding:0;text-align:left;font:inherit;color:var(--tx)}
-.cimg{position:relative;background:#14191C;line-height:0}
+.cimg{position:relative;background:#14191C;line-height:0;aspect-ratio:16/9;overflow:hidden}
+.cimg img{width:100%;height:100%;object-fit:cover}
+.cimg.hero2{aspect-ratio:auto}
 .cimg svg,.cimg img{display:block;width:100%;height:auto}
-.cchip{position:absolute;top:12px;left:12px;line-height:1.3}
+.cchip{position:absolute;top:12px;left:12px;line-height:1.3;background:rgba(12,16,18,.82);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.14);
+  border-radius:4px;padding:0}
+.cchip .chip{background:none!important;padding:4px 9px}
 .cmeta{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;padding:14px 16px 12px;line-height:1.3}
 .cname{font-size:17px}
 .csub{font-size:13px;color:var(--tx3);margin-top:4px}
 .cval{font-size:19px;white-space:nowrap;padding-top:2px}
+/* ---- badges del toolbar ---- */
+.tabs button{position:relative}
+.tabs .ico{position:relative;display:block;line-height:0}
+.badge{position:absolute;top:-7px;left:12px;min-width:17px;height:17px;padding:0 4px;border-radius:9px;
+  background:var(--stamp);color:#12171A;font-size:10.5px;font-weight:600;line-height:17px;text-align:center;
+  font-family:Inter,system-ui,sans-serif;letter-spacing:0}
+/* ---- campana de avisos ---- */
+.bell{position:relative;margin-left:auto;border:0;background:none;padding:6px;color:var(--tx2);line-height:0;cursor:pointer}
+.bell svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.4}
+.bell .badge{top:0;left:auto;right:0}
+/* ---- barra de herramientas de la coleccion ---- */
+.tools{display:flex;gap:8px;align-items:stretch;margin:14px 0 0}
+.srch{flex:1;min-width:0;height:40px;box-sizing:border-box;background:var(--bg1);
+  border:1px solid var(--line2);border-radius:8px;padding:0 12px;font:inherit;font-size:14px;color:var(--tx)}
+.srch::placeholder{color:var(--tx3)}
+.seg{display:inline-flex;height:40px;box-sizing:border-box;border:1px solid var(--line2);
+  border-radius:8px;overflow:hidden;flex:0 0 auto}
+.seg button{border:0;background:none;min-width:38px;padding:0 12px;display:flex;align-items:center;
+  justify-content:center;color:var(--tx3);line-height:1;cursor:pointer;font:inherit;font-size:13px;
+  white-space:nowrap}
+.seg button svg{flex:0 0 auto}
+.seg button[aria-current="true"]{background:var(--stampbg);color:var(--stamp)}
+.seg svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.5}
+.ftabs{display:flex;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;
+  border-bottom:1px solid var(--line);margin:22px 0 0}
+.ftabs::-webkit-scrollbar{display:none}
+.ftabs button{flex:0 0 auto;border:0;background:none;padding:10px 15px 11px;font:inherit;font-size:13.5px;
+  color:var(--tx3);white-space:nowrap;position:relative;cursor:pointer;transition:color .14s ease}
+.ftabs button:first-child{padding-left:0}
+.ftabs button[aria-current="true"]{color:var(--tx)}
+.ftabs button::after{content:"";position:absolute;left:15px;right:15px;bottom:-1px;height:2px;
+  background:var(--stamp);opacity:0;transition:opacity .14s ease}
+.ftabs button:first-child::after{left:0}
+.ftabs button[aria-current="true"]::after{opacity:1}
+.ftabs b{font-weight:600;margin-left:6px;color:var(--tx3)}
+.ftabs button[aria-current="true"] b{color:var(--stamp)}
+.meta{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:14px 0 4px}
+.cnt{font-size:12.5px;color:var(--tx3);margin:0}
+.ord{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--tx3);white-space:nowrap}
+.ord select{appearance:none;-webkit-appearance:none;border:1px solid var(--line2);background:var(--bg1);
+  border-radius:6px;padding:5px 26px 5px 10px;font:inherit;font-size:12.5px;color:var(--tx2);cursor:pointer;
+  background-image:linear-gradient(45deg,transparent 50%,var(--tx3) 50%),linear-gradient(135deg,var(--tx3) 50%,transparent 50%);
+  background-position:calc(100% - 13px) 52%,calc(100% - 9px) 52%;background-size:4px 4px,4px 4px;background-repeat:no-repeat}
+.ord select:focus{outline:none;border-color:var(--stampln)}
+/* ---- mosaico ---- */
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:4px}
+.gcard{display:block;width:100%;border:1px solid var(--line);border-radius:9px;overflow:hidden;
+  background:var(--bg1);padding:0;text-align:left;font:inherit;color:var(--tx)}
+.gcard .cimg{aspect-ratio:16/9}
+.gcard .cimg img{width:100%;height:100%;object-fit:cover}
+.gmeta{padding:9px 10px 10px}
+.gname{font-size:13.5px;line-height:1.25;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.gsub{font-size:11.5px;color:var(--tx3);margin-top:3px}
+.gval{font-size:14px;margin-top:5px}
+.gdot{display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:5px;vertical-align:1px}
+/* ---- fila compacta ---- */
+.crow{display:flex;align-items:center;gap:11px;padding:11px 0;border:0;border-bottom:1px solid var(--line);
+  width:100%;text-align:left;background:none;font:inherit;color:var(--tx)}
+.crow .th{width:56px;flex:0 0 auto;border-radius:4px;overflow:hidden;background:#14191C;line-height:0;aspect-ratio:16/9}
+.crow .th img{width:100%;height:100%;object-fit:cover}
+/* ---- notificaciones ---- */
+.ntf{display:flex;gap:12px;align-items:flex-start;padding:14px 0;border:0;border-bottom:1px solid var(--line);
+  width:100%;text-align:left;background:none;font:inherit;color:var(--tx)}
+.ntf .dot{width:7px;height:7px;border-radius:50%;flex:0 0 auto;margin-top:7px;background:var(--stamp)}
+.ntf.read .dot{background:transparent;border:1px solid var(--line2)}
+.ntf .tx{flex:1;min-width:0}
+.ntf .t1{font-size:15px;line-height:1.35;display:block}
+.ntf .t2{font-size:13px;color:var(--tx3);margin-top:3px;display:block}
+.ntf .when{font-size:11.5px;color:var(--tx3);white-space:nowrap;margin-top:2px}
+.ntf.read .t1{color:var(--tx2)}
 .hero2{margin:4px -20px 18px;border-radius:0}
 .plate-ov{position:absolute;left:20px;bottom:12px;background:rgba(18,23,26,.8);line-height:1.6}
 .ref-ov{position:absolute;right:20px;bottom:15px;color:var(--tx2);line-height:1.6}
-.thumb2{width:96px;flex:0 0 auto;border-radius:5px;overflow:hidden;background:#14191C;line-height:0}
+.thumb2{width:84px;flex:0 0 auto;border-radius:5px;overflow:hidden;background:#14191C;line-height:0;aspect-ratio:16/9}
+.thumb2 img{width:100%;height:100%;object-fit:cover}
+.rtx{flex:1;min-width:0}
+.rn{display:block;font-size:15.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rs{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+  font-size:12.5px;color:var(--tx3);margin-top:3px;line-height:1.35}
+.row>.chip{flex:0 0 auto;align-self:center}
 .thumb2 svg,.thumb2 img{display:block;width:100%;height:auto}
 .stage{position:relative;border-radius:10px;overflow:hidden;perspective:700px;margin-top:10px;line-height:0}
 .stage svg{display:block;width:100%;height:auto}
@@ -196,7 +314,12 @@ function part(t,c){
    +'<path d="M30 88h240" stroke="'+c+'" stroke-opacity=".18" stroke-width="1"/>');
 }
 function reg(n,c,t){t=t||10;var s='';for(var i=0;i<t;i++)s+='<i class="'+(i<n?c:'')+'"></i>';return s}
-const IC={op:'<path d="M3 5h13M3 9h13M3 13h9"/>',fo:'<rect x="3" y="7" width="12" height="8" rx="1.5"/><path d="M6 7V5a3 3 0 0 1 6 0v2"/>',
+const IC={co:'<path d="M2.5 11.5h13M4.2 11.5V9l1.5-3.1A1.5 1.5 0 0 1 7 5h4a1.5 1.5 0 0 1 1.3.9L13.8 9v2.5"/><circle cx="5.8" cy="12.6" r="1.1"/><circle cx="12.2" cy="12.6" r="1.1"/>',
+ ci:'<circle cx="6.8" cy="6.3" r="2.4"/><path d="M2.3 14.8c0-2.4 2-3.9 4.5-3.9s4.5 1.5 4.5 3.9"/><path d="M11.8 5.4a2.1 2.1 0 0 1 0 3.9"/><path d="M12.9 11.1c1.5.5 2.5 1.7 2.5 3.7"/>',
+ su:'<path d="M9 2.6 15.4 7M9 2.6 2.6 7"/><path d="M4.6 8.2v6.3M13.4 8.2v6.3M2.6 15.4h12.8"/>',
+ pe:'<circle cx="9" cy="6" r="2.7"/><path d="M3.6 15.4c0-2.9 2.4-4.8 5.4-4.8s5.4 1.9 5.4 4.8"/>',
+ bell:'<path d="M9 2.6a4.4 4.4 0 0 1 4.4 4.4c0 3.9 1.4 4.9 1.4 4.9H3.2s1.4-1 1.4-4.9A4.4 4.4 0 0 1 9 2.6z"/><path d="M7.6 14.6a1.5 1.5 0 0 0 2.8 0"/>',
+ op:'<path d="M3 5h13M3 9h13M3 13h9"/>',fo:'<rect x="3" y="7" width="12" height="8" rx="1.5"/><path d="M6 7V5a3 3 0 0 1 6 0v2"/>',
  pa:'<circle cx="7" cy="6.5" r="2.5"/><path d="M2.5 15c0-2.5 2-4 4.5-4s4.5 1.5 4.5 4"/><path d="M12 5.5a2.2 2.2 0 0 1 0 4"/>',
  bi:'<path d="M4 3h8l3 3v11H4z"/><path d="M6.5 9h6M6.5 12h4"/>'};
 const S={};
@@ -232,8 +355,13 @@ ${PASO?'<div class="phase">ABIERTA DESDE EL PASAPORTE</div>'+carRow(CARS[0],'Mia
  ${EXTRA.map(function(o){return op(o.art,o.name,o.sub,o.amt,'<span class="chip st">Nueva</span>',0,'f',o.etapas,'nuevo',o.isPart)}).join('')}
  <div class="phase">CERRADAS</div>
  ${op('p911','Porsche 959 Sport','Zúrich a Marbella, 1989','€2,1M','<span class="chip ok">Entregado</span>',10,'d',10,'bitacora')}
- <div class="rule"></div>
- <button class="btn quiet" onclick="go('alta1')">Abrir una operación</button>`};
+ <div class="phase">TRANSVERSAL</div>
+ <button class="row" onclick="go('fondos')"><span class="rtx"><span class="rn">Fondos</span>
+  <span class="rs">depósitos retenidos y liberaciones</span></span><span class="ref">&#8250;</span></button>
+ <button class="row" onclick="go('bitacora')"><span class="rtx"><span class="rn">Bitácora</span>
+  <span class="rs">todo lo que ha pasado, sellado</span></span><span class="ref">&#8250;</span></button>
+ <div class="cta on"><button class="btn go" onclick="go('alta1')">
+  <svg viewBox="0 0 18 18" stroke-linecap="round"><path d="M9 3.5v11M3.5 9h11"/></svg>Abrir una operación</button></div>`};
 
 S.expediente={tab:'op',back:'operaciones',title:'Expediente',sub:'PT SA 0117',html:`
  <div class="hero in">${car('gt','#9095E4')}
@@ -479,7 +607,7 @@ S.aduana={tab:'op',back:'expediente',title:'Aduana',sub:'ETAPAS 7 Y 8',html:`
  <div class="phase">SE GENERAN SOLOS</div>
  <div style="font-size:15px;line-height:2.3;color:var(--tx2)">Declaración de exportación<br>Factura comercial<br>Lista de bultos<br>Certificado de origen<br>Conocimiento de embarque</div>`};
 
-S.fondos={tab:'fo',title:'Fondos',sub:'2 CUENTAS',html:`
+S.fondos={tab:'op',title:'Fondos',sub:'2 CUENTAS',html:`
  <div class="cert in" style="margin:12px 0 20px"><div class="cert-in">
    <div class="seal">EN CUSTODIA</div>
    <div class="ref">CUENTA DE CLIENTE, ALMEIDA E SOUSA</div>
@@ -534,7 +662,7 @@ S.parte={tab:'op',back:'partes',title:'Comprador',sub:'KHALID A.',html:`
  <div style="height:14px"></div>
  <div style="font-size:13.5px;color:var(--tx3);line-height:1.6">Estos documentos no son visibles para los vendedores. Solo ven el resultado de la comprobación.</div>`};
 
-S.bitacora={tab:'bi',title:'Bitácora',sub:'PT SA 0117',html:`
+S.bitacora={tab:'op',title:'Bitácora',sub:'PT SA 0117',html:`
  <h2 class="sc in">Todo lo que ha pasado</h2>
  <p class="lede">Un registro que nadie puede editar, ni siquiera nosotros. Se exporta como anexo del contrato.</p>
  <div class="log"><time>12 SEP<br>09:14</time><div><b>Rafael A.</b> subió el informe de inspección física</div></div>
@@ -841,10 +969,85 @@ function chipSt(c){return c.st==='oferta'?'<span class="chip now">Oferta recibid
 function partial(ch){return '···'+ch.slice(-5)}
 function effVis(c){return c.pub?c.vis:(VORD[c.vis]<=VORD[PROF]?c.vis:PROF)}
 let FILT='all',HIDE=false,PROF='circ',cur=CARS[0],PASO=0,OFF_SENT=0,VIEW3D='raw';
+let VMODE='lista',SORT='estado',QQ='';
+const SORTS=[['estado','Estado'],['valor','Valor'],['ano','Año'],['nombre','Nombre'],['pasaporte','Pasaporte']];
+function stOrd(c){return c.st==='oferta'?0:c.st==='subasta'?1:c.st==='exp'?2:c.st==='rev'?3:c.n<9?4:5}
+const FILTROS=[['all','Todos',function(){return true}],
+ ['inc','Pasaporte incompleto',function(c){return c.n<9}],
+ ['oferta','Con oferta',function(c){return c.st==='oferta'}],
+ ['subasta','En subasta',function(c){return c.st==='subasta'}],
+ ['exped','Expediente abierto',function(c){return c.st==='exp'}],
+ ['rev','En revisión',function(c){return c.st==='rev'}],
+ ['att','Requieren atención',needsAttn],
+ ['mov','En movimiento',inMotion],
+ ['exp','Fuera de privado',isExposed]];
+function filtFn(k){var f=FILTROS.filter(function(x){return x[0]===k})[0];return f?f[2]:function(){return true}}
+function filtLbl(k){var f=FILTROS.filter(function(x){return x[0]===k})[0];return f?f[1]:'Toda la colección'}
+function nFilt(k){return CARS.filter(filtFn(k)).length}
+function ordenar(l){var a=l.slice();
+ if(SORT==='valor') a.sort(function(x,y){return y.val-x.val});
+ else if(SORT==='ano') a.sort(function(x,y){return y.year-x.year});
+ else if(SORT==='nombre') a.sort(function(x,y){return x.name.localeCompare(y.name,'es')});
+ else if(SORT==='pasaporte') a.sort(function(x,y){return x.n-y.n});
+ else a.sort(function(x,y){return stOrd(x)-stOrd(y)||y.val-x.val});
+ return a}
+function buscar(l){var q=QQ.trim().toLowerCase(); if(!q) return l;
+ return l.filter(function(c){return (c.name+' '+c.year+' '+(CO_CTY[c.cty]||'')).toLowerCase().indexOf(q)>=0})}
+function dotSt(c){return c.st==='oferta'?'var(--stamp)':c.st==='subasta'?'var(--warn)':c.st==='exp'?'var(--ok)':c.st==='rev'?'var(--warn)':c.n<9?'var(--warn)':'transparent'}
+function gcard(c){var v=effVis(c);return `<button class="gcard" onclick="openCar('${c.id}')">
+ <div class="cimg">${img(c)}</div>
+ <div class="gmeta"><div class="gname">${c.name}</div>
+  <div class="gsub"><span class="gdot" style="background:${dotSt(c)}"></span>${c.year} · ${VISL[v]}</div>
+  <div class="amount gval">${HIDE?'····':fmtM(c.val)}</div></div></button>`}
+function crow(c){var v=effVis(c);return `<button class="crow" onclick="openCar('${c.id}')">
+ <span class="th">${img(c)}</span>
+ <span style="flex:1;min-width:0"><span style="font-size:14.5px;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${c.name}</span>
+ <span style="font-size:12px;color:var(--tx3)"><span class="gdot" style="background:${dotSt(c)}"></span>${c.year} · ${CO_CTY[c.cty]} · ${VISL[v]}</span></span>
+ <span class="amount" style="font-size:15px;white-space:nowrap">${HIDE?'····':fmtM(c.val)}</span></button>`}
+const VIC={lista:'<rect x="2.5" y="3" width="13" height="5" rx="1"/><rect x="2.5" y="10" width="13" height="5" rx="1"/>',
+ mosaico:'<rect x="2.5" y="2.5" width="5.5" height="5.5" rx="1"/><rect x="10" y="2.5" width="5.5" height="5.5" rx="1"/><rect x="2.5" y="10" width="5.5" height="5.5" rx="1"/><rect x="10" y="10" width="5.5" height="5.5" rx="1"/>',
+ compacto:'<path d="M2.5 4.5h13M2.5 9h13M2.5 13.5h13"/>'};
 const BUSCO=[['Ferrari 288 GTO','1985 a 1987',1],['Porsche 964 Carrera RS','1992, sin pintar',0],['Mercedes-Benz 190 E 2.5-16 Evolution II','1990',0]];
 const AUCS=[{id:'countach',car:'countach',salida:520000,reserva:610000,actual:640000,fin:'14 SEP, 18:00',quien:'Tu círculo y quien busca algo así',ven:17,
  pujas:[['12 SEP 09:40','Miembro verificado, avalado por Rafael A.','€640.000'],['11 SEP 21:15','Miembro verificado, avalado por K. Al-S.','€625.000'],['11 SEP 18:02','Miembro verificado, avalado por M. Duarte','€600.000'],['10 SEP 10:30','Miembro verificado, avalado por Rafael A.','€560.000'],['9 SEP 16:44','Miembro verificado, avalado por J. Ortiz','€520.000']]}];
 let aucId='countach';
+AUCS.push({id:'gt2',car:'gt2',mia:false,salida:280000,reserva:0,actual:312000,fin:'16 SEP, 20:00',
+ quien:'Subasta de L. Bauer, abierta a su círculo',ven:9,mipuja:312000,
+ pujas:[['12 SEP 11:02','Tú','€312.000'],['11 SEP 19:40','Miembro verificado, avalado por L. Bauer','€296.000'],['10 SEP 12:10','Miembro verificado, avalado por M. Duarte','€280.000']]});
+AUCS[0].mia=true;
+
+/* ---- invitaciones al círculo ---- */
+let INVS_IN=[{id:'i1',ini:'HL',de:'H. Lindqvist',donde:'Estocolmo',rol:'coleccionista',
+  aval:'K. Al-S.',cuando:'10 SEP',nota:'Seis Porsche de competición, todos con pasaporte cerrado.'}];
+let INVS_OUT=[{id:'o1',ini:'CF',de:'C. Ferreira',donde:'Oporto',rol:'restaurador',cuando:'8 SEP'}];
+function aceptarInv(id){var v=INVS_IN.filter(function(x){return x.id===id})[0];
+ INVS_IN=INVS_IN.filter(function(x){return x.id!==id});
+ MEMB.push([v.ini,v.de,v.donde+', '+v.rol,'avalado por '+v.aval]);
+ go('circulo')}
+function rechazarInv(id){INVS_IN=INVS_IN.filter(function(x){return x.id!==id});go('circulo')}
+
+/* ---- avisos ---- */
+let NREAD={};
+function notifs(){
+ var L=[];
+ if(PASO) L.push({id:'n_paso',t1:'Oferta aceptada, expediente abierto',t2:'Ferrari F40 · M. Duarte',when:'hace 1 h',to:"go('paso')"});
+ else L.push({id:'n_of',t1:'M. Duarte ofrece '+money(2850000,'EUR'),t2:'Ferrari F40 · esperando tu respuesta',when:'hace 2 h',to:"cur=CARS[0];go('oferta')"});
+ if(OFF_SENT) L.push({id:'n_sent',t1:'Tu oferta sigue sin respuesta',t2:'Ferrari 288 GTO · '+money(OFF_SENT,'EUR'),when:'hace 5 h',to:"go('match')"});
+ INVS_IN.forEach(function(v){L.push({id:'n_inv_'+v.id,t1:v.de+' te invita a su círculo',t2:'avalado por '+v.aval,when:v.cuando,to:"go('circulo')"})});
+ if(REQS.length) L.push({id:'n_req',t1:REQS.length+' quiere'+(REQS.length===1?'':'n')+' entrar en tu círculo',t2:'han visto un coche tuyo en la vitrina',when:'hace 6 h',to:"go('peticiones')"});
+ AUCS.forEach(function(a){var c=CARS.filter(function(x){return x.id===a.car})[0];if(!c)return;
+  var gano=!a.mia&&a.pujas.length&&a.pujas[0][1]==='Tú';
+  L.push({id:'n_auc_'+a.id,t1:a.mia?(a.actual?'Puja de '+money(a.actual,'EUR')+' en tu subasta':'Tu subasta sigue sin pujas')
+    :(gano?'Tu puja sigue siendo la más alta':'Te han superado la puja'),
+    t2:c.name+' · termina el '+a.fin,when:'hace 8 h',to:"aucId='"+a.id+"';go('subasta')"})});
+ BUSCO.forEach(function(b,i){if(b[2])L.push({id:'n_bus_'+i,t1:b[2]+' coincidencia con lo que buscas',t2:b[0],when:'ayer',to:"go('match')"})});
+ L.push({id:'n_chat',t1:'M. Duarte te ha escrito',t2:'De acuerdo. Te dejo la oferta formal…',when:'11 SEP',to:"cur=CARS[0];go('chat')"});
+ return L}
+function nSin(){return notifs().filter(function(n){return !NREAD[n.id]}).length}
+function abrirN(id,to){NREAD[id]=1;eval(to)}
+function leerTodo(){notifs().forEach(function(n){NREAD[n.id]=1});go('avisos')}
+function opsAtt(){return (PASO?1:0)+2+EXTRA.length}
+function badges(){return{co:CARS.filter(needsAttn).length,ci:REQS.length+INVS_IN.length,op:opsAtt(),pe:0}}
 const CHAT=[['them','Vi el F40 en tu círculo. El pasaporte es impecable. ¿Aceptarías 2,85 si el cierre pasa por expediente?','11 SEP 19:20'],
  ['me','Mi mínimo estaba en 2,8. Con el escape original incluido, sí.','11 SEP 19:34'],
  ['them','De acuerdo. Te dejo la oferta formal para que quede registrada.','11 SEP 19:36']];
@@ -856,7 +1059,9 @@ function ccard(c){var v=effVis(c);return `<button class="ccard" onclick="openCar
  <div class="cimg">${img(c)}${chipSt(c)?'<span class="cchip">'+chipSt(c)+'</span>':''}</div>
  <div class="cmeta"><div style="flex:1;min-width:0"><div class="cname">${c.name}</div><div class="csub">${c.year} · ${CO_CTY[c.cty]} · ${VISL[v]}${v!==c.vis?' por el perfil':''}</div></div>
   <div class="amount cval">${HIDE?'····':fmtM(c.val)}</div></div>
- <div class="reg" style="margin:0 16px 14px">${reg(c.n,c.n<9?'f':'d',9)}</div></button>`}
+ <div style="display:flex;align-items:center;gap:10px;margin:0 16px 14px">
+  <span class="reg" style="flex:1">${reg(c.n,c.n<9?'f':'d',9)}</span>
+  <span class="pp" style="color:${c.n<9?'var(--warn)':'var(--ok)'}">${c.n<9?'Pasaporte '+c.n+' de 9':'Pasaporte completo'}</span></div></button>`}
 function prow(p){return `<button class="row" onclick="openPieza('${p.id}')"><span class="thumb2">${photoPart(p)}</span>
  <span style="flex:1;min-width:0"><span style="font-size:16px">${p.name}</span><br><span style="font-size:13px;color:var(--tx3)">${p.sub}</span></span><span class="amount" style="font-size:16px">${HIDE?'····':p.val}</span></button>`}
 function hero2(c){return `<div class="cimg hero2">${img(c)}<span class="plate plate-ov">CHASIS ${c.ch}</span><span class="ref ref-ov">${c.year}</span></div>`}
@@ -873,8 +1078,9 @@ function counter(k,n,l1,l2,col,bg,bd){
 
 S.coleccion={tab:'co',title:'brand',sub:'AR 0114',html:function(){
  var att=CARS.filter(needsAttn).length, mov=CARS.filter(inMotion).length, exp=CARS.filter(isExposed).length;
- var list=CARS.filter(function(c){return FILT==='all'?true:FILT==='att'?needsAttn(c):FILT==='mov'?inMotion(c):FILT==='exp'?isExposed(c):true});
- var tit={att:'Requieren tu atención',mov:'En movimiento',exp:'Expuestos fuera de privado'}[FILT]||'Toda la colección';
+ var list=CARS.filter(filtFn(FILT));
+ var tit=FILT==='all'?'Toda la colección':filtLbl(FILT);
+ var vis=ordenar(buscar(list));
  return `<div class="in" style="padding:14px 0 0">
   <div class="k">VALOR CUSTODIADO</div>
   <div onclick="HIDE=!HIDE;go('coleccion')" style="display:flex;align-items:baseline;gap:12px;margin:8px 0 5px;cursor:pointer">
@@ -882,24 +1088,29 @@ S.coleccion={tab:'co',title:'brand',sub:'AR 0114',html:function(){
    <span style="font-size:13px;color:var(--tx3)">${HIDE?'mostrar':'ocultar'}</span></div>
   <div style="font-size:13px;color:var(--tx2)">${CARS.length} coches y ${PIEZAS.length} piezas, sellados el 3 de septiembre</div>
  </div>
- <div class="rule"></div>
- <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px">
-  ${counter('att',att,'requieren','tu atención','var(--warn)','var(--warnbg)','var(--line2)')}
-  ${counter('mov',mov,'en','movimiento','var(--stamp)','var(--stampbg)','var(--line2)')}
-  ${counter('exp',exp,'expuestos','fuera de privado','var(--tx)','rgba(255,255,255,.05)','var(--line2)')}
- </div>
- <button class="row" style="margin-top:16px;border-top:1px solid var(--line);padding:14px 0" onclick="go('privacidad')">
+ <button class="row" style="margin-top:4px;border-top:1px solid var(--line);padding:14px 0" onclick="go('privacidad')">
   <span style="flex:1;font-size:14px;color:var(--tx2)">Perfil en ${VISL[PROF].toLowerCase()}</span>
   <span style="font-size:14px;color:var(--stamp)">Privacidad &#8250;</span></button>
- <div class="phase">${tit.toUpperCase()}</div>
- ${FILT!=='all'?`<div class="note" style="margin:0 0 10px">${FILT==='att'?'Lo que no avanza solo. Cada uno espera algo tuyo o de alguien a quien invitaste.':FILT==='mov'?'Con oferta, en subasta o con expediente abierto. Aquí hay dinero o plazos en juego.':'Todo lo que alguien puede ver sin ser tú. Ni el valor ni la ubicación salen nunca, en ningún caso.'}</div>`:''}
- ${list.length?list.map(function(c){return ccard(c)+(FILT==='att'?`<div class="note" style="margin:-8px 0 16px;color:var(--warn)">${whyAttn(c)}</div>`:'')}).join(''):'<div class="note" style="padding:24px 0">Nada aquí. Es la buena noticia.</div>'}
- ${FILT!=='all'?`<button class="btn quiet" style="margin-top:4px" onclick="FILT='all';go('coleccion')">Ver toda la colección</button>`:''}
+ <div class="ftabs">${FILTROS.map(function(f){var n=nFilt(f[0]);
+  return n||f[0]==='all'?`<button aria-current="${FILT===f[0]}" onclick="FILT='${f[0]}';go('coleccion')">${f[1]}${f[0]==='all'?'':'<b>'+n+'</b>'}</button>`:''}).join('')}</div>
+ <div class="tools">
+  <input class="srch" placeholder="Buscar coche, año o país" value="${QQ}"
+   oninput="QQ=this.value;clearTimeout(window._qq);window._qq=setTimeout(function(){go('coleccion')},200)">
+  <span class="seg">${['lista','mosaico','compacto'].map(function(v){return `<button aria-current="${VMODE===v}" aria-label="${v}" onclick="VMODE='${v}';go('coleccion')"><svg viewBox="0 0 18 18" stroke-linecap="round" stroke-linejoin="round">${VIC[v]}</svg></button>`}).join('')}</span>
+ </div>
+ <div class="meta">
+  <span class="cnt">${vis.length} ${vis.length===1?'coche':'coches'}${HIDE?'':' · '+fmtM(vis.reduce(function(a,c){return a+c.val},0))}</span>
+  <label class="ord">Ordenar<select onchange="SORT=this.value;go('coleccion')">${SORTS.map(function(o){return `<option value="${o[0]}"${SORT===o[0]?' selected':''}>${o[1]}</option>`}).join('')}</select></label>
+ </div>
+ ${vis.length?(VMODE==='mosaico'?'<div class="grid2">'+vis.map(gcard).join('')+'</div>'
+   :VMODE==='compacto'?vis.map(crow).join('')
+   :vis.map(function(c){return ccard(c)+(FILT==='att'?`<div class="note" style="margin:-8px 0 16px;color:var(--warn)">${whyAttn(c)}</div>`:'')}).join(''))
+  :`<div class="note" style="padding:24px 0">${QQ.trim()?'Ningún coche coincide. <button class="lnk" onclick="QQ=\'\';go(\'coleccion\')">Limpiar la búsqueda</button>':'Nada aquí. Es la buena noticia.'}</div>`}
+ ${FILT!=='all'?`<button class="btn quiet" style="margin-top:14px" onclick="FILT='all';go('coleccion')">Ver toda la colección</button>`:''}
  ${FILT==='all'?'<div class="phase">PIEZAS Y COMPONENTES</div>'+PIEZAS.map(prow).join(''):''}
- ${FILT==='all'?'<div class="note" style="margin-top:14px">Dónde está cada coche se consulta dentro de su pasaporte. No es un filtro: es el dato más sensible que guardas.</div>':''}
- <div class="rule"></div>
- <button class="btn quiet" onclick="go('altacoche')">Añadir un coche</button>
- <div class="note" style="margin-top:14px">Tener la colección aquí no cuesta nada. El alta en el garaje sí, 1.800 por visita, y se descuenta del primer expediente. Después solo se paga por expediente, y solo al cierre.</div>`}};
+ ${FILT==='all'?'':''}
+ <div class="cta on"><button class="btn go" onclick="go('altacoche')">
+  <svg viewBox="0 0 18 18" stroke-linecap="round"><path d="M9 3.5v11M3.5 9h11"/></svg>Añadir un coche</button></div>`}};
 
 /* ---- detalle de los pasaportes ---- */
 const D={
@@ -1017,13 +1228,11 @@ S.pasaporte={tab:'co',back:'coleccion',title:'Pasaporte',sub:function(){return p
  <div class="rule"></div>
  ${c.st==='oferta'||c.st==='subasta'||c.st==='exp'?'':`<button class="btn ghost" onclick="go('sacar')">Ofrecer o sacar a subasta</button><div style="height:10px"></div>`}
  ${c.st==='oferta'?`<button class="btn quiet" onclick="go('chat')">Ver la conversación</button><div style="height:10px"></div>`:''}
- <button class="btn quiet" onclick="EXPMOD='pas';go('export')">Exportar el pasaporte</button>
- <div class="note" style="margin-top:14px">Cada dato lleva su sello: fecha, huella y quién lo aportó. Lo que falta se declara, no se esconde.</div>`}};
+ <button class="btn quiet" onclick="EXPMOD='pas';go('export')">Exportar el pasaporte</button>`}};
 
 S.ficha={tab:'co',back:'pasaporte',title:'Ficha técnica',sub:function(){return partial(cur.ch)},html:function(){var d=dd(cur);
  return `<h2 class="sc in">${cur.name}</h2>${sealed(cur)}<div style="height:14px"></div>
- ${d.ficha.map(function(f){return `<div class="kv"><span>${f[0]}</span><b>${f[1]}</b></div>`}).join('')}
- <div class="note" style="margin-top:16px">Lo que dice la ficha se coteja con el certificado del fabricante y con el informe de inspección. Si algo no coincide, se declara.</div>`}};
+ ${d.ficha.map(function(f){return `<div class="kv"><span>${f[0]}</span><b>${f[1]}</b></div>`}).join('')}`}};
 
 S.historia={tab:'co',back:'pasaporte',title:'Historia',sub:function(){return partial(cur.ch)},html:function(){var d=dd(cur);
  return `<h2 class="sc in">De quién ha sido</h2><p class="lede">Cada tenedor con su prueba. El hueco, si lo hay, se señala.</p>
@@ -1036,8 +1245,7 @@ S.historia={tab:'co',back:'pasaporte',title:'Historia',sub:function(){return par
 S.pdocs={tab:'co',back:'pasaporte',title:'Procedencia',sub:function(){return partial(cur.ch)},html:function(){var d=dd(cur);
  return `<h2 class="sc in">Lo que lo sostiene</h2><p class="lede">Documentos cotejados con su fuente. Un documento sin cotejar no suma.</p>
  ${d.docs.map(function(x,i){return `<button class="row" onclick="opendoc(${i})"><span style="flex:1"><span style="font-size:16px">${x[0]}</span><br><span style="font-size:13px;color:var(--tx3)">${x[1]}</span></span><span class="chip ${x[2]||'wait'}">${x[3]}</span></button>`}).join('')}
- <div style="height:14px"></div>${sealed(cur)}
- <div class="note" style="margin-top:14px">Fuera del círculo nadie ve estos documentos. Solo el resultado: cuántos hay y cuántos están cotejados.</div>`}};
+ <div style="height:14px"></div>${sealed(cur)}`}};
 
 S.mods={tab:'co',back:'pasaporte',title:'Modificaciones',sub:function(){return partial(cur.ch)},html:function(){var d=dd(cur);
  return `<h2 class="sc in">Qué es original y qué no</h2><p class="lede">Declarado por el propietario y contrastado con la inspección. Lo que no es original no descuenta si se declara y se conserva la pieza.</p>
@@ -1052,15 +1260,13 @@ S.valor={tab:'co',back:'pasaporte',title:'Valor',sub:function(){return partial(c
  <div class="phase">COMPARABLES</div>
  ${d.val.comp.map(function(x){return `<div class="kv"><span>${x[0]}<br><span style="font-size:13px;color:var(--tx3)">${x[1]}</span></span><b>${x[2]}</b></div>`}).join('')}
  <div style="height:16px"></div>
- <div class="card"><div class="k">CÓMO SE AJUSTA</div><div class="cardtx" style="margin-bottom:0">${d.val.nota}</div></div>
- <div class="note" style="margin-top:16px">Solo tú ves esta cifra. Es una estimación, no una tasación. La tasación formal llega con el expediente, y parte de estos comparables.</div>`}};
+ <div class="card"><div class="k">CÓMO SE AJUSTA</div><div class="cardtx" style="margin-bottom:0">${d.val.nota}</div></div>`}};
 
 S.fotos={tab:'co',back:'pasaporte',title:'Fotografías',sub:'24',html:function(){
  var cells='';for(var i=0;i<9;i++)cells+=`<div style="border-radius:4px;overflow:hidden;background:#14191C"><div style="transform:scale(${1.15+(i%3)*.25}) translate(${(i%3-1)*8}%,${(i%2)*4}%);transform-origin:center">${photo(cur,i%2?'pro':'raw')}</div></div>`;
  return `<h2 class="sc in">${cur.name}</h2><p class="lede">Una sola imagen grande por coche en el pasaporte compartido. Aquí, las de la captura.</p>
  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px">${cells}</div>
- <div style="height:16px"></div>${sealed(cur)}
- <div class="note" style="margin-top:14px">La ubicación que llevan dentro las fotos se borra al subirlas. Ninguna imagen muestra el garaje.</div>`}};
+ <div style="height:16px"></div>${sealed(cur)}`}};
 
 S.captura3d={tab:'co',back:'pasaporte',title:'Captura 3D',sub:function(){return partial(cur.ch)},html:function(){var c=cur;
  if(!c.d3)return `<h2 class="sc in">Pendiente de captura</h2><p class="lede">La captura se hace en el alta asistida, con luz controlada. La pintura y el cromo reflejan la luz y una captura a mano en el garaje no sirve.</p>
@@ -1090,8 +1296,7 @@ S.sacar={tab:'co',back:'pasaporte',title:'Vender',sub:function(){return partial(
  <select class="sel" onchange="sc.quien=this.value"><option value="circ"${sc.quien==='circ'?' selected':''}>Mi círculo</option><option value="busca"${sc.quien==='busca'?' selected':''}>Mi círculo y quien busca algo así</option><option value="todos"${sc.quien==='todos'?' selected':''}>Todos los miembros verificados</option></select>`:''}
  <div class="card" style="margin-top:18px"><div class="k">QUIÉN BUSCA ALGO ASÍ</div><div class="cardtx" style="margin-bottom:0"><b style="color:var(--tx);font-weight:400">${nbuscan(c)} miembros verificados</b> tienen un ${c.name.split(' ').slice(0,2).join(' ')} en su lista. Ves cuántos son, nunca quiénes.</div></div>
  <div style="height:14px"></div>
- <button class="btn" onclick="publicar()">${sc.modo==='circ'?'Activar ofertas del círculo':'Publicar la subasta'}</button>
- <div class="note" style="margin-top:14px">${c.vis==='priv'?'El coche está en privado. Se te pedirá confirmación antes de cambiarlo, y solo cambia este coche: tu perfil y el resto de la colección se quedan como están. ':''}Dónde está y cuánto vale para ti siguen sin verse nunca.</div>`}};
+ <button class="btn" onclick="publicar()">${sc.modo==='circ'?'Activar ofertas del círculo':'Publicar la subasta'}</button>`}};
 function publicar(){var c=cur;var v=num(sc.salida)||c.val;
  var destino=sc.modo==='circ'?'circ':(sc.quien==='circ'?'circ':'memb');
  if(VORD[destino]>VORD[c.vis]){
@@ -1104,7 +1309,7 @@ function publicar(){var c=cur;var v=num(sc.salida)||c.val;
  AUCS.push({id:aucId,car:c.id,salida:v,reserva:num(sc.reserva)||Math.round(v*1.15),actual:0,fin:'en 7 días',quien:sc.quien==='circ'?'Tu círculo':sc.quien==='busca'?'Tu círculo y quien busca algo así':'Todos los miembros verificados',ven:sc.quien==='circ'?14:sc.quien==='busca'?14+nbuscan(c):210,pujas:[]});
  sc.salida='';sc.reserva='';go('subasta')}
 
-S.subasta={tab:'ci',back:'circulo',title:'Subasta',sub:function(){var a=AUCS.filter(function(x){return x.id===aucId})[0];return a.fin.toUpperCase()},html:function(){
+S.subasta={tab:'pe',back:'subastas',title:'Subasta',sub:function(){var a=AUCS.filter(function(x){return x.id===aucId})[0];return a.fin.toUpperCase()},html:function(){
  var a=AUCS.filter(function(x){return x.id===aucId})[0],c=CARS.filter(function(x){return x.id===a.car})[0];
  return `${hero2(c)}
  <h2 class="sc">${c.name}</h2><p class="lede">${a.pujas.length?'Termina el '+a.fin:'Publicada. Termina '+a.fin}</p>
@@ -1126,40 +1331,61 @@ S.subasta={tab:'ci',back:'circulo',title:'Subasta',sub:function(){var a=AUCS.fil
  <button class="btn quiet" onclick="go('adjudicar')">${a.pujas.length?'Adjudicar al cierre':'Retirar la subasta'}</button>`}};
 
 /* ---- círculo ---- */
-const MEMB=[['MD','M. Duarte','Lisboa, coleccionista','avalado por Rafael A.'],['KA','K. Al-S.','Riad, sociedad de inversión','avalado por Rafael A.'],['RA','Rafael A.','México, intermediario','miembro fundador'],['JO','J. Ortiz','Ciudad de México, coleccionista','avalado por ti'],['LB','L. Bauer','Múnich, gestor de colección','avalado por K. Al-S.']];
-function carRow(c,sub,chip,to){return `<button class="row" onclick="${to}"><span class="thumb2">${img(c)}</span><span style="flex:1;min-width:0"><span style="font-size:16px">${c.name}</span><br><span style="font-size:13px;color:var(--tx3)">${sub}</span></span>${chip}</button>`}
-S.circulo={tab:'ci',title:'Círculo',sub:'14 MIEMBROS',html:function(){var f40=CARS[0];
- return `<h2 class="sc in">Quién puede hablarte</h2><p class="lede">Solo quien tú has aceptado. Cada uno entró invitado por alguien, y ves por quién.</p>
+const MEMB=[['MD','M. Duarte','Lisboa, coleccionista','avalado por Rafael A.'],['KA','K. Al-S.','Riad, sociedad de inversión','avalado por Rafael A.'],['RA','Rafael A.','México, intermediario','miembro fundador'],['JO','J. Ortiz','Ciudad de México, coleccionista','avalado por ti'],['LB','L. Bauer','Múnich, gestor de colección','avalado por K. Al-S.'],['PV','P. Vermeer','Ámsterdam, marchante','avalado por M. Duarte'],['SN','S. Nakamura','Tokio, coleccionista','avalado por Rafael A.'],['GT','G. Tremonti','Módena, especialista en motores','avalado por Rafael A.'],['EF','E. Fontaine','Ginebra, gestora de patrimonio','avalado por K. Al-S.'],['AB','A. Bianchi','Milán, restaurador','avalado por G. Tremonti'],['DM','D. Mensah','Londres, coleccionista','avalado por M. Duarte'],['RK','R. Kowalski','Varsovia, tasador','avalado por L. Bauer'],['TS','T. Sørensen','Copenhague, coleccionista','avalado por P. Vermeer'],['MC','M. Castro','Bogotá, abogado de la familia','miembro fundador']];
+let CQ='';
+function carRow(c,sub,chip,to){return `<button class="row" onclick="${to}"><span class="thumb2">${img(c)}</span><span class="rtx"><span class="rn">${c.name}</span><span class="rs">${sub}</span></span>${chip}</button>`}
+S.circulo={tab:'ci',title:'Mi círculo',sub:function(){return MEMB.length+' MIEMBROS'},html:function(){
+ var q=(CQ||'').toLowerCase();
+ var list=MEMB.filter(function(m){return !q||(m[1]+' '+m[2]+' '+m[3]).toLowerCase().indexOf(q)>=0});
+ return `<h2 class="sc in">Quién puede hablarte</h2>
+ <p class="lede">Solo quien tú has aceptado. Cada uno entró invitado por alguien, y ves por quién.</p>
+
+ ${INVS_IN.length?`<div class="phase">TE HAN INVITADO</div>
+ ${INVS_IN.map(function(v){return `<div class="card up">
+   <div style="display:flex;align-items:center;gap:12px">
+    <span class="seal" style="width:42px;height:42px;margin:0;font-size:13px;letter-spacing:.03em">${v.ini}</span>
+    <span style="flex:1;min-width:0"><span style="font-size:16px">${v.de}</span><br>
+    <span style="font-size:13px;color:var(--tx3)">${v.donde}, ${v.rol} · avalado por ${v.aval}</span></span>
+    <span class="ref">${v.cuando}</span></div>
+   <div class="cardtx" style="margin:10px 0 12px">${v.nota}</div>
+   <div style="display:flex;gap:9px">
+    <button class="btn" style="flex:1" onclick="aceptarInv('${v.id}')">Aceptar</button>
+    <button class="btn quiet" style="flex:1;margin:0" onclick="rechazarInv('${v.id}')">Ahora no</button></div>
+  </div>`}).join('')}`:''}
+
  <div class="phase">PETICIONES DE ACCESO</div>
  <button class="row" onclick="go('peticiones')">
   <span class="seal" style="width:42px;height:42px;margin:0;font-size:13px">?</span>
   <span style="flex:1"><span style="font-size:16px">${REQS.length} quiere${REQS.length===1?'':'n'} entrar</span><br>
   <span style="font-size:13px;color:var(--tx3)">han visto un coche tuyo en la vitrina</span></span>
   <span class="chip ${REQS.length?'now':'wait'}">${REQS.length?'Nueva':'Ninguna'}</span></button>
- <button class="row" onclick="go('vitrina')">
-  <span class="seal" style="width:42px;height:42px;margin:0;font-size:13px">V</span>
-  <span style="flex:1"><span style="font-size:16px">Vitrina</span><br>
-  <span style="font-size:13px;color:var(--tx3)">${VIT.length} coches de fuera de tu círculo</span></span>
-  <span class="chip st">Ver</span></button>
- <div class="phase">OFERTAS</div>
- ${PASO?carRow(f40,'oferta aceptada, expediente abierto','<span class="chip ok">Expediente</span>',"go('paso')"):carRow(f40,'M. Duarte ofrece €2.850.000','<span class="chip now">Nueva</span>',"cur=CARS[0];go('oferta')")}
- ${OFF_SENT?carRow({id:'gto',art:'gt',paint:'#B5121B',name:'Ferrari 288 GTO'},'tu oferta de €'+num(OFF_SENT).toLocaleString('es-ES'),'<span class="chip st">Enviada</span>',"go('match')"):''}
- <div class="phase">SUBASTAS</div>
- ${AUCS.map(function(a){var c=CARS.filter(function(x){return x.id===a.car})[0];return carRow(c,a.actual?'puja actual '+money(a.actual,'EUR')+', reserva alcanzada':'sin pujas, '+a.ven+' avisados','<span class="chip st">'+(a.pujas.length?'2 días':'Nueva')+'</span>',"aucId='"+a.id+"';go('subasta')")}).join('')}
- <div class="phase">LO QUE BUSCO</div>
- ${BUSCO.map(function(b){return `<button class="row" onclick="${b[2]?"go('match')":"go('busco')"}"><span style="flex:1"><span style="font-size:16px">${b[0]}</span><br><span style="font-size:13px;color:var(--tx3)">${b[1]}</span></span><span class="chip ${b[2]?'now':'wait'}">${b[2]?b[2]+' coincidencia':'Nada aún'}</span></button>`}).join('')}
- <button class="btn quiet" style="margin-top:14px" onclick="go('busco')">Añadir a la lista</button>
- <div class="phase">CONVERSACIONES</div>
- <button class="row" onclick="cur=CARS[0];go('chat')"><span class="seal" style="width:42px;height:42px;margin:0;font-size:13px;letter-spacing:.03em">MD</span><span style="flex:1"><span style="font-size:16px">M. Duarte</span><br><span style="font-size:13px;color:var(--tx3)">De acuerdo. Te dejo la oferta formal…</span></span><span class="ref">11 SEP</span></button>
+
+ ${INVS_OUT.length?`<div class="phase">INVITACIONES QUE ENVIASTE</div>
+ ${INVS_OUT.map(function(v){return `<div class="row" style="cursor:default">
+   <span class="seal" style="width:42px;height:42px;margin:0;font-size:13px;letter-spacing:.03em">${v.ini}</span>
+   <span style="flex:1;min-width:0"><span style="font-size:16px">${v.de}</span><br>
+   <span style="font-size:13px;color:var(--tx3)">${v.donde}, ${v.rol} · enviada el ${v.cuando}</span></span>
+   <span class="chip wait">Sin responder</span></div>`}).join('')}`:''}
+
+ <div class="phase">MIEMBROS</div>
+ <div class="tools">
+  <input class="srch" placeholder="Buscar por nombre, ciudad o aval" value="${CQ||''}"
+   oninput="CQ=this.value;clearTimeout(window._cq);window._cq=setTimeout(function(){go('circulo')},200)">
+ </div>
+ <div class="cnt">${list.length} de ${MEMB.length}${q?' que coinciden':''}</div>
+ ${list.length?list.map(function(m){var i=MEMB.indexOf(m);return `<button class="row" onclick="mem=${i};go('miembro')">
+   <span class="seal" style="width:42px;height:42px;margin:0;font-size:13px;letter-spacing:.03em">${m[0]}</span>
+   <span style="flex:1;min-width:0"><span style="font-size:16px">${m[1]}</span><br>
+   <span style="font-size:13px;color:var(--tx3)">${m[2]} · ${m[3]}</span></span>
+   <span class="chip ok">Verificado</span></button>`}).join('')
+  :'<div class="note" style="padding:22px 0">Nadie con ese nombre en tu círculo.</div>'}
+
  <div class="phase">AVALES</div>
  <button class="card" style="width:100%;text-align:left;font:inherit;color:var(--tx);border-color:var(--stampln);background:var(--stampbg)" onclick="go('avales')">
   <div class="k" style="color:var(--stamp)">HAS AVALADO A 1 MIEMBRO</div>
   <div class="cardtx" style="margin-bottom:0;color:var(--stamp)">Cuando dos de tus avalados cierran una operación, cobras el 20% de nuestros honorarios. Nunca sale del precio del coche.</div></button>
- <div class="phase">MI CÍRCULO</div>
- ${MEMB.map(function(m,i){return `<button class="row" onclick="mem=${i};go('miembro')"><span class="seal" style="width:42px;height:42px;margin:0;font-size:13px;letter-spacing:.03em">${m[0]}</span><span style="flex:1"><span style="font-size:16px">${m[1]}</span><br><span style="font-size:13px;color:var(--tx3)">${m[2]} · ${m[3]}</span></span><span class="chip ok">Verificado</span></button>`}).join('')}
- <div class="note" style="padding:12px 0">y nueve más</div>
- <div class="rule"></div>
- <button class="btn quiet" onclick="go('invitar')">Invitar a alguien</button>`}};
+ <div class="cta on"><button class="btn go" onclick="go('invitar')">
+  <svg viewBox="0 0 18 18" stroke-linecap="round"><path d="M11.5 14.5c0-2.2-1.8-3.6-4-3.6s-4 1.4-4 3.6"/><circle cx="7.5" cy="6" r="2.4"/><path d="M13 5.5v4M15 7.5h-4"/></svg>Invitar a alguien</button></div>`}};
 
 let mem=0;
 const EX=[{id:'x1',art:'gt',paint:'#8B1E2B',name:'Ferrari 250 GT Lusso',year:1963},{id:'x2',art:'p911',paint:'#2F3A44',name:'Porsche 911 Turbo (993)',year:1996},{id:'x3',art:'wedge',paint:'#C9A227',name:'Lamborghini Diablo SV',year:1997}];
@@ -1170,10 +1396,9 @@ S.miembro={tab:'ci',back:'circulo',title:'Miembro',sub:function(){return MEMB[me
  <div class="kv"><span>Origen de fondos</span><b>Se acredita en cada operación</b></div>
  <div class="kv" style="border-bottom:0"><span>Comparte contigo</span><b>${mem===2?'Nada. Es intermediario':'9 de sus coches'}</b></div>
  ${mem===2?'':`<div class="phase">SU COLECCIÓN, COMO TE LA ENSEÑA</div>
- ${EX.map(function(e){return carRow(e,e.year+' · chasis ··· · dónde está: no se muestra','<span class="chip wait">Pasaporte</span>',"openEx('"+e.id+"')")}).join('')}`}
- <div class="note" style="margin-top:16px">Lo que él ve de ti es exactamente lo que tú has decidido, coche a coche. Nada más.</div>`}};
+ ${EX.map(function(e){return carRow(e,e.year+' · chasis ··· · dónde está: no se muestra','<span class="chip wait">Pasaporte</span>',"openEx('"+e.id+"')")}).join('')}`}`}};
 
-S.oferta={tab:'ci',back:'circulo',title:'Oferta',sub:'HASTA 18 SEP',html:function(){var c=CARS[0];
+S.oferta={tab:'ci',back:'avisos',title:'Oferta',sub:'HASTA 18 SEP',html:function(){var c=CARS[0];
  return `${hero2(c)}
  <h2 class="sc">Ferrari F40</h2><p class="lede">Oferta de tu círculo por un coche que no estaba en venta</p>
  <div class="k">OFRECE</div>
@@ -1189,8 +1414,7 @@ S.oferta={tab:'ci',back:'circulo',title:'Oferta',sub:'HASTA 18 SEP',html:functio
  <div class="msg them" style="margin-top:16px">Cierre por expediente, con el transporte a Lisboa a mi cargo. Puedo firmar esta semana.<time>11 SEP 19:41</time></div>
  <div style="height:18px"></div>
  <button class="btn" onclick="aceptar()">Aceptar y abrir el expediente</button><div style="height:10px"></div>
- <div class="two"><button class="btn quiet" onclick="go('contraoferta')">Contraoferta</button><button class="btn quiet" onclick="go('rechazar')">Rechazar</button></div>
- <div class="note" style="margin-top:16px">Hasta que aceptes, él ve el coche y el pasaporte, no tu nombre. Tú ves el resultado de su verificación, nunca sus documentos. Al aceptar, los nombres se revelan a las dos partes y a nadie más.</div>`}};
+ <div class="two"><button class="btn quiet" onclick="go('contraoferta')">Contraoferta</button><button class="btn quiet" onclick="go('rechazar')">Rechazar</button></div>`}};
 function aceptar(){PASO=1;CARS[0].st='exp';go('paso')}
 
 S.paso={tab:'op',back:'operaciones',title:'Expediente',sub:'US PT 0124',html:function(){var c=CARS[0];
@@ -1217,17 +1441,16 @@ S.paso={tab:'op',back:'operaciones',title:'Expediente',sub:'US PT 0124',html:fun
  <div class="kv"><span>Honorarios de expediente</span><b>€17.100, al cierre</b></div>
  <div class="kv"><span>Comisión sobre el precio</span><b>Ninguna</b></div>
  <div class="kv" style="border-bottom:0"><span>Aval de Rafael A.</span><b>€3.420, lo pagamos nosotros</b></div>
- <div class="note" style="margin-top:14px">Mismo expediente y mismos honorarios que si hubierais cerrado fuera. Custodia no cobra por haberos encontrado, y quien os avaló a los dos cobra por haberlo hecho.</div>
  <div style="height:14px"></div>
  <button class="btn quiet" onclick="go('avales')">Cómo funciona el aval</button>`}};
 
-S.chat={tab:'ci',back:'circulo',title:'M. Duarte',sub:'CIFRADO',html:function(){
- return `<div class="note" style="text-align:center;padding:14px 0 8px">Cifrado de extremo a extremo. Si se abre expediente, la conversación queda en su bitácora.</div>
+S.chat={tab:'ci',back:'avisos',title:'M. Duarte',sub:'CIFRADO',html:function(){
+ return `
  ${CHAT.map(function(m){return `<div class="msg ${m[0]}">${m[1]}<time>${m[2]}</time></div>`}).join('')}
- ${PASO?'<div class="note" style="color:var(--ok);text-align:center;padding:12px 0">Expediente abierto. La conversación ha quedado sellada en su bitácora.</div>':''}
+ ${PASO?'':''}
  <div class="two" style="margin-top:18px"><input class="inp" id="msgin" placeholder="Escribe" style="margin:0"><button class="btn" style="width:auto;padding:13px 16px" onclick="var v=document.getElementById('msgin').value.trim();if(v){CHAT.push(['me',v,'AHORA']);go('chat')}">Enviar</button></div>`}};
 
-S.busco={tab:'ci',back:'circulo',title:'Lo que busco',html:function(){
+S.busco={tab:'ci',back:'perfil',title:'Lo que busco',html:function(){
  return `<h2 class="sc in">Lo que busco</h2><p class="lede">Privado. Un vendedor solo sabe cuántos miembros buscan algo como lo suyo, nunca quiénes.</p>
  ${BUSCO.map(function(b){return `<div class="kv"><span>${b[0]}<br><span style="font-size:13px;color:var(--tx3)">${b[1]}</span></span><b>${b[2]?b[2]+' coincidencia':'nada aún'}</b></div>`}).join('')}
  <div class="k" style="margin-top:20px">AÑADIR</div>
@@ -1235,7 +1458,7 @@ S.busco={tab:'ci',back:'circulo',title:'Lo que busco',html:function(){
  <div style="height:14px"></div>
  <button class="btn ghost" onclick="var v=document.getElementById('bin').value.trim();if(v){BUSCO.push([v,'añadido hoy',0]);go('busco')}">Guardar</button>`}};
 
-S.match={tab:'ci',back:'circulo',title:'Coincidencia',sub:'288 GTO',html:function(){var g={id:'gto',art:'gt',paint:'#B5121B',name:'Ferrari 288 GTO',year:1985,ch:'ZFFPA16B000058421'};
+S.match={tab:'ci',back:'avisos',title:'Coincidencia',sub:'288 GTO',html:function(){var g={id:'gto',art:'gt',paint:'#B5121B',name:'Ferrari 288 GTO',year:1985,ch:'ZFFPA16B000058421'};
  return `<div class="cimg hero2">${img(g)}<span class="plate plate-ov">CHASIS ${partial(g.ch)}</span><span class="ref ref-ov">1985</span></div>
  <h2 class="sc">Ferrari 288 GTO</h2><p class="lede">Ofrecido a quien busca algo así. Así es como lo ves tú</p>
  <div class="kv"><span>Propietario</span><b>Miembro verificado, avalado por Rafael A.</b></div>
@@ -1246,10 +1469,9 @@ S.match={tab:'ci',back:'circulo',title:'Coincidencia',sub:'288 GTO',html:functio
  <div style="height:18px"></div>
  ${OFF_SENT?`<div class="card up"><div class="k" style="color:var(--stamp)">OFERTA ENVIADA</div><div class="cardtx" style="margin-bottom:0">€${num(OFF_SENT).toLocaleString('es-ES')}. El propietario ve la oferta y el resultado de tu verificación, nunca tus documentos. Te responde aquí.</div></div>`
   :`<div class="k">TU OFERTA</div><input class="inp" id="ofin" inputmode="numeric" placeholder="3.400.000">
- <div style="height:14px"></div><button class="btn" onclick="var v=document.getElementById('ofin').value;OFF_SENT=num(v)?v:'3400000';go('match')">Enviar la oferta</button>`}
- <div class="note" style="margin-top:16px">Si la acepta, se revelan los nombres a los dos y se abre el expediente. Hasta entonces, nadie sabe que has ofertado.</div>`}};
+ <div style="height:14px"></div><button class="btn" onclick="var v=document.getElementById('ofin').value;OFF_SENT=num(v)?v:'3400000';go('match')">Enviar la oferta</button>`}`}};
 
-S.avales={tab:'ci',back:'circulo',title:'Avales',sub:'20%',html:function(){
+S.avales={tab:'ci',back:'perfil',title:'Avales',sub:'20%',html:function(){
  return `<h2 class="sc in">Quien avala, cobra</h2>
  <p class="lede">Nadie entra sin invitación, y quien invita responde. Si dos de tus avalados cierran, el 20% de nuestros honorarios es tuyo.</p>
  <div class="card up"><div class="k">EN LA OPERACIÓN DEL F40</div><div style="height:8px"></div>
@@ -1289,8 +1511,7 @@ S.firma={tab:'op',back:'contrato',title:'Firma',sub:'PT SA 0117',html:function()
  <div style="height:20px"></div>
  <button class="btn" onclick="FIRMADO=1;go('firmado')">Firmar ahora</button>
  <div style="height:10px"></div>
- <button class="btn quiet" onclick="go('contrato')">Leerlo otra vez antes</button>
- <div class="note" style="margin-top:16px">Si algo no te cuadra, no firmes. Pedir un cambio no retrasa la aduana más que un día; firmar algo que no querías sí.</div>`}};
+ <button class="btn quiet" onclick="go('contrato')">Leerlo otra vez antes</button>`}};
 
 S.firmado={tab:'op',back:'expediente',title:'Firmado',sub:'HOY',html:function(){
  return `<div class="cert in" style="margin:14px 0 22px"><div class="cert-in">
@@ -1341,8 +1562,7 @@ S.invitacion={tab:'op',back:'nuevo',title:'Invitaciones',html:function(){
  <div class="kv"><span>El resultado de la comprobación del otro</span><b>Sí</b></div>
  <div class="kv" style="border-bottom:0"><span>Tus honorarios y tu acuerdo</span><b>No</b></div>
  <div style="height:20px"></div>
- <button class="btn" onclick="INV=1;alert('Enviadas. Te avisamos cuando cada parte complete la suya.');go('nuevo')">Enviar las dos</button>
- <div class="note" style="margin-top:16px">El comprador solo se verifica cuando ya ha decidido comprar, y sabiendo que el vendedor jamás verá sus papeles. Esa asimetría es la que hace que acepte.</div>`}};
+ <button class="btn" onclick="INV=1;alert('Enviadas. Te avisamos cuando cada parte complete la suya.');go('nuevo')">Enviar las dos</button>`}};
 
 /* --- recordatorio al vendedor --- */
 S.recordatorio={tab:'op',back:'bloqueo',title:'Recordatorio',html:function(){
@@ -1356,8 +1576,7 @@ S.recordatorio={tab:'op',back:'bloqueo',title:'Recordatorio',html:function(){
  <div class="phase">CADENCIA</div>
  <div style="font-size:15px;color:var(--tx2);line-height:1.9">Hoy, este mensaje<br>A los tres días, recordatorio automático<br>A los siete, aviso al intermediario<br>A los catorce, el expediente se marca detenido</div>
  <div style="height:20px"></div>
- <button class="btn" onclick="RECORD=1;alert('Enviado. El seguimiento queda en la bitácora del expediente.');go('bloqueo')">Enviar</button>
- <div class="note" style="margin-top:16px">Perseguir documentos es la mitad del trabajo de una operación. Aquí lo hace el sistema y queda registrado quién no responde.</div>`}};
+ <button class="btn" onclick="RECORD=1;alert('Enviado. El seguimiento queda en la bitácora del expediente.');go('bloqueo')">Enviar</button>`}};
 
 /* --- subir documentos al pasaporte --- */
 S.subir={tab:'co',back:'pasaporte',title:'Subir',sub:function(){return partial(cur.ch)},html:function(){var c=cur;
@@ -1368,8 +1587,7 @@ S.subir={tab:'co',back:'pasaporte',title:'Subir',sub:function(){return partial(c
  <button class="row" onclick="alert('El gestor sube desde el escritorio, que es donde está el trabajo pesado.')"><span class="seal" style="width:40px;height:40px;margin:0;font-size:13px">GC</span><span style="flex:1"><span style="font-size:16px">Tu gestor de colección</span><br><span style="font-size:13px;color:var(--tx3)">acceso completo al pasaporte</span></span><span class="chip st">Pedir</span></button>
  <button class="row" style="border-bottom:0" onclick="alert('Desde el teléfono se fotografía un documento suelto. Los lotes grandes, desde el escritorio.')"><span class="seal" style="width:40px;height:40px;margin:0;font-size:13px">AR</span><span style="flex:1"><span style="font-size:16px">Tú mismo, ahora</span><br><span style="font-size:13px;color:var(--tx3)">fotografiar un documento</span></span><span class="chip st">Subir</span></button>
  <div class="phase">QUÉ PASA DESPUÉS</div>
- <div style="font-size:15px;color:var(--tx2);line-height:1.9">Se coteja con su fuente cuando existe<br>Se sella con fecha, huella y quién lo aportó<br>El apartado pasa de falta a acreditado<br>La valoración se recalcula y se avisa</div>
- <div class="note" style="margin-top:16px">Un documento sin cotejar no suma. Es mejor un pasaporte con un hueco declarado que uno lleno de papeles que nadie ha comprobado.</div>`}};
+ <div style="font-size:15px;color:var(--tx2);line-height:1.9">Se coteja con su fuente cuando existe<br>Se sella con fecha, huella y quién lo aportó<br>El apartado pasa de falta a acreditado<br>La valoración se recalcula y se avisa</div>`}};
 
 /* --- alta de coche en el garaje --- */
 S.altacoche={tab:'co',back:'coleccion',title:'Alta',html:function(){
@@ -1385,8 +1603,7 @@ S.altacoche={tab:'co',back:'coleccion',title:'Alta',html:function(){
  <div class="phase">CUÁNDO</div>
  <div class="seg"><button aria-pressed="true">Esta semana</button><button aria-pressed="false">En quince días</button><button aria-pressed="false">Aún no</button></div>
  <div style="height:18px"></div>
- <button class="btn" onclick="alert('En el producto real se reserva la visita. Aquí es una maqueta.')">Reservar la visita</button>
- <div class="note" style="margin-top:16px">La captura a mano en un garaje oscuro no sirve: la pintura y el cromo reflejan y el modelo sale sucio. Por eso el alta es presencial y por eso se cobra.</div>`}};
+ <button class="btn" onclick="alert('En el producto real se reserva la visita. Aquí es una maqueta.')">Reservar la visita</button>`}};
 
 /* --- detalle de documento del pasaporte --- */
 S.docdet={tab:'co',back:'pdocs',title:'Documento',sub:function(){return partial(cur.ch)},html:function(){var d=curdoc||dd(cur).docs[0];
@@ -1405,8 +1622,7 @@ S.docdet={tab:'co',back:'pdocs',title:'Documento',sub:function(){return partial(
  <div class="phase">QUIÉN LO VE</div>
  <div class="kv"><span>Tú y tu equipo</span><b>El documento entero</b></div>
  <div class="kv"><span>Tu círculo</span><b>Solo que existe y está cotejado</b></div>
- <div class="kv" style="border-bottom:0"><span>Miembros verificados</span><b>Solo el recuento</b></div>
- <div class="note" style="margin-top:16px">Los documentos no circulan. Circula el resultado de haberlos comprobado, que es lo único que necesita un comprador.</div>`}};
+ <div class="kv" style="border-bottom:0"><span>Miembros verificados</span><b>Solo el recuento</b></div>`}};
 
 /* --- pasaporte de una pieza --- */
 const DP={
@@ -1450,8 +1666,7 @@ S.cocheajeno={tab:'ci',back:'miembro',title:'Coche',sub:'DE OTRO',html:function(
  <div class="phase">SI TE INTERESA</div>
  <div style="font-size:15px;color:var(--tx2);line-height:1.9">Le ofertas y solo lo sabe él<br>Ve tu oferta y el resultado de tu verificación<br>No ve tus documentos, ni ahora ni nunca<br>Si acepta, se revelan los nombres y se abre expediente</div>
  <div style="height:20px"></div>
- <button class="btn ghost" onclick="go('match')">Hacer una oferta</button>
- <div class="note" style="margin-top:16px">No hay lista de precios, ni catálogo, ni buscador abierto. Solo lo que cada miembro decide enseñar a quién.</div>`}};
+ <button class="btn ghost" onclick="go('match')">Hacer una oferta</button>`}};
 
 /* --- adjudicar la subasta --- */
 S.adjudicar={tab:'ci',back:'subasta',title:'Adjudicar',html:function(){
@@ -1469,8 +1684,7 @@ S.adjudicar={tab:'ci',back:'subasta',title:'Adjudicar',html:function(){
  <div style="height:20px"></div>
  <button class="btn" onclick="alert('Adjudicada. En el producto real se abriría el expediente, como pasó con el F40.');go('subasta')">Adjudicar</button>
  <div style="height:10px"></div>`:''}
- <button class="btn quiet" onclick="alert('Retirada. El coche vuelve a su visibilidad anterior y no queda rastro público.');c_retirar()">Retirar la subasta</button>
- <div class="note" style="margin-top:16px">Una subasta que no alcanza reserva no quema el coche aquí: nadie fuera de la audiencia elegida ha sabido que estaba en venta.</div>`}};
+ <button class="btn quiet" onclick="alert('Retirada. El coche vuelve a su visibilidad anterior y no queda rastro público.');c_retirar()">Retirar la subasta</button>`}};
 function fee2(p){if(p<=1250000)return 7500;return Math.min(Math.round(p*0.006),30000)}
 function c_retirar(){var a=AUCS.filter(function(x){return x.id===aucId})[0];var c=CARS.filter(function(x){return x.id===a.car})[0];c.st='ok';c.pub=0;go('coleccion')}
 
@@ -1486,8 +1700,7 @@ S.contraoferta={tab:'ci',back:'oferta',title:'Contraoferta',html:function(){
  <div class="k" style="margin-top:16px">CONDICIONES</div>
  <div style="font-size:15px;color:var(--tx2);line-height:1.9">Escape original incluido<br>Transporte a Lisboa a su cargo<br>Cierre por expediente</div>
  <div style="height:20px"></div>
- <button class="btn" onclick="CONTRA=document.getElementById('cin').value;CHAT.push(['me','Te contraofertó '+(CONTRA||'2.950.000')+' con el escape original incluido y el transporte a tu cargo.','AHORA']);go('chat')">Enviar</button>
- <div class="note" style="margin-top:16px">Mientras negociáis, ninguno de los dos sabe el nombre del otro. Se revelan al aceptar, no antes.</div>`}};
+ <button class="btn" onclick="CONTRA=document.getElementById('cin').value;CHAT.push(['me','Te contraofertó '+(CONTRA||'2.950.000')+' con el escape original incluido y el transporte a tu cargo.','AHORA']);go('chat')">Enviar</button>`}};
 
 S.rechazar={tab:'ci',back:'oferta',title:'Rechazar',html:function(){
  return `<h2 class="sc in">Rechazar la oferta</h2>
@@ -1499,8 +1712,7 @@ S.rechazar={tab:'ci',back:'oferta',title:'Rechazar',html:function(){
  <div style="height:20px"></div>
  <button class="btn stop" onclick="CARS[0].st='ok';alert('Rechazada.');go('coleccion')">Rechazar</button>
  <div style="height:10px"></div>
- <button class="btn quiet" onclick="go('oferta')">Volver a pensarlo</button>
- <div class="note" style="margin-top:16px">En una subasta pública, un coche que no se vende queda quemado durante años. Aquí no, porque nadie fuera de tu círculo ha sabido nunca que estaba en juego.</div>`}};
+ <button class="btn quiet" onclick="go('oferta')">Volver a pensarlo</button>`}};
 
 /* --- invitar a alguien --- */
 S.invitar={tab:'ci',back:'circulo',title:'Invitar',html:function(){
@@ -1520,8 +1732,7 @@ S.invitar={tab:'ci',back:'circulo',title:'Invitar',html:function(){
  <div style="height:20px"></div>
  <button class="btn" onclick="alert('En el producto real se envía la invitación. Aquí es una maqueta.')">Enviar la invitación</button>
  <div style="height:10px"></div>
- <button class="btn quiet" onclick="go('avales')">Cómo funciona el aval</button>
- <div class="note" style="margin-top:16px">Si avalas a alguien que se porta mal, lo sabe todo el círculo. Por eso un aval aquí vale algo, y por eso nadie avala a la ligera.</div>`}};
+ <button class="btn quiet" onclick="go('avales')">Cómo funciona el aval</button>`}};
 /* ============ PAPELES, INVITACIONES E INVENTARIO DE LOTE ============ */
 const PERMS=['Ver los documentos','Aportar documentos','Firmar','Ver la valoración','Ver el estado'];
 const ROLES={
@@ -1544,7 +1755,7 @@ let lotN='', lotV='';
 function permRow(k){var r=ROLES[k];return PERMS.map(function(p,i){
  return '<div class="kv"'+(i===PERMS.length-1?' style="border-bottom:0"':'')+'><span>'+p+'</span><b style="color:'+(r.p[i]?'var(--ok)':'var(--tx3)')+'">'+(r.p[i]?'Sí':'No')+'</b></div>'}).join('')}
 
-S.invrol={tab:'pa',back:'partes',title:'Invitar',html:()=>{var r=ROLES[invRol];
+S.invrol={tab:'op',back:'partes',title:'Invitar',html:()=>{var r=ROLES[invRol];
  return `<h2 class="sc in">Invitar a alguien</h2>
  <p class="lede">No hay nada que instalar. Le llega un enlace por donde ya habláis, con tu nombre delante.</p>
  <div class="k">QUIÉN</div>
@@ -1572,7 +1783,7 @@ function enviarInv(){
  invUlt={n:invNom.trim(),r:invRol,c:invCanal};
  INVS.unshift(invUlt); invNom=''; go('invenviada')}
 
-S.invenviada={tab:'pa',back:'partes',title:'Enviada',html:()=>{var i=invUlt,r=ROLES[i.r];
+S.invenviada={tab:'op',back:'partes',title:'Enviada',html:()=>{var i=invUlt,r=ROLES[i.r];
  return `<div class="cert in" style="margin:10px 0 20px"><div class="cert-in">
   <div class="seal">ENVIADA</div>
   <div class="ref">${CANAL[i.c].toUpperCase()}</div>
@@ -1588,7 +1799,7 @@ S.invenviada={tab:'pa',back:'partes',title:'Enviada',html:()=>{var i=invUlt,r=RO
  <button class="btn quiet" onclick="go('partes')">Volver a las partes</button>
  <div style="font-size:11.5px;color:var(--tx3);line-height:1.65;margin-top:14px">Mientras no entre, en Partes aparece como pendiente. A los tres días se le recuerda solo.</div>`}};
 
-S.invvista={tab:'pa',back:'enviada',title:'Su móvil',sub:'SIMULACIÓN',html:()=>{var i=invUlt,r=ROLES[i.r];
+S.invvista={tab:'op',back:'invenviada',title:'Su móvil',sub:'SIMULACIÓN',html:()=>{var i=invUlt,r=ROLES[i.r];
  return `<div style="font-size:11.5px;color:var(--tx3);letter-spacing:.1em;margin:6px 0 12px">ASÍ LO VE ${i.n.toUpperCase()}</div>
  <div class="card" style="background:var(--bg2);border-color:var(--line2)">
   <div style="font-size:11px;color:var(--tx3);margin-bottom:8px">${CANAL[i.c]}, de Rafael A.</div>
@@ -1608,7 +1819,7 @@ S.invvista={tab:'pa',back:'enviada',title:'Su móvil',sub:'SIMULACIÓN',html:()=
  <div class="card"><div class="k">POR QUÉ NO PEDIMOS CUENTA</div>
   <div style="font-size:13px;color:var(--tx2);margin-top:9px;line-height:1.65">Un taller que tiene que subir una factura no se va a registrar en una plataforma que no conoce. Entra con el enlace y un código, hace lo suyo y se va. La cuenta con identidad verificada solo aparece cuando alguien firma o cobra, que es donde de verdad hace falta.</div></div>`}};
 
-S.invequipo={tab:'pa',back:'partes',title:'Invitados',html:()=>{
+S.invequipo={tab:'op',back:'partes',title:'Invitados',html:()=>{
  return `<h2 class="sc in">Quién más tiene acceso</h2>
  <p class="lede">Cada uno con su papel. Se puede quitar el acceso en cualquier momento y queda registrado.</p>
  ${INVS.length?INVS.map(function(i){var r=ROLES[i.r];return `<button class="row" onclick="invUlt=INVS[${INVS.indexOf(i)}];go('invvista')">
@@ -1688,7 +1899,7 @@ function vitCard(v){return `<button class="ccard" onclick="curvit=VIT[${VIT.inde
   <div class="csub">${v.year} · ${v.reg} · pasaporte ${v.pas} de 9</div></div>
   <div class="cval" style="font-size:14px;color:var(--tx3)">precio<br>oculto</div></div></button>`}
 
-S.vitrina={tab:'ci',back:'circulo',title:'Vitrina',sub:'NIVEL 0',html:function(){
+S.vitrina={tab:'ci',back:'perfil',title:'Vitrina',sub:'NIVEL 0',html:function(){
  return `<h2 class="sc in">Lo que enseñan otros</h2>
  <p class="lede">Coches de miembros que no están en tu círculo. Se navega, no se busca: no hay buscador ni filtro por precio, a propósito.</p>
  ${VIT.map(vitCard).join('')}
@@ -1742,7 +1953,7 @@ function enviarPet(){
  PET.unshift({car:curvit.id,aval:pedAval,msg:pedMsg.trim(),niv:pedNivel});
  pedMsg=''; go('vitcoche')}
 
-S.peticiones={tab:'ci',back:'circulo',title:'Peticiones',html:function(){
+S.peticiones={tab:'ci',back:'perfil',title:'Peticiones',html:function(){
  return `<h2 class="sc in">Quieren entrar</h2>
  <p class="lede">Alguien fuera de tu círculo ha visto un coche tuyo y pide acceso. Tú decides cuánto le abres.</p>
  ${REQS.map(function(r){var c=CARS.filter(function(x){return x.id===r.car})[0];return `
@@ -1797,7 +2008,93 @@ function rechazarPet(){
  alert('Rechazada en silencio. Ese coche se le bloquea 90 días.');
  go('circulo')}
 
-const TABS=[['co','Perfil','coleccion'],['ci','Círculo','circulo'],['op','Operaciones','operaciones'],['fo','Fondos','fondos'],['bi','Bitácora','bitacora']];
+/* ===================== AVISOS ===================== */
+S.avisos={tab:'pe',back:'coleccion',title:'Avisos',sub:function(){var n=nSin();return n?n+' SIN LEER':'AL DÍA'},html:function(){
+ var L=notifs(), sin=L.filter(function(n){return !NREAD[n.id]}), ley=L.filter(function(n){return NREAD[n.id]});
+ function fila(n){return `<button class="ntf ${NREAD[n.id]?'read':''}" onclick="abrirN('${n.id}',&quot;${n.to.replace(/"/g,'&#39;')}&quot;)">
+   <span class="dot"></span><span class="tx"><span class="t1">${n.t1}</span><span class="t2">${n.t2}</span></span>
+   <span class="when">${n.when}</span></button>`}
+ return `<h2 class="sc in">Todo lo que pide algo de ti</h2>
+ <p class="lede">Ofertas, subastas, peticiones y mensajes.</p>
+ ${sin.length?`<div class="phase">SIN LEER</div>${sin.map(fila).join('')}
+  <button class="btn quiet" style="margin-top:14px" onclick="leerTodo()">Marcar todo como leído</button>`
+  :'<div class="note" style="padding:22px 0">Nada sin leer. Estás al día.</div>'}
+ ${ley.length?'<div class="phase">YA VISTO</div>'+ley.map(fila).join(''):''}`}};
+
+/* ===================== SUBASTAS ===================== */
+S.subastas={tab:'pe',back:'perfil',title:'Subastas',sub:function(){return AUCS.length+(AUCS.length===1?' ABIERTA':' ABIERTAS')},html:function(){
+ var mias=AUCS.filter(function(a){return a.mia}), otras=AUCS.filter(function(a){return !a.mia});
+ function fila(a){var c=CARS.filter(function(x){return x.id===a.car})[0]; if(!c) return '';
+  var sub=a.mia?(a.actual?'puja actual '+money(a.actual,'EUR')+(a.reserva&&a.actual>=a.reserva?', reserva alcanzada':', bajo reserva'):'sin pujas, '+a.ven+' avisados')
+    :'tu puja '+money(a.mipuja,'EUR')+', termina el '+a.fin;
+  return carRow(c,sub,'<span class="chip '+(a.mia?(a.pujas.length?'ok':'wait'):'now')+'">'+(a.mia?(a.pujas.length?a.pujas.length+' pujas':'Sin pujas'):'Vas ganando')+'</span>',"aucId='"+a.id+"';go('subasta')")}
+ return `<h2 class="sc in">Subastas</h2>
+ <p class="lede">Las tuyas y aquellas en las que pujas. Nadie ve quién puja: solo quién avala a quién.</p>
+ ${mias.length?'<div class="phase">LAS TUYAS</div>'+mias.map(fila).join(''):''}
+ ${otras.length?'<div class="phase">DONDE PUJAS</div>'+otras.map(fila).join(''):''}
+ <div class="cta on"><button class="btn go" onclick="go('coleccion')">
+  <svg viewBox="0 0 18 18" stroke-linecap="round"><path d="M9 2.6 15.4 7M9 2.6 2.6 7M4.6 8.2v6.3M13.4 8.2v6.3M2.6 15.4h12.8"/></svg>Poner un coche en subasta</button></div>`}};
+
+/* ===================== MI PERFIL ===================== */
+S.perfil={tab:'pe',title:'Mi perfil',sub:'AR 0114',html:function(){
+ function fila(t,sub,to,chip){return `<button class="row" onclick="go('${to}')">
+  <span style="flex:1;min-width:0"><span style="font-size:16px">${t}</span><br><span style="font-size:13px;color:var(--tx3)">${sub}</span></span>
+  ${chip||'<span class="ref">&#8250;</span>'}</button>`}
+ return `<div class="in" style="padding:14px 0 0">
+  <div style="display:flex;align-items:center;gap:14px">
+   <span class="seal" style="width:54px;height:54px;margin:0;font-size:16px;letter-spacing:.03em">AR</span>
+   <span><span style="font-size:19px">A. Restrepo</span><br>
+   <span style="font-size:13px;color:var(--tx3)">Expediente 0114 · miembro desde 2019</span></span></div>
+ </div>
+ <div class="rule"></div>
+ <div class="phase">MERCADO</div>
+ ${fila('Subastas',AUCS.length+' abiertas','subastas',AUCS.length?'<span class="chip st">'+AUCS.length+'</span>':'')}
+ ${fila('Vitrina',VIT.length+' coches de fuera de tu círculo','vitrina')}
+ ${fila('Lo que busco',BUSCO.length+' búsquedas activas','busco')}
+ ${fila('Peticiones recibidas',REQS.length?REQS.length+' esperando respuesta':'ninguna pendiente','peticiones',REQS.length?'<span class="chip now">'+REQS.length+'</span>':'')}
+ <div class="phase">CUENTA</div>
+ ${fila('Avisos',nSin()?nSin()+' sin leer':'al día','avisos',nSin()?'<span class="chip now">'+nSin()+'</span>':'')}
+ ${fila('Avales','has avalado a 1 miembro','avales')}
+ ${fila('Privacidad','perfil en '+VISL[PROF].toLowerCase(),'privacidad')}
+ <div class="cta on"><button class="btn go" onclick="go('invitar')">
+  <svg viewBox="0 0 18 18" stroke-linecap="round"><path d="M11.5 14.5c0-2.2-1.8-3.6-4-3.6s-4 1.4-4 3.6"/><circle cx="7.5" cy="6" r="2.4"/><path d="M13 5.5v4M15 7.5h-4"/></svg>Invitar a alguien</button></div>`}};
+
+const TABS=[['co','Mi colección','coleccion'],['ci','Mi círculo','circulo'],['op','Operaciones','operaciones'],['pe','Mi perfil','perfil']];
+/* deja la accion principal de cada pantalla fija abajo */
+function pinCta(v){
+ if(v.querySelector('.cta')) return;
+ var prim=[].slice.call(v.querySelectorAll('.btn:not(.quiet)'));
+ // fuera los botones de formulario en linea, que van junto a su campo
+ prim=prim.filter(function(b){
+   if(/width\s*:\s*auto/.test(b.getAttribute('style')||'')) return false;
+   var p=b.parentElement;
+   // solo se queda en su sitio el boton que va pegado a su campo, en la misma fila
+   return !(p&&p!==v&&(p.querySelector(':scope > input')||p.querySelector(':scope > textarea')));
+ });
+ if(!prim.length) return;
+ var b=prim[prim.length-1], node=b;
+ while(node.parentElement&&node.parentElement!==v) node=node.parentElement;
+ if(node.parentElement!==v) return;
+ // solo se ancla un boton suelto o un grupo de botones, nunca una tarjeta con contenido
+ if(!node.classList.contains('btn')){
+  var bs=[].slice.call(node.querySelectorAll('.btn'));
+  if(!bs.length) return;
+  var soloBotones=node.textContent.replace(/\s+/g,'')===bs.map(function(x){return x.textContent}).join('').replace(/\s+/g,'');
+  if(!soloBotones) return;
+ }
+ var grupo=[node], nx=node.nextElementSibling;
+ while(nx){
+  var esAccion=nx.classList.contains('btn')||(nx.querySelector&&nx.querySelector(':scope > .btn'));
+  if(!esAccion) break;
+  grupo.push(nx); nx=nx.nextElementSibling;
+ }
+ // las reglas sueltas que queden justo antes sobran
+ var pv=node.previousElementSibling;
+ if(pv&&pv.classList.contains('rule')) pv.remove();
+ var box=document.createElement('div'); box.className='cta';
+ grupo.forEach(function(k){box.appendChild(k)});
+ v.appendChild(box);
+}
 function go(id){
   const s=S[id],v=document.getElementById('view');
   v.innerHTML=(typeof s.html==='function'?s.html():s.html); v.scrollTop=0;
@@ -1806,11 +2103,14 @@ function go(id){
   nv.innerHTML=s.bare?'':
    (s.back?`<button class="back" onclick="go('${s.back}')" aria-label="Volver">&#8249;</button>`:'')
    +(s.title==='brand'?`<span class="brand">Custodia</span>`:`<span class="title">${s.title}</span>`)
-   +(sub?`<span class="sub">${sub}</span>`:'');
-  const tb=document.getElementById('tabs');
+   +(sub?`<span class="sub">${sub}</span>`:'')
+   +(s.tab?`<button class="bell" onclick="go('avisos')" aria-label="Avisos">
+     <svg viewBox="0 0 18 18" stroke-linecap="round" stroke-linejoin="round">${IC.bell}</svg>${nSin()?`<span class="badge">${nSin()}</span>`:''}</button>`:'');
+  const tb=document.getElementById('tabs'),B=badges();
   tb.style.display=s.tab?'flex':'none';
   tb.innerHTML=TABS.map(t=>`<button onclick="go('${t[2]}')" aria-current="${s.tab===t[0]}">
-   <svg viewBox="0 0 18 18" stroke-linecap="round" stroke-linejoin="round">${IC[t[0]]}</svg><span>${t[1]}</span></button>`).join('');
+   <span class="ico"><svg viewBox="0 0 18 18" stroke-linecap="round" stroke-linejoin="round">${IC[t[0]]}</svg>${B[t[0]]?`<span class="badge">${B[t[0]]}</span>`:''}</span><span>${t[1]}</span></button>`).join('');
+  pinCta(v);
   const r=v.querySelectorAll('.reg i');
   if(r.length && !matchMedia('(prefers-reduced-motion:reduce)').matches)
     r.forEach((el,i)=>{const c=el.className;el.className='';setTimeout(()=>el.className=c,120+i*45)});
